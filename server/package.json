@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "puppeteer": "^24.2.1",
+    "qrcode": "^1.5.4",
+    "react-snap": "^1.23.0",
+    "uuid": "^11.1.0"
+  }
+}

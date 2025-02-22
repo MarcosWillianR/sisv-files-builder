@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    /* margin: 1cm; */
+    size: A4 portrait;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  .print\:break-inside-avoid-page {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+}
