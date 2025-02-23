@@ -6,11 +6,11 @@ function StatusItem({ title, status }) {
 
   return (
     <div className="rounded-lg overflow-hidden">
-      <div className="bg-gray-400 text-white px-3 py-1.5 text-sm font-medium">
+      <div className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">
         {title}
       </div>
       <div
-        className={`px-3 py-1.5 flex items-center gap-2 text-sm ${
+        className={`px-3 py-1 flex items-center gap-2 text-sm ${
           isPositive ? "bg-green-100" : "bg-red-100"
         }`}
       >

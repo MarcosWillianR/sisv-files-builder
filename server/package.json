@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
+    "nodemon": "^3.1.9",
     "puppeteer": "^24.2.1",
     "qrcode": "^1.5.4",
     "react-snap": "^1.23.0",
