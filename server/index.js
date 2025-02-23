@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 const PORT = 3000;
 
-app.post("/generate-pdf", async (req, res) => {
+app.post("/pdf", async (req, res) => {
   try {
     const { name } = req.body
 
@@ -24,13 +24,14 @@ app.post("/generate-pdf", async (req, res) => {
       displayHeaderFooter: true,
       scale: 1,
       margin: {
-        top: '5mm',              
+        top: '2mm',              
         right: '5mm',
-        bottom: '5mm',
+        bottom: '2mm',
         left: '5mm'
       },
       preferCSSPageSize: true, 
-      headerTemplate: "<div></div>",
+      // headerTemplate: "<div style='width: 100%; height: 50px; background-color: #F6AD16;'></div>",
+      // footerTemplate: "<div style='width: 100%; height: 50px; background-color: #F6AD16;'></div>"
     });
     await browser.close();
 
@@ -43,6 +44,10 @@ app.post("/generate-pdf", async (req, res) => {
     console.error("Erro ao gerar PDF:", error);
     res.status(500).send("Erro interno ao gerar o PDF");
   }
+});
+
+app.post("/inspection-report", async (req, res) => {
+
 });
 
 // Iniciar o servidor
