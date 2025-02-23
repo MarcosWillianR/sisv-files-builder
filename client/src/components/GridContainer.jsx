@@ -22,7 +22,7 @@ function GridContainer({ title, columns = 3, children}) {
       )}
   
         {/* Grid Container */}
-        <div className={`grid ${getGridCols()} gap-4 p-3`}>
+        <div className={`grid ${getGridCols()} gap-4 p-3 place-items-center`}>
           {children}
         </div>
       </div>
