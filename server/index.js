@@ -25,9 +25,9 @@ app.post("/pdf", async (req, res) => {
       scale: 1,
       margin: {
         top: '2mm',              
-        right: '4mm',
+        right: '5mm',
         bottom: '2mm',
-        left: '4mm'
+        left: '5mm'
       },
       preferCSSPageSize: true, 
       // headerTemplate: "<div style='width: 100%; height: 50px; background-color: #F6AD16;'></div>",
