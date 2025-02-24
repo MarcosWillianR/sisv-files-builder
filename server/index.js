@@ -28,12 +28,12 @@ app.post("/pdf", async (req, res) => {
 
     const { name } = req.body;
     const filePath = await generateCustomHtml("LAYOUT_2", 
-      {  }
+      { name }
     );
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
 
-    const pdfBufferOptions = await getPdfConfigsByLayout("LAYOUT_2");
+    const pdfBufferOptions = await getPdfConfigsByLayout("LAYOUT_1");
     
     const pdfBuffer = await page.pdf(pdfBufferOptions);
 

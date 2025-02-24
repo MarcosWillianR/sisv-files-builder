@@ -34,8 +34,9 @@
   
   async function getHeaderBuilder(layout) {
     let HeaderBuilder;
-  
-    if (layout === 'LAYOUT_2') {
+    if (layout === 'LAYOUT_1') {
+      HeaderBuilder = (await import('../../client1/src/components/builders/HeaderBuilder.js')).default;
+    } else if (layout === 'LAYOUT_2') {
       HeaderBuilder = (await import('../../client2/src/components/builders/HeaderBuilder.js')).default;
     } else if (layout === 'LAYOUT_3') {
       HeaderBuilder = (await import('../../client3/src/components/builders/HeaderBuilder.js')).default;
