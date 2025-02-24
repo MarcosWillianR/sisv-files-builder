@@ -10,7 +10,7 @@ class ExcelBuilder {
         this.applyStyles = options.applyStyles || false;
     }
 
-    async build() {
+    async build(outputPath) {
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet(this.sheetName);
 
@@ -22,7 +22,6 @@ class ExcelBuilder {
             }))
         ];
 
-        // Adicionar dados
         this.data.forEach((item, index) => {
             let row = { ID: index + 1 };
             this.columns.forEach(col => {
@@ -32,7 +31,7 @@ class ExcelBuilder {
         });
 
         if (this.applyStyles) applyStylesToSheet(worksheet);
-        await workbook.xlsx.writeFile(this.fileName);
+        await workbook.xlsx.writeFile(outputPath);
         return this.fileName;
     }
 
