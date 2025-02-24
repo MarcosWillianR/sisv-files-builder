@@ -6,6 +6,8 @@ function GridContainer({
   border = true,
   shadow = true,
   fullPage = false,
+  bgColor = 'primary',  
+  footer = false
 }) {
   const getGridCols = () => {
     const gridMap = {
@@ -24,7 +26,7 @@ function GridContainer({
       className={`w-full rounded-2xl overflow-hidden ${shadow ? 'shadow-md' : ''} ${border ? 'border border-[#9D9D9D]' : ''}`}
     >
       {title && title.length !== 0 && (
-        <div className="bg-gray-400 px-4 py-2 text-white">
+        <div className={`${bgColor === 'primary' ? 'bg-[#FDB017]' : 'bg-[#6C097D]'} px-4 py-2 text-white`}>
           <h2 className="font-medium">{title}</h2>
         </div>
       )}
@@ -39,6 +41,9 @@ function GridContainer({
         <div className={`grid ${getGridCols()} gap-4 p-6 place-items-center`}>
           {children}
         </div>
+      )}
+      {footer && (
+        <div className={`h-10 ${bgColor === 'primary' ? 'bg-[#FDB017]' : 'bg-[#6C097D]'}`}></div>
       )}
     </div>
   );

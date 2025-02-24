@@ -33,8 +33,8 @@ app.post("/pdf", async (req, res) => {
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
 
-    const pdfBufferOptions = getPdfConfigsByLayout("LAYOUT_2");
-
+    const pdfBufferOptions = await getPdfConfigsByLayout("LAYOUT_2");
+    
     const pdfBuffer = await page.pdf(pdfBufferOptions);
 
     await browser.close();
