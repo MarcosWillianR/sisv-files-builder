@@ -1,0 +1,101 @@
+{
+  "id": 41,
+  "status": "PAYED",
+  "inspections": [
+    {
+      "id": 51,
+      "expertFullName": "Felipe Mazoni",
+      "analystFullName": null,
+      "clientFullName": "João Silva",
+      "unit": {
+        "id": 2,
+        "name": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "fantasyName": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "cnpj": "10472656000165",
+        "email": "uni@gmail.com.br"
+      },
+      "networkUnitaryPrice": 110,
+      "unitUnitaryPrice": 128,
+      "clientUnitaryPrice": null,
+      "product": {
+        "id": 2,
+        "name": "VISTORIA CAUTELAR ",
+        "description": "Vistoria Cautelar",
+        "status": "ACTIVE",
+        "inspectionType": "CAUTELAR",
+        "groupNames": [
+          "DADOS",
+          "Observação",
+          "FOTOS"
+        ],
+        "price": 110
+      },
+      "status": "APROVADO COM APONTAMENTO",
+      "completeDate": "2025-01-27 23:02:46"
+    },
+    {
+      "id": 50,
+      "expertFullName": "Felipe Mazoni",
+      "analystFullName": null,
+      "clientFullName": "João Silva",
+      "unit": {
+        "id": 2,
+        "name": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "fantasyName": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "cnpj": "10472656000165",
+        "email": "uni@gmail.com.br"
+      },
+      "networkUnitaryPrice": 110,
+      "unitUnitaryPrice": 128,
+      "clientUnitaryPrice": null,
+      "product": {
+        "id": 2,
+        "name": "VISTORIA CAUTELAR ",
+        "description": "Vistoria Cautelar",
+        "status": "ACTIVE",
+        "inspectionType": "CAUTELAR",
+        "groupNames": [
+          "DADOS",
+          "Observação",
+          "FOTOS"
+        ],
+        "price": 110
+      },
+      "status": "APROVADO",
+      "completeDate": "2025-01-27 22:53:47"
+    },
+    {
+      "id": 52,
+      "expertFullName": "Felipe Mazoni",
+      "analystFullName": null,
+      "clientFullName": "João Silva",
+      "unit": {
+        "id": 2,
+        "name": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "fantasyName": "SISV INSPEÇÃO E VISTORIA UNIDADE",
+        "cnpj": "10472656000165",
+        "email": "uni@gmail.com.br"
+      },
+      "networkUnitaryPrice": 110,
+      "unitUnitaryPrice": 128,
+      "clientUnitaryPrice": null,
+      "product": {
+        "id": 2,
+        "name": "VISTORIA CAUTELAR ",
+        "description": "Vistoria Cautelar",
+        "status": "ACTIVE",
+        "inspectionType": "CAUTELAR",
+        "groupNames": [
+          "DADOS",
+          "Observação",
+          "FOTOS"
+        ],
+        "price": 110
+      },
+      "status": "APROVADO",
+      "completeDate": "2025-01-27 23:14:02"
+    }
+  ],
+  "createdAt": "2025-01-27 23:21:02",
+  "paymentDate": null
+}
