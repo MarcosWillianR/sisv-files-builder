@@ -1,17 +1,21 @@
-import { Check } from 'lucide-react'
+/* eslint-disable react/prop-types */
+import { Check } from "lucide-react";
 
-export default function ItemCard() {
+export default function ItemCard({ customHeight }) {
   return (
-    <div className="w-full max-w-sm rounded-2xl overflow-hidden bg-gray-100 shadow-md">
+    <div
+      className={`flex flex-col w-full rounded-2xl overflow-hidden bg-gray-100 shadow-md`}
+    >
       <div className="bg-gray-400 px-4 py-2 text-white">
         <h2 className="text-sm font-medium">Frente e lateral esquerda</h2>
       </div>
 
-      <div>
+      <div className={`w-full bg-gray-200 flex items-center justify-center`}>
         <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png"
+          src="https://i.imgur.com/fl0uV88.png"
           alt="Car view"
-          className="w-full h-44 object-cover"
+          style={customHeight && { height: customHeight }}
+          className={`w-full object-fill`}
         />
       </div>
 
@@ -22,5 +26,5 @@ export default function ItemCard() {
         <span className="text-sm text-white">Em perfeito estado</span>
       </div>
     </div>
-  )
+  );
 }

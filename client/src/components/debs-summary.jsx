@@ -31,7 +31,7 @@ export function DebtsSummary() {
   ];
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-sm border">
+    <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#9D9D9D]">
       <div className="bg-gray-400 text-white px-4 py-2 font-medium">
         Débitos / Multas
       </div>

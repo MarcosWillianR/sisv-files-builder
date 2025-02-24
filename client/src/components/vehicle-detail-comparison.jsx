@@ -6,14 +6,16 @@ function DataGroup({
   senatranData,
   highlight = false,
 }) {
-  const dataClassName = highlight ? "text-red-600" : "text-gray-900";
+  const dataClassName = highlight
+    ? "text-red-600 underline font-bold"
+    : "text-gray-900";
 
   return (
     <div className="grid grid-cols-4 border-b last:border-b-0">
-      <div className="py-2 px-4 text-sm font-medium text-gray-700">{label}</div>
-      <div className={`py-2 px-4 text-sm ${dataClassName}`}>{vehicleData}</div>
-      <div className="py-2 px-4 text-sm text-gray-900">{factoryData}</div>
-      <div className="py-2 px-4 text-sm text-gray-900">{senatranData}</div>
+      <div className="py-1 px-4 text-sm font-bold text-gray-700">{label}</div>
+      <div className={`py-1 px-4 text-sm ${dataClassName}`}>{vehicleData}</div>
+      <div className="py-1 px-4 text-sm text-gray-900">{factoryData}</div>
+      <div className="py-1 px-4 text-sm text-gray-900">{senatranData}</div>
     </div>
   );
 }
@@ -60,7 +62,7 @@ export function VehicleDataComparison() {
   ];
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-sm border">
+    <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#9D9D9D]">
       <div className="bg-gray-400 text-white grid grid-cols-4">
         <div className="py-2 px-4 text-left font-medium text-sm">Itens</div>
         <div className="py-2 px-4 text-left font-medium text-sm">

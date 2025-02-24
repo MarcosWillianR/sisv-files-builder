@@ -18,20 +18,47 @@ app.post("/pdf", async (req, res) => {
     const filePath = await generateCustomHtml({ name })
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
+
     const pdfBuffer = await page.pdf({ 
       format: 'A4',               
       printBackground: true,      
       displayHeaderFooter: true,
+      preferCSSPageSize: true,
       scale: 1,
       margin: {
         top: '2mm',              
-        right: '5mm',
+        right: '0mm',
         bottom: '2mm',
-        left: '5mm'
+        left: '0mm'
       },
-      preferCSSPageSize: true, 
-      // headerTemplate: "<div style='width: 100%; height: 50px; background-color: #F6AD16;'></div>",
-      // footerTemplate: "<div style='width: 100%; height: 50px; background-color: #F6AD16;'></div>"
+      headerTemplate: `
+        <style>
+          .header {
+            -webkit-print-color-adjust: exact;
+            height: 25px;
+            background: #F6AD16;
+            position: absolute;
+            top: 0px; 
+            left: 0px; 
+            right: 0px;
+          }
+        </style>
+        <div class='header'></div>
+      `,
+      footerTemplate: `
+        <style>
+          .footer {
+            -webkit-print-color-adjust: exact;
+            height: 25px;
+            background-color: #F6AD16;
+            position: absolute;
+            bottom: 0px; 
+            left: 0px; 
+            right: 0px;
+          }
+        </style>
+        <div class='footer'></div>
+      `,
     });
     await browser.close();
 

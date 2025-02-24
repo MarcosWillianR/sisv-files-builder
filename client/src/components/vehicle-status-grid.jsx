@@ -15,9 +15,13 @@ function StatusItem({ title, status }) {
         }`}
       >
         {isPositive ? (
-          <Check className="w-4 h-4 text-green-600" />
+          <div className="bg-green-500 rounded-full p-0.5">
+            <Check className="w-4 h-4 text-white" />
+          </div>
         ) : (
-          <X className="w-4 h-4 text-red-600" />
+          <div className="bg-red-500 rounded-full p-0.5">
+            <X className="w-4 h-4 text-white" />
+          </div>
         )}
         <span className={isPositive ? "text-green-700" : "text-red-700"}>
           {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -41,7 +45,7 @@ export function VehicleStatusGrid() {
   ];
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-sm border">
+    <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#9D9D9D]">
       <div className="bg-gray-400 text-white px-4 py-2 font-medium">
         Relatório do Veículo
       </div>
