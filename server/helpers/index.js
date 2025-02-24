@@ -18,6 +18,18 @@ async function deleteFile(filePath) {
   }
 }
 
+async function saveJsonToFile(jsonData, filePath) {
+  try {
+    const jsonString = JSON.stringify(jsonData, null, 2); // Converte o JSON para string com indentação
+    await fs.writeFile(filePath, jsonString); // Salva o JSON no caminho especificado
+    console.log("Arquivo salvo com sucesso!");
+  } catch (err) {
+    console.error("Erro ao salvar o arquivo:", err);
+  }
+}
+
+
 module.exports = {
   deleteFile,
+  saveJsonToFile
 }
