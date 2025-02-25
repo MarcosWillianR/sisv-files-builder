@@ -18,7 +18,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.post("/pdf", async (req, res) => {
   try {
     await saveJsonToFile(req.body, '../');
@@ -27,13 +26,11 @@ app.post("/pdf", async (req, res) => {
     const page = await browser.newPage();
 
     const { name } = req.body;
-    const filePath = await generateCustomHtml("LAYOUT_2", 
-      { name }
-    );
+    const filePath = await generateCustomHtml("LAYOUT_2", { name });
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
 
-    const pdfBufferOptions = await getPdfConfigsByLayout("LAYOUT_1");
+    const pdfBufferOptions = await getPdfConfigsByLayout(req.body, "LAYOUT_1");
     
     const pdfBuffer = await page.pdf(pdfBufferOptions);
 

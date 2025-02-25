@@ -1,4 +1,4 @@
-const ExcelBuilder = require("..//builder");
+const ExcelBuilder = require("../builder");
 const {buildInspectionData} = require("../Helpers/InspectionReportHelper");
 const fs = require("fs");
 const path = require("path");

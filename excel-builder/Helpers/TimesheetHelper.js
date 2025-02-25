@@ -1,6 +1,3 @@
-const xlsx = require('xlsx-style');
-
-
 function getValueByPath(obj, path) {
     return path.split('.').reduce((acc, part) => acc && acc[part], obj) || "";
 }
@@ -13,6 +10,5 @@ function applyStylesToSheet(worksheet) {
         cell.alignment = { horizontal: "center", vertical: "middle" };
     });
 }
-
 
 module.exports = {getValueByPath, applyStylesToSheet}

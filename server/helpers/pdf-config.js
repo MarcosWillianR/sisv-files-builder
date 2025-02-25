@@ -1,11 +1,8 @@
 const { getHeaderScreenshot } = require('./index.js');
 
-async function getPdfConfigsByLayout(layout) {
-  const headerScreenshot =
-    (layout === "LAYOUT_1") || layout == "LAYOUT_2" ? await getHeaderScreenshot("LAYOUT_2", 2) : null;
-
+async function getPdfConfigsByLayout(reqbody, layout) {
     const availableLayoutConfigs = {
-      ['LAYOUT_1']: {
+      LAYOUT_1: {
         format: "A4",
         printBackground: true,
         displayHeaderFooter: true,
@@ -18,35 +15,25 @@ async function getPdfConfigsByLayout(layout) {
           left: "0mm",
         },
         headerTemplate: `
-            <style>
-              .header {
-                -webkit-print-color-adjust: exact;
-                height: 25px;
-                background: #F6AD16;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                right: 0px;
-              }
-            </style>
-            <div class='header'></div>
-          `,
+          <div>
+            <img src="data:image/png;base64,${await getHeaderScreenshot(reqbody, "LAYOUT_1")}" />
+          </div>`,
         footerTemplate: `
-            <style>
-              .footer {
-                -webkit-print-color-adjust: exact;
-                height: 25px;
-                background-color: #F6AD16;
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-              }
-            </style>
-            <div class='footer'></div>
-          `,
+          <style>
+            .footer {
+              -webkit-print-color-adjust: exact;
+              height: 25px;
+              background-color: #F6AD16;
+              position: absolute;
+              bottom: 0px;
+              left: 0px;
+              right: 0px;
+            }
+          </style>
+          <div class='footer'></div>
+        `,
       },
-      ['LAYOUT_2']: {
+      LAYOUT_2: {
         format: "A4",
         printBackground: true,
         displayHeaderFooter: true,
@@ -59,9 +46,9 @@ async function getPdfConfigsByLayout(layout) {
           left: "0mm",
         },
         headerTemplate: `
-                <div style="color: black;">
-                <img src="data:image/png;base64,${headerScreenshot}" />
-                </div>`,
+        <div>
+          <img src="data:image/png;base64,${await getHeaderScreenshot(reqbody, "LAYOUT_2")}" />
+        </div>`,
         footerTemplate: `
             <style>
               .footer {
@@ -80,7 +67,7 @@ async function getPdfConfigsByLayout(layout) {
             <div class='footer'></div>
           `,
       },
-      ['LAYOUT_3']: {
+      LAYOUT_3: {
         format: "A4",
         printBackground: true,
         displayHeaderFooter: true,

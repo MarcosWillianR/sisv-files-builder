@@ -2,14 +2,11 @@
   const fs = require('fs').promises;      
   const puppeteer = require('puppeteer');
 
-  async function getHeaderScreenshot(layout) {
+  async function getHeaderScreenshot(reqbody, layout) {
     const headerBuilder = await getHeaderBuilder(layout);
-    headerBuilder.build(); // Gera o HTML do cabeçalho
-  
-    const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
+    await headerBuilder.build(reqbody); // Gera o HTML do cabeçalho
     
-    const pdfLink = `http://sisv.prod.ezzapi.com.br/laudo_veiculo-${layout}.pdf`;
-    const qrCodeDataUrl = await QRCode.toDataURL(pdfLink);
+    const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
   
     const browser = await puppeteer.launch({
       headless: "new",
@@ -66,8 +63,33 @@
     }
   }
 
+function findPropertyJson(obj, path) {
+  const keys = path.split('-');
+  
+  let current = obj;
+  for (let key of keys) {
+    let match = key.match(/(\w+)\[(\d+)\]/);
+    
+    if (match) {
+      let prop = match[1];
+      let index = parseInt(match[2], 10);
+      if (!Array.isArray(current[prop]) || current[prop].length <= index) {
+          return undefined;
+      }
+      current = current[prop][index];
+    } else {
+      if (current[key] === undefined) {
+        return undefined;
+      }
+      current = current[key];
+    }
+  }
+  return current;
+}
+
   module.exports = {
     deleteFile,
     saveJsonToFile,
-    getHeaderScreenshot
+    getHeaderScreenshot,
+    findPropertyJson
   }

@@ -9,9 +9,9 @@ if (!fs.existsSync(TEMP_DIR)) {
 }
 
 const TEMPLATE_PATH = {
-  ['LAYOUT_1'] :path.join(__dirname, "../../client1/dist/index.html"),
-  ['LAYOUT_2'] :path.join(__dirname, "../../client2/dist/index.html"),
-  ['LAYOUT_3'] :path.join(__dirname, "../../client3/dist/index.html")
+  LAYOUT_1: path.join(__dirname, "../../client1/dist/index.html"),
+  LAYOUT_2: path.join(__dirname, "../../client2/dist/index.html"),
+  LAYOUT_3: path.join(__dirname, "../../client3/dist/index.html")
 };
 
 
