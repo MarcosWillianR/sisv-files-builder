@@ -6,7 +6,6 @@ import ItemCard from "./components/ItemCard";
 import GridContainer from "./components/GridContainer";
 import ContactInfo from "./components/contact-info";
 function App() {
-
   const cars = [
     {
       title: "Frente e lateral esquerda",
@@ -138,9 +137,9 @@ function App() {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="break-inside-avoid-page">
+      {/* <div className="break-inside-avoid-page">
         <Header />
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-4 mx-6">
         <div className="break-inside-avoid-page">
@@ -171,7 +170,7 @@ function App() {
           <GridContainer columns={2} border={false} shadow={false}>
             {cars.slice(0, 4).map((car, index) => (
               <ItemCard
-                customHeight="195px"
+                customHeight="190px"
                 key={index}
                 imageUrl={car.imageUrl}
               />
@@ -181,9 +180,9 @@ function App() {
 
         <div className="break-inside-avoid-page">
           <GridContainer columns={2} title="Itens Analisados" border={false}>
-            {cars.slice(4).map((car, index) => (
+            {cars.slice(4, cars.length - 1).map((car, index) => (
               <ItemCard
-                customHeight="190px"
+                customHeight="110px"
                 key={index + 4}
                 title={car.title}
                 imageUrl={car.imageUrl}
@@ -195,15 +194,27 @@ function App() {
         </div>
 
         <div className="break-inside-avoid-page w-5/6 self-center">
-          <GridContainer title="Observaão" columns={1} bgColor="primary" footer = {true}>
+          <GridContainer
+            title="Observaão"
+            columns={1}
+            bgColor="primary"
+            footer={true}
+          >
             <p className="w-full">
-            O veículo possui reparos que não afetam sua estrutura, pneus traseiros desgastados, luz de injeção acesa, avaria no para-choque traseiro que não afeta a estrutura.
+              O veículo possui reparos que não afetam sua estrutura, pneus
+              traseiros desgastados, luz de injeção acesa, avaria no para-choque
+              traseiro que não afeta a estrutura.
             </p>
           </GridContainer>
         </div>
 
         <div className="break-inside-avoid-page w-5/6 self-center">
-          <GridContainer title="Informações Importantes" columns={1} bgColor="secondary" footer = {true}>
+          <GridContainer
+            title="Informações Importantes"
+            columns={1}
+            bgColor="secondary"
+            footer={true}
+          >
             <p className="w-full">
               Este laudo trata-se da vistoria cautelar do veículo, possuindo
               caráter informativo da análise de itens, conforme padrões

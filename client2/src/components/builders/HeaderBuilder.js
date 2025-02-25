@@ -8,90 +8,92 @@ class HeaderBuilder {
 
   buildCss() {
     return `
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-        :root {
+      :root {
           --primary-color: #6B3E99;
           --secondary-color: #FF9F1C;
           --text-color: #333;
-          --spacing-base: 1rem;
           --icon-size: 14px;
-        }
+      }
 
-        * {
+      * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
-        }
+      }
 
-        body {
+      body {
           font-family: 'Montserrat', Arial, sans-serif;
           line-height: 1.5;
           font-size: 0.875rem;
           color: var(--text-color);
-        }
+      }
 
-        .header {
-          width: 100%;
-          margin: 0 auto;
-          padding: var(--spacing-base);
+      .header {
+          -webkit-print-color-adjust: exact;
+          height: 80px;
+          position: absolute;
+          top: 0px; 
+          left: 0px; 
+          right: 0px;
+          padding: 8px 24px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           align-items: center;
-          gap: var(--spacing-base);
-        }
+          gap: 12px;
+      }
 
-        .logo-container {
+      .logo-container {
           display: flex;
           align-items: center;
-        }
+      }
 
-        .logo {
-          max-height: 67px;
+      .logo {
+          max-height: 40px;
           width: auto;
-        }
+      }
 
-        .qr-container {
+      .qr-container {
           display: flex;
           justify-content: center;
           align-items: center;
-        }
+      }
 
-        .qr-code {
+      .qr-code {
           width: 80px;
           height: 80px;
-        }
+      }
 
-        .info-container {
+      .info-container {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           gap: 0.5rem;
           font-size: 0.75rem;
-        }
+      }
+      
+      .wrapper {
+        display: flex;
+        gap: 12px;
+      }
 
-        .wrapper {
-          display: flex;
-          gap: 12px;
-        }
-
-        .info-id {
+      .info-id {
           font-weight: 600;
-        }
+      }
 
-        .info-date,
-        .info-time {
+      .info-date, .info-time {
           color: #666;
           display: flex;
           align-items: center;
           gap: 0.25rem;
-        }
+      }
 
-        .icon {
+      .icon {
           width: var(--icon-size);
           height: var(--icon-size);
-        }
-      `;
+      }
+    `;
   }
 
   async buildHeader(reqbody) {

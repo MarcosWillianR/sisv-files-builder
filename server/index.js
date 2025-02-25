@@ -9,14 +9,14 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json());
-app.use(express.json({ limit: '100mb' }));
-app.use((req, res, next) => {
-  req.setTimeout(60000, () => {
-    console.log("Request timed out.");
-    res.status(408).send("Request Timeout");
-  });
-  next();
-});
+// app.use(express.json({ limit: '100mb' }));
+// app.use((req, res, next) => {
+//   req.setTimeout(60000, () => {
+//     console.log("Request timed out.");
+//     res.status(408).send("Request Timeout");
+//   });
+//   next();
+// });
 
 app.post("/pdf", async (req, res) => {
   try {
@@ -30,7 +30,7 @@ app.post("/pdf", async (req, res) => {
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
 
-    const pdfBufferOptions = await getPdfConfigsByLayout(req.body, "LAYOUT_1");
+    const pdfBufferOptions = await getPdfConfigsByLayout(req.body, "LAYOUT_2");
     
     const pdfBuffer = await page.pdf(pdfBufferOptions);
 
