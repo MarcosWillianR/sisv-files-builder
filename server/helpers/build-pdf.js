@@ -9,8 +9,9 @@ if (!fs.existsSync(TEMP_DIR)) {
 }
 
 const TEMPLATE_PATH = {
-  ['LAYOUT_1'] :path.join(__dirname, "../../client/dist/index.html"),
-  ['LAYOUT_2'] :path.join(__dirname, "../../client2/dist/index.html")
+  ['LAYOUT_1'] :path.join(__dirname, "../../client1/dist/index.html"),
+  ['LAYOUT_2'] :path.join(__dirname, "../../client2/dist/index.html"),
+  ['LAYOUT_3'] :path.join(__dirname, "../../client3/dist/index.html")
 };
 
 
@@ -30,7 +31,7 @@ async function generateCustomHtml(layout, replacements) {
 
     return tempFilePath;
   } catch (error) {
-    console.error("Erro ao gerar HTML personalizado:", error);
+    console.error("Erro ao gerar HTML personalizado:", error.message);
     throw new Error("Falha ao gerar HTML personalizado.");
   }
 }
