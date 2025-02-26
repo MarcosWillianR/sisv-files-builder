@@ -7,209 +7,9 @@ import ContactInfo from "./components/contact-info";
 import { GridPageWrapper } from "./components/grid-page-wrapper";
 import { RatingItem } from "./components/rating-item";
 import { VehicleGrid4 } from "./components/vehicle-grid-4";
+import { RatingGrid } from "./components/rating-grid";
 
 function App() {
-  const cars = [
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Frente e lateral esquerda",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Traseira",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-    {
-      title: "Lateral direita",
-      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
-      status: "Em perfeito estado",
-    },
-  ];
-
-  const ratings = [
-    {
-      id: 1,
-      title: "Placa traseira",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 2,
-      title: "Traseira 45º",
-      description: "Em perfeito estado",
-      status: "RESTRICTION",
-    },
-    {
-      id: 3,
-      title: "Gravação do motor",
-      description: "Em perfeito estado",
-      status: "OBSERVATION",
-    },
-    {
-      id: 4,
-      title: "Painel traseiro",
-      description: "Em perfeito estado",
-      status: "FAILED",
-    },
-    {
-      id: 5,
-      title: "Etiqueta ETA coluna",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 6,
-      title: "Caixa de ar laudo direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 7,
-      title: "Longarina dianteira direita",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 8,
-      title: "Longarina traseira direita",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 9,
-      title: "Gravação do vidro para-brisa",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 10,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 11,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 12,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 13,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 14,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-    {
-      id: 15,
-      title: "Gravação do vidro dianteiro direito",
-      description: "Em perfeito estado",
-      status: "SUCCESS",
-    },
-  ];
-
   return (
     <div className="flex flex-col gap-2">
       {/* <div className="break-inside-avoid-page">
@@ -217,15 +17,15 @@ function App() {
       </div> */}
 
       <div className="flex flex-col gap-4 mx-6">
-        <div className="break-inside-avoid-page">
+        <div className="break-inside-avoid-page order-first">
           <VehicleStatusGrid />
         </div>
 
-        <div className="break-inside-avoid-page">
+        <div id="VehicleDataComparison" className="break-inside-avoid-page order-1 hidden">
           <VehicleDataComparison />
         </div>
 
-        <div className="break-inside-avoid-page">
+        <div id="VehicleGrid4" className="break-inside-avoid-page order-2">
           <div className="mb-6">
             <IconDescription />
           </div>
@@ -233,24 +33,9 @@ function App() {
           <VehicleGrid4 />
         </div>
 
-        {/* <div className="break-inside-avoid-page">
-          <GridPageWrapper
-            itemsPerPage={10}
-            title="Avaliação dos itens"
-            columns={1}
-            shadow={false}
-            border={false}
-          >
-            {ratings.map(({ id, description, title, status }) => (
-              <RatingItem
-                key={id}
-                title={title}
-                description={description}
-                status={status}
-              />
-            ))}
-          </GridPageWrapper>
-        </div> */}
+        <div id="RatingGrid" className="break-inside-avoid-page order-3">
+          <RatingGrid />
+        </div>
 
         {/* <div className="break-inside-avoid-page">
           <GridPageWrapper

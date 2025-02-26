@@ -114,6 +114,14 @@ function getClientName(client) {
   return `${firstName} ${lastName}`.trim() || "Particular";
 }
 
+function createChunks(array, chunkSize) {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
 module.exports = {
   deleteFile,
   saveJsonToFile,
@@ -121,4 +129,5 @@ module.exports = {
   findPropertyJson,
   customColorsStyleTag,
   getClientName,
+  createChunks,
 };
