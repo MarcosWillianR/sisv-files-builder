@@ -3,6 +3,7 @@
   "file_token": "9d837db5-c312-4b0e-b4c7-3b9124e96e70",
   "layout": "LAYOUT_2",
   "notes": "Adicionar o texto padrão",
+  "inspectionName": "Vistoria Cautelar",
   "inspectionVehicleData": {
     "id": 211,
     "data": {
@@ -63,7 +64,13 @@
     },
     "startDate": "2025-01-18 01:00:36"
   },
-  "client": null,
+  "client": {
+    "id": 3,
+    "firstName": "Emerson",
+    "lastName": "Marques",
+    "cpf": "29450722706",
+    "signature": null
+  },
   "expert": {
     "id": 3,
     "firstName": "Emerson",

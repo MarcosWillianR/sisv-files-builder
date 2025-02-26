@@ -1,6 +1,6 @@
 const { getHeaderScreenshot } = require('./index.js');
 
-async function getPdfConfigsByLayout(reqbody, layout) {
+async function getPdfConfigsByLayout(data) {
     const availableLayoutConfigs = {
       LAYOUT_1: {
         format: "A4",
@@ -16,7 +16,7 @@ async function getPdfConfigsByLayout(reqbody, layout) {
         },
         headerTemplate: `
           <div>
-            <img src="data:image/png;base64,${await getHeaderScreenshot(reqbody, "LAYOUT_1")}" />
+            <img src="data:image/png;base64,${await getHeaderScreenshot(data, "LAYOUT_1")}" />
           </div>`,
         footerTemplate: `
           <style>
@@ -47,7 +47,7 @@ async function getPdfConfigsByLayout(reqbody, layout) {
         },
         headerTemplate: `
         <div>
-          <img src="data:image/png;base64,${await getHeaderScreenshot(reqbody, "LAYOUT_2")}" />
+          <img src="data:image/png;base64,${await getHeaderScreenshot(data, "LAYOUT_2")}" />
         </div>`,
         footerTemplate: `
             <style>
@@ -99,7 +99,7 @@ async function getPdfConfigsByLayout(reqbody, layout) {
           `,
       },
     };
-  return availableLayoutConfigs[layout];
+  return availableLayoutConfigs[data.layout];
 }
 
 

@@ -1,67 +1,68 @@
-  const QRCode = require('qrcode');
-  const fs = require('fs').promises;      
-  const puppeteer = require('puppeteer');
+const QRCode = require('qrcode');
+const fs = require('fs').promises;      
+const puppeteer = require('puppeteer');
 
-  async function getHeaderScreenshot(reqbody, layout) {
-    const headerBuilder = await getHeaderBuilder(layout);
-    await headerBuilder.build(reqbody); // Gera o HTML do cabeçalho
-    
-    const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
+async function getHeaderScreenshot(data, layout) {
+  const headerBuilder = await getHeaderBuilder(layout);
+  await headerBuilder.build(data); // Gera o HTML do cabeçalho
   
-    const browser = await puppeteer.launch({
-      headless: "new",
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
-  
-    const headerPage = await browser.newPage();
-    
-    // Definir o conteúdo da página
-    await headerPage.setContent(headerContent);
-    await headerPage.waitForSelector('.header'); // Aguarda o elemento aparecer
-  
-    const headerElement = await headerPage.$('.header'); // Obtém a referência do elemento
-  
-    const headerScreenshot = await headerElement.screenshot({
-      encoding: 'base64',
-    });
+  const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
 
-    await browser.close();
-    return headerScreenshot;
-  }
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+
+  const headerPage = await browser.newPage();
   
-  async function getHeaderBuilder(layout) {
-    let HeaderBuilder;
-    if (layout === 'LAYOUT_1') {
-      HeaderBuilder = (await import('../../client1/src/components/builders/HeaderBuilder.js')).default;
-    } else if (layout === 'LAYOUT_2') {
-      HeaderBuilder = (await import('../../client2/src/components/builders/HeaderBuilder.js')).default;
-    } else if (layout === 'LAYOUT_3') {
-      HeaderBuilder = (await import('../../client3/src/components/builders/HeaderBuilder.js')).default;
-    } else {
-      throw new Error(`LAYOUT inválido: ${layout}`);
-    }
+  // Definir o conteúdo da página
+  await headerPage.setContent(headerContent);
+
+  await headerPage.waitForSelector('.header'); // Aguarda o elemento aparecer
+
+  const headerElement = await headerPage.$('.header'); // Obtém a referência do elemento
+
+  const headerScreenshot = await headerElement.screenshot({
+    encoding: 'base64',
+  });
+
+  await browser.close();
+  return headerScreenshot;
+}
   
-    return new HeaderBuilder(); // Retorna a instância corretamente
-  }
-  
-  async function deleteFile(filePath) {
-    try {
-      await fs.unlink(filePath);
-      console.log("Arquivo removido com sucesso!");
-    } catch (err) {
-      console.error("Erro ao remover o arquivo:", err);
-    }
+async function getHeaderBuilder(layout) {
+  let HeaderBuilder;
+  if (layout === 'LAYOUT_1') {
+    HeaderBuilder = (await import('../../client1/src/components/builders/HeaderBuilder.js')).default;
+  } else if (layout === 'LAYOUT_2') {
+    HeaderBuilder = (await import('../../client2/src/components/builders/HeaderBuilder.js')).default;
+  } else if (layout === 'LAYOUT_3') {
+    HeaderBuilder = (await import('../../client3/src/components/builders/HeaderBuilder.js')).default;
+  } else {
+    throw new Error(`LAYOUT inválido: ${layout}`);
   }
 
-  async function saveJsonToFile(jsonData, filePath) {
-    try {
-      const jsonString = JSON.stringify(jsonData, null, 2); // Converte o JSON para string com indentação
-      await fs.writeFile(filePath, jsonString); // Salva o JSON no caminho especificado
-      console.log("Arquivo salvo com sucesso!");
-    } catch (err) {
-      console.error("Erro ao salvar o arquivo:", err);
-    }
+  return new HeaderBuilder(); // Retorna a instância corretamente
+}
+  
+async function deleteFile(filePath) {
+  try {
+    await fs.unlink(filePath);
+    console.log("Arquivo removido com sucesso!");
+  } catch (err) {
+    console.error("Erro ao remover o arquivo:", err);
   }
+}
+
+async function saveJsonToFile(jsonData, filePath) {
+  try {
+    const jsonString = JSON.stringify(jsonData, null, 2); // Converte o JSON para string com indentação
+    await fs.writeFile(filePath, jsonString); // Salva o JSON no caminho especificado
+    console.log("Arquivo salvo com sucesso!");
+  } catch (err) {
+    console.error("Erro ao salvar o arquivo:", err);
+  }
+}
 
 function findPropertyJson(obj, path) {
   const keys = path.split('-');
@@ -87,9 +88,34 @@ function findPropertyJson(obj, path) {
   return current;
 }
 
-  module.exports = {
-    deleteFile,
-    saveJsonToFile,
-    getHeaderScreenshot,
-    findPropertyJson
-  }
+function customColorsStyleTag(data) {
+  const { customizationConfig, approvalStatus } = data;
+
+  const { primaryColor } = customizationConfig;
+  const { color } = approvalStatus;
+
+  return `
+    .primary-bg-color {
+      background-color: ${primaryColor}
+    }
+    .approval-status-bg-color {
+      background-color: ${color}
+    }
+  `
+};
+
+function getClientName(client) {
+  if (!client) return "Particular";
+  const firstName = client.firstName || "";
+  const lastName = client.lastName || "";
+  return `${firstName} ${lastName}`.trim() || "Particular";
+}
+
+module.exports = {
+  deleteFile,
+  saveJsonToFile,
+  getHeaderScreenshot,
+  findPropertyJson,
+  customColorsStyleTag,
+  getClientName,
+}

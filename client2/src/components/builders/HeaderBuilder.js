@@ -1,4 +1,6 @@
 import QRCode from 'qrcode';
+import { format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 class HeaderBuilder {
   constructor(data) {
@@ -96,12 +98,16 @@ class HeaderBuilder {
     `;
   }
 
-  async buildHeader(reqbody) {
-    const { id, completeDate, file_token, customizationConfig } = reqbody;
+  async buildHeader(data) {
+    const { id, completeDate, file_token, customizationConfig } = data;
     const logoUrl = customizationConfig?.s3File?.url ?? null;
     const pdfLink = `https://sisv.cardados.com/inspection-link-view/${file_token}`;
     const qrCodeUrl = await QRCode.toDataURL(pdfLink);
-    const [date, time] = completeDate.split(' ');
+    const [datePart, timePart] = completeDate.split(" ");
+    const [hours, minutes] = timePart.split(":");
+
+    const formattedDate = format(new Date(completeDate), 'dd/MM/yyyy');
+    const formattedHour = `${hours}:${minutes}`;
 
     return `
         <!DOCTYPE html>
@@ -136,7 +142,7 @@ class HeaderBuilder {
                       <line x1="8" y1="2" x2="8" y2="6"></line>
                       <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
-                    ${date}
+                    ${formattedDate}
                   </span>
 
                   <span class="info-time">
@@ -145,7 +151,7 @@ class HeaderBuilder {
                       <circle cx="12" cy="12" r="10"></circle>
                       <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
-                    ${time}
+                    ${formattedHour}
                   </span>
                 </div>
               </div>
@@ -155,8 +161,8 @@ class HeaderBuilder {
       `;
   }
 
-  async build(reqbody) {
-    this.content = await this.buildHeader(reqbody);
+  async build(data) {
+    this.content = await this.buildHeader(data);
     return this.content;
   }
 

@@ -43,7 +43,7 @@ export function GridContainer({
           </div>
         </div>
       ) : (
-        <div className={`grid ${getGridCols()} gap-4 p-6 place-items-center`}>
+        <div className={`grid ${getGridCols()} gap-4 py-6 place-items-center`}>
           {children}
         </div>
       )}
