@@ -1,20 +1,19 @@
-import QRCode from 'qrcode';
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import QRCode from "qrcode";
+import { format } from "date-fns";
 
 class HeaderBuilder {
   constructor(data) {
     this.data = data;
-    this.content = '';
+    this.content = "";
   }
 
-  buildCss() {
+  buildCss(customizationConfig) {
     return `
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
       :root {
-          --primary-color: #6B3E99;
-          --secondary-color: #FF9F1C;
+          --primary-color: ${customizationConfig.primaryColor};
+          --secondary-color: ${customizationConfig.secondColor};
           --text-color: #333;
           --icon-size: 14px;
       }
@@ -103,10 +102,10 @@ class HeaderBuilder {
     const logoUrl = customizationConfig?.s3File?.url ?? null;
     const pdfLink = `https://sisv.cardados.com/inspection-link-view/${file_token}`;
     const qrCodeUrl = await QRCode.toDataURL(pdfLink);
-    const [datePart, timePart] = completeDate.split(" ");
+    const timePart = completeDate.split(" ")[1];
     const [hours, minutes] = timePart.split(":");
 
-    const formattedDate = format(new Date(completeDate), 'dd/MM/yyyy');
+    const formattedDate = format(new Date(completeDate), "dd/MM/yyyy");
     const formattedHour = `${hours}:${minutes}`;
 
     return `
@@ -117,7 +116,7 @@ class HeaderBuilder {
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Laudo Veículo</title>
               <style>
-                ${this.buildCss()}
+                ${this.buildCss(customizationConfig)}
               </style>
           </head>
           <body>
@@ -172,4 +171,3 @@ class HeaderBuilder {
 }
 
 export default HeaderBuilder;
-

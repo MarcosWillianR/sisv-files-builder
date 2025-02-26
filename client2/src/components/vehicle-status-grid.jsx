@@ -1,5 +1,4 @@
 import carplate from "../assets/car-plate.png";
-import { Check } from "lucide-react";
 
 export function VehicleStatusGrid() {
   return (
@@ -10,7 +9,7 @@ export function VehicleStatusGrid() {
       <div className="relative px-6">
         <div className="absolute -top-[25px] left-16">
           <img
-            src={carplate || "/placeholder.svg"}
+            src={carplate}
             alt="Placa do Veículo"
             className="w-[180px] h-auto"
           />

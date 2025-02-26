@@ -6,133 +6,113 @@ import { GridContainer } from "./components/grid-container";
 import ContactInfo from "./components/contact-info";
 import { GridPageWrapper } from "./components/grid-page-wrapper";
 import { RatingItem } from "./components/rating-item";
+import { VehicleGrid4 } from "./components/vehicle-grid-4";
 
 function App() {
   const cars = [
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Frente e lateral esquerda",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Traseira",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
     {
       title: "Lateral direita",
-      imageUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
+      imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZuliHMnUXk0EaxoqBCVZip7mq0VyU2.png",
       status: "Em perfeito estado",
     },
   ];
@@ -250,23 +230,10 @@ function App() {
             <IconDescription />
           </div>
 
-          <GridContainer
-            columns={2}
-            border={false}
-            shadow={false}
-            withPadding={false}
-          >
-            {cars.slice(0, 4).map((car, index) => (
-              <ItemCard
-                customHeight="164px"
-                key={index}
-                imageUrl={car.imageUrl}
-              />
-            ))}
-          </GridContainer>
+          <VehicleGrid4 />
         </div>
 
-        <div className="break-inside-avoid-page">
+        {/* <div className="break-inside-avoid-page">
           <GridPageWrapper
             itemsPerPage={10}
             title="Avaliação dos itens"
@@ -283,9 +250,9 @@ function App() {
               />
             ))}
           </GridPageWrapper>
-        </div>
+        </div> */}
 
-        <div className="break-inside-avoid-page">
+        {/* <div className="break-inside-avoid-page">
           <GridPageWrapper
             itemsPerPage={6}
             title="Itens Analisados"
@@ -304,9 +271,9 @@ function App() {
               />
             ))}
           </GridPageWrapper>
-        </div>
+        </div> */}
 
-        <div className="break-inside-avoid-page self-center">
+        {/* <div className="break-inside-avoid-page self-center">
           <GridContainer
             title="Observação"
             columns={1}
@@ -367,13 +334,13 @@ function App() {
               </p>
             </GridContainer>
           </div>
-        </div>
+        </div> */}
 
-        <div className="w-full break-inside-avoid-page self-center mt-6">
+        {/* <div className="w-full break-inside-avoid-page self-center mt-6">
           <GridContainer columns={2} border={false}>
             <ContactInfo />
           </GridContainer>
-        </div>
+        </div> */}
       </div>
     </div>
   );
