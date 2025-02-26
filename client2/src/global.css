@@ -20,8 +20,19 @@
     height: 297mm;
   }
 
-  break-inside-avoid-page {
+  .break-inside-avoid-page {
     break-inside: avoid-page;
     page-break-inside: avoid;
+  }
+
+  /* Add these new styles */
+  .break-before-page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .break-before-auto {
+    break-before: auto;
+    page-break-before: auto;
   }
 }

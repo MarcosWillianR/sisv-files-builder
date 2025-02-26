@@ -1,13 +1,12 @@
-/* eslint-disable react/prop-types */
-function GridContainer({
+export function GridContainer({
   title = "",
   columns = 3,
   children,
   border = true,
   shadow = true,
   fullPage = false,
-  bgColor = 'primary',  
-  footer = false
+  bgColor = "primary",
+  footer = false,
 }) {
   const getGridCols = () => {
     const gridMap = {
@@ -23,10 +22,16 @@ function GridContainer({
 
   return (
     <div
-      className={`w-full rounded-2xl overflow-hidden ${shadow ? 'shadow-md' : ''} ${border ? 'border border-[#9D9D9D]' : ''}`}
+      className={`w-full rounded-2xl overflow-hidden ${
+        shadow ? "shadow-md" : ""
+      } ${border ? "border border-[#9D9D9D]" : ""}`}
     >
       {title && title.length !== 0 && (
-        <div className={`${bgColor === 'primary' ? 'bg-[#FDB017]' : 'bg-[#6C097D]'} px-4 py-2 text-white`}>
+        <div
+          className={`${
+            bgColor === "primary" ? "bg-[#FDB017]" : "bg-[#6C097D]"
+          } px-4 py-2 text-white`}
+        >
           <h2 className="font-medium">{title}</h2>
         </div>
       )}
@@ -43,10 +48,12 @@ function GridContainer({
         </div>
       )}
       {footer && (
-        <div className={`h-10 ${bgColor === 'primary' ? 'bg-[#FDB017]' : 'bg-[#6C097D]'}`}></div>
+        <div
+          className={`h-10 ${
+            bgColor === "primary" ? "bg-[#FDB017]" : "bg-[#6C097D]"
+          }`}
+        ></div>
       )}
     </div>
   );
 }
-
-export default GridContainer;

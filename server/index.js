@@ -1,7 +1,7 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
 const { generateCustomHtml } = require('./helpers/build-pdf')
-const { deleteFile, saveJsonToFile} = require('./helpers');
+const { deleteFile, saveJsonToFile } = require('./helpers');
 const { processTimesheet } = require("../excel-builder/src");
 const {getPdfConfigsByLayout} = require("./helpers/pdf-config");
 
@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.post("/pdf", async (req, res) => {
   try {
-    await saveJsonToFile(req.body, '../');
+    // await saveJsonToFile(req.body, '../');
 
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
