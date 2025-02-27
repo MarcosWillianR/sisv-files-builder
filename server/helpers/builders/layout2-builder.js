@@ -3,56 +3,12 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 
-const { getClientName, createChunks } = require("../../helpers");
+const { getClientName, createChunks, getNestedValue, setGroupOrder } = require("../../helpers");
 
 const TEMP_DIR = path.join(__dirname, "temp");
 
 if (!fs.existsSync(TEMP_DIR)) {
   fs.mkdirSync(TEMP_DIR, { recursive: true });
-}
-
-// build() {
-//   this.data.groups.sort((a, b) => a.printOrder - b.printOrder);
-
-//   const partsGroups = this.data.groups.filter(group => group.groupType === 'PARTS');
-
-//   partsGroups.forEach(group => {
-//     group.data.sort((a, b) => a.printOrder - b.printOrder);
-//   });
-
-//   const dataGroupIndex = this.data.groups.findIndex(group => group.groupType === 'DATA');
-
-//   if (dataGroupIndex !== -1) {
-//     const [dataGroup] = this.data.groups.splice(dataGroupIndex, 1);
-
-//     this.content += this.buildGroup(dataGroup);
-//   }
-
-//   const items = this.data.groups
-//     .filter(group => group.groupType === 'PARTS')
-//     .flatMap(group => group.data);
-
-//   partsGroups[0].data.splice(0, 2);
-
-//   this.data.groups.forEach(group => {
-//     this.content += this.buildGroup(group);
-//   });
-
-//   this.content += this.buildRatings(items);
-
-//   this.content += this.buildSignatureSection(this.data.notes, this.data.expert, this.data.analyst, this.data.unit);
-
-//   if (this.data.expertSignature != null) {
-//   }
-//   this.content += '</body></html>';
-//   return this.content;
-// }
-
-function setGroupOrder(id, group, $) {
-  $(`#${id}`)
-    .removeClass((i, className) => (className.match(/order-\d+/g) || []).join(" "))
-    .removeClass("hidden")
-    .addClass(`order-${group.printOrder}`);
 }
 
 function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
@@ -95,19 +51,20 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
 function vehicleGrid4Component(first4Parts, content) {
   const $ = cheerio.load(content);
 
-  $(".grid.grid-cols-2").each((_, element) => {
-    const item = $(element).find(".flex.flex-col.w-full.rounded-2xl.overflow-hidden.bg-gray-100.shadow-md");
+  $("#VehicleGrid4").each((_, element) => {
+    const item = $(element).find("#VehicleGrid4Item");
 
     for (let i = 1; i < first4Parts.length; i++) {
       const newItem = item.clone();
       item.after(newItem);
     }
 
-    const items = $(element).find(".flex.flex-col.w-full.rounded-2xl.overflow-hidden.bg-gray-100.shadow-md");
+    const items = $(element).find("#VehicleGrid4Item");
+
     items.each((index, item) => {
       const img = $(item).find("img");
       const part = first4Parts[index];
-      const imgSrc = part?.s3File?.url || "https://i.imgur.com/fl0uV88.png";
+      const imgSrc = part?.s3File?.url;
       img.attr("src", imgSrc);
     });
   });
@@ -172,12 +129,84 @@ function ratingsComponent(allParts, content) {
   return $.html();
 }
 
-/**
- * Função para buscar um valor aninhado dentro de um objeto a partir de uma string de caminho.
- * Exemplo: getNestedValue(obj, "inspectionVehicleData.data.licensePlate")
- */
-function getNestedValue(obj, path) {
-  return path.split(".").reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : ""), obj);
+function vehicleGrid6Component(restParts, content) {
+  const ITEMS_PER_PAGE = 6;
+
+  const chunks = createChunks(restParts, ITEMS_PER_PAGE);
+
+  const $ = cheerio.load(content);
+
+  $("#VehicleGrid6").each((_, element) => {
+    const item = $(element).find("#VehicleChunk");
+
+    for (let i = 1; i < chunks.length; i++) {
+      const newItem = item.clone();
+      item.after(newItem);
+    }
+
+    const items = $(element).find("#VehicleChunk");
+
+    items.each((index, itemItems) => {
+      if (index === 0) {
+        $(item).find("#VehicleGrid6Title").removeClass("hidden");
+      }
+
+      const vehicleChunkItem = $(itemItems).find("#VehicleChunkItem");
+
+      for (let i = 1; i < chunks[index].length; i++) {
+        const newItem = vehicleChunkItem.clone();
+        vehicleChunkItem.after(newItem);
+      }
+
+      chunks[index].forEach((part, partIndex) => {
+        const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
+        const selectedRating = part.ratings.find((rating) => rating.isSelected);
+
+        vehicleItem.find("img").attr("src", part?.s3File?.url);
+        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");	
+        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+
+        const statusToId = {
+          SUCCESS: "#VehicleGrid6-SUCCESS",
+          RESTRICTION: "#VehicleGrid6-RESTRICTION",
+          OBSERVATION: "#VehicleGrid6-OBSERVATION",
+          FAILED: "#VehicleGrid6-FAILED",
+        };
+        
+        const iconId = statusToId[selectedRating?.icon];
+        vehicleItem.find(iconId).removeClass("hidden");
+      });
+    });
+  });
+
+  return $.html();
+}
+
+function observationGridComponent(descriptionData, content) {
+  const $ = cheerio.load(content);
+
+  setGroupOrder("ObservationGrid", descriptionData, $);
+
+  $("#ObservationGrid").each((_, element) => {
+    const title = $(element).find("#ObservationGridTitle");
+    const description = $(element).find("#ObservationGridText");
+
+    title.text(descriptionData.name);
+    description.text(descriptionData.data.textObservation);
+  });
+
+  return $.html();
+}
+
+function notesGridComponent(notes, content) {
+  const $ = cheerio.load(content);
+
+  $("#NotesGrid").each((_, element) => {
+    const description = $(element).find("#NotesGridText");
+    description.text(notes);
+  });
+
+  return $.html();
 }
 
 async function Layout2Builder(data) {
@@ -207,11 +236,23 @@ async function Layout2Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
-      const first4Parts = allParts.slice(0, 4);
-      content = vehicleGrid4Component(first4Parts, content);
 
+      // Primeiro grupo com 4 fotos
+      content = vehicleGrid4Component(allParts.slice(0, 4), content);
+
+      // Classificações
       content = ratingsComponent(allParts, content);
+
+      // Resto das fotos
+      content = vehicleGrid6Component(allParts.slice(4), content);
     }
+
+    const groupDescriptionIndex = data.groups.findIndex(group => group.groupType === "OBSERVATION")
+    if (groupDescriptionIndex !== -1) {
+      content = observationGridComponent(data.groups[groupDescriptionIndex], content)
+    }
+
+    content = notesGridComponent(data.notes, content);
 
     fs.writeFileSync(tempFilePath, content, "utf8");
 

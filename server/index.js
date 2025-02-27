@@ -1,6 +1,6 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
-const { deleteFile, customColorsStyleTag } = require("./helpers");
+const { deleteFile, customColorsStyleTag, saveJsonToFile } = require("./helpers");
 const { processTimesheet } = require("../excel-builder/src");
 
 const { buildPDF } = require("./buildPDF");
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 app.post("/pdf", async (req, res) => {
   try {
-    // await saveJsonToFile(req.body, '../');
+    // await saveJsonToFile(req.body, __dirname);
 
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
@@ -32,7 +32,7 @@ app.post("/pdf", async (req, res) => {
 
     const pdfBuffer = await page.pdf(pdfBufferOptions);
     await browser.close();
-    // await deleteFile(filePath);
+    await deleteFile(filePath);
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");

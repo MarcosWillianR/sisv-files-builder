@@ -1,6 +1,6 @@
-const QRCode = require("qrcode");
 const fs = require("fs").promises;
 const puppeteer = require("puppeteer");
+const path = require("path");
 
 async function getHeaderScreenshot(data, layout) {
   const headerBuilder = await getHeaderBuilder(layout);
@@ -8,11 +8,7 @@ async function getHeaderScreenshot(data, layout) {
 
   const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
 
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
-
+  const browser = await puppeteer.launch({ headless: "new" });
   const headerPage = await browser.newPage();
 
   // Definir o conteúdo da página
@@ -56,8 +52,11 @@ async function deleteFile(filePath) {
 
 async function saveJsonToFile(jsonData, filePath) {
   try {
-    const jsonString = JSON.stringify(jsonData, null, 2); // Converte o JSON para string com indentação
-    await fs.writeFile(filePath, jsonString); // Salva o JSON no caminho especificado
+    await fs.mkdir(path.dirname(filePath), { recursive: true }); // Garante que o diretório existe
+    const jsonString = JSON.stringify(jsonData, null, 2);
+
+    console.log(jsonString)
+    await fs.writeFile(filePath, jsonString);
     console.log("Arquivo salvo com sucesso!");
   } catch (err) {
     console.error("Erro ao salvar o arquivo:", err);
@@ -122,6 +121,21 @@ function createChunks(array, chunkSize) {
   return chunks;
 }
 
+/**
+ * Função para buscar um valor aninhado dentro de um objeto a partir de uma string de caminho.
+ * Exemplo: getNestedValue(obj, "inspectionVehicleData.data.licensePlate")
+ */
+function getNestedValue(obj, path) {
+  return path.split(".").reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : ""), obj);
+}
+
+function setGroupOrder(id, group, $) {
+  $(`#${id}`)
+    .removeClass((i, className) => (className.match(/order-\d+/g) || []).join(" "))
+    .removeClass("hidden")
+    .addClass(`order-${group.printOrder}`);
+}
+
 module.exports = {
   deleteFile,
   saveJsonToFile,
@@ -130,4 +144,6 @@ module.exports = {
   customColorsStyleTag,
   getClientName,
   createChunks,
+  getNestedValue,
+  setGroupOrder,
 };
