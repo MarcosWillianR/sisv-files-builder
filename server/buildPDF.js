@@ -19,6 +19,8 @@ async function buildPDF(data) {
   const filePath = await builderContent(data);
   const pdfBufferOptions = await getPdfConfigsByLayout(data);
 
+  console.log({filePath, pdfBufferOptions})
+
   return { pdfBufferOptions, filePath };
 }
 

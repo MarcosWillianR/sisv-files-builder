@@ -1,9 +1,7 @@
 {
   "id": 211,
-  "file_token": "9d837db5-c312-4b0e-b4c7-3b9124e96e70",
   "layout": "LAYOUT_2",
   "notes": "Adicionar o texto padrão",
-  "inspectionName": "Vistoria Cautelar",
   "inspectionVehicleData": {
     "id": 211,
     "data": {
@@ -28,7 +26,7 @@
     "id": 6,
     "s3File": {
       "s3Key": "unit/2/logo",
-      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/2/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250224T041735Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250224%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e04cddada5a17876b386550444a53ed0bcc2c60dda6434c22187d6cbdb20a666",
+      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/2/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004622Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=7d463d89c09c6d82a15d3a015723bf1d069f7fef0dd96d7c3f5f78b26c955cab",
       "fileType": "image/png"
     },
     "primaryColor": "#1d7bdb",
@@ -64,13 +62,7 @@
     },
     "startDate": "2025-01-18 01:00:36"
   },
-  "client": {
-    "id": 3,
-    "firstName": "Emerson",
-    "lastName": "Marques",
-    "cpf": "29450722706",
-    "signature": null
-  },
+  "client": null,
   "expert": {
     "id": 3,
     "firstName": "Emerson",
@@ -125,7 +117,7 @@
       "isRequired": false,
       "isPdfEnabled": true,
       "appOrder": 2,
-      "printOrder": 2,
+      "printOrder": 3,
       "groupType": "OBSERVATION",
       "s3File": {
         "id": 453,
@@ -148,7 +140,7 @@
       "isRequired": false,
       "isPdfEnabled": true,
       "appOrder": 4,
-      "printOrder": 3,
+      "printOrder": 4,
       "groupType": "PARTS",
       "s3File": null,
       "data": [
@@ -159,89 +151,19 @@
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 21861,
-              "name": "Em perfeito estado",
-              "color": "#22f309",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21866,
-              "name": "teste nossa rede",
-              "color": "#4cae3f",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21865,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21859,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21863,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21860,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21862,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
               "id": 21867,
               "name": "Dentro dos padrões",
               "color": "#22f309",
-              "icon": "DEFAULT",
+              "icon": "FAILED",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
               "isSelected": true
             },
             {
-              "id": 21864,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
+              "id": 21865,
+              "name": "Possui reparo",
+              "color": "#fdfd1c",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -255,7 +177,45 @@
           "printOrder": 4,
           "s3File": {
             "s3Key": "vistoria/items/2566/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2566/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250224T041736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250224%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=615734931f1bb3263f81e7327a5d091579cef1aed6690f138f057e8b703c1b33",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2566/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=31c969de02f38160f6c4d36612df7fda0481093005f137e2e99527a67e0dd706",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3333,
+          "name": "Placa Antena",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21867,
+              "name": "Dentro dos padrões",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21865,
+              "name": "Possui reparo",
+              "color": "#fdfd1c",
+              "icon": "SUCCESS",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 4,
+          "printOrder": 4,
+          "s3File": {
+            "s3Key": "vistoria/items/2566/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2566/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=31c969de02f38160f6c4d36612df7fda0481093005f137e2e99527a67e0dd706",
             "fileType": "image/png"
           },
           "isRequired": false
@@ -267,9 +227,9 @@
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 21872,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
+              "id": 21868,
+              "name": "Fora do padrão",
+              "color": "#f40d10",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -277,29 +237,9 @@
               "isSelected": false
             },
             {
-              "id": 21870,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21874,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21869,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
+              "id": 21871,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -317,6 +257,26 @@
               "isSelected": false
             },
             {
+              "id": 21874,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21870,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
               "id": 21876,
               "name": "Sem acesso",
               "color": "#fdfd1c",
@@ -327,9 +287,19 @@
               "isSelected": false
             },
             {
-              "id": 21868,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
+              "id": 21869,
+              "name": "Fora dos padrões do fabricanteou adulterado",
+              "color": "#64efc8",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21872,
+              "name": "Possui reparo",
+              "color": "#fdfd1c",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -345,25 +315,15 @@
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
               "isSelected": false
-            },
-            {
-              "id": 21871,
-              "name": "Em perfeito estado",
-              "color": "#22f309",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
             }
           ],
           "isRequiredImage": false,
-          "isPlaceholder": true,
+          "isPlaceholder": false,
           "appOrder": 6,
           "printOrder": 6,
           "s3File": {
             "s3Key": "vistoria/items/2/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250224T041736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250224%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9ceb200a55d2ca53dcbbe11e192f5ec7ed96030548a4119d341ad79ccb700db9",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a7929853817a9701d07a1d85bccd500efa01ac5b4bdc8171e33d43a2e13a557b",
             "fileType": "image/jpeg"
           },
           "isRequired": false
@@ -375,49 +335,9 @@
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 21878,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21884,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21880,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21885,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21883,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
+              "id": 21882,
+              "name": "teste nossa rede",
+              "color": "#4cae3f",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -445,16 +365,6 @@
               "isSelected": false
             },
             {
-              "id": 21882,
-              "name": "teste nossa rede",
-              "color": "#4cae3f",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
               "id": 21877,
               "name": "Em perfeito estado",
               "color": "#22f309",
@@ -463,6 +373,56 @@
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
               "isSelected": true
+            },
+            {
+              "id": 21878,
+              "name": "Sem acesso",
+              "color": "#fdfd1c",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21880,
+              "name": "Fora do padrão",
+              "color": "#f40d10",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21883,
+              "name": "Possui reparo",
+              "color": "#fdfd1c",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21884,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21885,
+              "name": "Dentro dos padrões",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
             }
           ],
           "isRequiredImage": false,
@@ -471,7 +431,7 @@
           "printOrder": 7,
           "s3File": {
             "s3Key": "vistoria/items/2568/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2568/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250224T041736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250224%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9ba5da394c5d2452e8fa3fddfff1cec5dce71e1ca2c504bb99c82d078964e651",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2568/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f072ec1f4e7807df7e38a46c63a7deae79d6fffc0aee15061b351024cdf51be7",
             "fileType": "image/png"
           },
           "isRequired": true
@@ -483,19 +443,19 @@
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 21893,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "DEFAULT",
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
-              "isSelected": false
+              "isSelected": true
             },
             {
-              "id": 21888,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -511,51 +471,39 @@
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
               "isSelected": false
-            },
-            {
-              "id": 21894,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21889,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 21891,
-              "name": "teste nossa rede",
-              "color": "#4cae3f",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3232,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
             {
               "id": 21886,
               "name": "Possui avaria",
               "color": "#ea0d11",
-              "icon": "DEFAULT",
+              "icon": "OBSERVATION",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
               "isEnabledForClient": false,
               "isSelected": true
             },
             {
-              "id": 21887,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -563,9 +511,9 @@
               "isSelected": false
             },
             {
-              "id": 21890,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": true,
@@ -579,7 +527,247 @@
           "printOrder": 5,
           "s3File": {
             "s3Key": "vistoria/items/2569/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250224T041736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250224%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b64e89149c1313b2cb73ebd27336b052502695f9bb4f2b0a40892a74841eca56",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3233,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3236,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3235,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3234,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
+            "fileType": "image/png"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 3244,
+          "name": "Lateral traçante regular",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 21886,
+              "name": "Possui avaria",
+              "color": "#ea0d11",
+              "icon": "OBSERVATION",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 21890,
+              "name": "Original/Dentro dos padrões do fabricante",
+              "color": "#48ff24",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 21892,
+              "name": "Em perfeito estado",
+              "color": "#22f309",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": true,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 5,
+          "printOrder": 5,
+          "s3File": {
+            "s3Key": "vistoria/items/2569/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2569/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250227T004623Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250227%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0981387317eda25771b3268b369186879a98d35bf660a27af322ff9a1abaef14",
             "fileType": "image/png"
           },
           "isRequired": false
