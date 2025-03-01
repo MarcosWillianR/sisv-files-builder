@@ -1,44 +1,39 @@
 const fs = require("fs").promises;
+const fss = require("fs");
 const puppeteer = require("puppeteer");
 const path = require("path");
 
 async function getHeaderScreenshot(data, layout) {
   const headerBuilder = await getHeaderBuilder(layout);
-  await headerBuilder.build(data); // Gera o HTML do cabeçalho
-
-  const headerContent = headerBuilder.getContent(); // Obtém o HTML gerado
+  await headerBuilder.build(data);
 
   const browser = await puppeteer.launch({ headless: "new" });
-  const headerPage = await browser.newPage();
+  try {
+    const headerPage = await browser.newPage();
+    await headerPage.setContent(headerBuilder.getContent());
+    await headerPage.waitForSelector(".header");
 
-  // Definir o conteúdo da página
-  await headerPage.setContent(headerContent);
+    const headerElement = await headerPage.$(".header");
+    if (!headerElement) throw new Error("Elemento .header não encontrado");
 
-  await headerPage.waitForSelector(".header"); // Aguarda o elemento aparecer
-
-  const headerElement = await headerPage.$(".header"); // Obtém a referência do elemento
-
-  const headerScreenshot = await headerElement.screenshot({
-    encoding: "base64",
-  });
-
-  await browser.close();
-  return headerScreenshot;
+    return headerElement.screenshot({ encoding: "base64" });
+  } finally {
+    await browser.close();
+  }
 }
 
 async function getHeaderBuilder(layout) {
-  let HeaderBuilder;
-  if (layout === "LAYOUT_1") {
-    HeaderBuilder = (await import("../../client1/src/components/builders/HeaderBuilder.js")).default;
-  } else if (layout === "LAYOUT_2") {
-    HeaderBuilder = (await import("../../client2/src/components/builders/HeaderBuilder.js")).default;
-  } else if (layout === "LAYOUT_3") {
-    HeaderBuilder = (await import("../../client3/src/components/builders/HeaderBuilder.js")).default;
-  } else {
-    throw new Error(`LAYOUT inválido: ${layout}`);
-  }
+  const layouts = {
+    LAYOUT_1: "../../client1/src/components/builders/HeaderBuilder.js",
+    LAYOUT_2: "../../client2/src/components/builders/HeaderBuilder.js",
+    LAYOUT_3: "../../client3/src/components/builders/HeaderBuilder.js",
+  };
 
-  return new HeaderBuilder(); // Retorna a instância corretamente
+  const path = layouts[layout];
+  if (!path) throw new Error(`LAYOUT inválido: ${layout}`);
+
+  const { default: HeaderBuilder } = await import(path);
+  return new HeaderBuilder();
 }
 
 async function deleteFile(filePath) {
@@ -55,7 +50,7 @@ async function saveJsonToFile(jsonData, filePath) {
     await fs.mkdir(path.dirname(filePath), { recursive: true }); // Garante que o diretório existe
     const jsonString = JSON.stringify(jsonData, null, 2);
 
-    console.log(jsonString)
+    console.log(jsonString);
     await fs.writeFile(filePath, jsonString);
     console.log("Arquivo salvo com sucesso!");
   } catch (err) {
@@ -136,6 +131,15 @@ function setGroupOrder(id, group, $) {
     .addClass(`order-${group.printOrder}`);
 }
 
+function createTempDir() {
+  const TEMP_DIR = path.join(__dirname, "temp");
+
+  if (!fss.existsSync(TEMP_DIR)) {
+    fss.mkdirSync(TEMP_DIR, { recursive: true });
+  }
+  return TEMP_DIR;
+}
+
 module.exports = {
   deleteFile,
   saveJsonToFile,
@@ -146,4 +150,5 @@ module.exports = {
   createChunks,
   getNestedValue,
   setGroupOrder,
+  createTempDir,
 };

@@ -3,13 +3,9 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 
-const { getClientName, createChunks, getNestedValue, setGroupOrder } = require("../../helpers");
+const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("../../helpers");
 
-const TEMP_DIR = path.join(__dirname, "temp");
-
-if (!fs.existsSync(TEMP_DIR)) {
-  fs.mkdirSync(TEMP_DIR, { recursive: true });
-}
+const TEMP_DIR = createTempDir();
 
 function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
   const $ = cheerio.load(content);
@@ -131,7 +127,6 @@ function ratingsComponent(allParts, content) {
 
 function vehicleGrid6Component(restParts, content) {
   const ITEMS_PER_PAGE = 6;
-
   const chunks = createChunks(restParts, ITEMS_PER_PAGE);
 
   const $ = cheerio.load(content);
@@ -163,7 +158,7 @@ function vehicleGrid6Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");	
+        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
         vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
 
         const statusToId = {
@@ -172,7 +167,7 @@ function vehicleGrid6Component(restParts, content) {
           OBSERVATION: "#VehicleGrid6-OBSERVATION",
           FAILED: "#VehicleGrid6-FAILED",
         };
-        
+
         const iconId = statusToId[selectedRating?.icon];
         vehicleItem.find(iconId).removeClass("hidden");
       });
@@ -247,9 +242,9 @@ async function Layout2Builder(data) {
       content = vehicleGrid6Component(allParts.slice(4), content);
     }
 
-    const groupDescriptionIndex = data.groups.findIndex(group => group.groupType === "OBSERVATION")
+    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     if (groupDescriptionIndex !== -1) {
-      content = observationGridComponent(data.groups[groupDescriptionIndex], content)
+      content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     }
 
     content = notesGridComponent(data.notes, content);
