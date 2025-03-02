@@ -3,7 +3,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 
-const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("../../helpers");
+const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
 
@@ -49,8 +49,6 @@ async function Layout1Builder(data) {
     // if (groupDescriptionIndex !== -1) {
     //   content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     // }
-
-    content = notesGridComponent(data.notes, content);
 
     fs.writeFileSync(tempFilePath, content, "utf8");
 

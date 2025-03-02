@@ -1,62 +1,153 @@
-/* eslint-disable react/prop-types */
 import { Check, X } from "lucide-react";
 
-function StatusItem({ title, status }) {
-  const isPositive = status === "não possui";
-
-  return (
-    <div className="rounded-lg overflow-hidden">
-      <div className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">
-        {title}
-      </div>
-      <div
-        className={`px-3 py-1 flex items-center gap-2 text-sm ${
-          isPositive ? "bg-green-100" : "bg-red-100"
-        }`}
-      >
-        {isPositive ? (
-          <div className="bg-green-500 rounded-full p-0.5">
-            <Check className="w-4 h-4 text-white" />
-          </div>
-        ) : (
-          <div className="bg-red-500 rounded-full p-0.5">
-            <X className="w-4 h-4 text-white" />
-          </div>
-        )}
-        <span className={isPositive ? "text-green-700" : "text-red-700"}>
-          {status.charAt(0).toUpperCase() + status.slice(1)}
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export function VehicleStatusGrid() {
-  const statuses = [
-    { title: "Roubo / Furto", status: "não possui" },
-    { title: "Débitos / Multas", status: "possui" },
-    { title: "Restrições", status: "não possui" },
-    { title: "Indício de Sinistro", status: "não possui" },
-    { title: "Sinistro", status: "não possui" },
-    { title: "Leilão", status: "possui" },
-    { title: "Recall", status: "não possui" },
-    { title: "Venda direta", status: "não possui" },
-    { title: "Remarketing", status: "não possui" },
-  ];
-
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-[#9D9D9D]">
-      <div className="bg-gray-400 text-white px-4 py-2 font-medium">
-        Relatório do Veículo
-      </div>
-      <div className="grid grid-cols-3 gap-4 p-4">
-        {statuses.map((item) => (
-          <StatusItem
-            key={item.title}
-            title={item.title}
-            status={item.status}
-          />
-        ))}
+      <div className="bg-gray-400 text-white px-4 py-2 font-medium">Relatório do Veículo</div>
+      <div className="grid grid-cols-3 gap-4 px-4 py-1">
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Roubo / Furto</h3>
+
+          <div id="VSG-wrapper-roubofurto" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Débitos / Multas</h3>
+
+          <div id="VSG-wrapper-debitosmultas" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Restrições</h3>
+
+          <div id="VSG-wrapper-restricoes" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Indício de Sinistro</h3>
+
+          <div id="VSG-wrapper-indiciosinistro" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Sinistro</h3>
+
+          <div id="VSG-wrapper-sinistro" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Leilão</h3>
+
+          <div id="VSG-wrapper-leilao" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Recall</h3>
+
+          <div id="VSG-wrapper-recall" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Venda direta</h3>
+
+          <div id="VSG-wrapper-vendadireta" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
+
+        <div className="rounded-lg overflow-hidden">
+          <h3 className="bg-gray-400 text-white px-3 py-1 text-sm font-medium">Remarketing</h3>
+
+          <div id="VSG-wrapper-remarketing" className="px-3 py-1 flex items-center gap-2 text-sm">
+            <div className="bg-green-500 rounded-full p-0.5 hidden">
+              <Check className="w-4 h-4 text-white" />
+            </div>
+
+            <div className="bg-red-500 rounded-full p-0.5 hidden">
+              <X className="w-4 h-4 text-white" />
+            </div>
+
+            <span />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 {
   "id": 211,
-  "layout": "LAYOUT_2",
+  "layout": "LAYOUT_3",
   "notes": "Adicionar o texto padrão",
   "inspectionVehicleData": {
     "id": 211,
@@ -62,7 +62,19 @@
     },
     "startDate": "2025-01-18 01:00:36"
   },
-  "client": null,
+  "client": {
+    "address": {
+      "street": "Alameda Quarenta e Sete Quintino",
+      "city": "Benevides",
+      "state": "PA",
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "zipCode": "68795000",
+      "latitude": -30.1188,
+      "longitude": -51.168
+    }
+  },
   "expert": {
     "id": 3,
     "firstName": "Emerson",

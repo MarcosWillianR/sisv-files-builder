@@ -3,23 +3,21 @@ const fss = require("fs");
 const puppeteer = require("puppeteer");
 const path = require("path");
 
+const { normalizeCepNumber, normalizeCnpjNumber, normalizeCpfNumber, normalizePhoneNumber } = require("./masks");
+
 async function getHeaderScreenshot(data, layout) {
   const headerBuilder = await getHeaderBuilder(layout);
   await headerBuilder.build(data);
 
-  const browser = await puppeteer.launch({ headless: "new" });
-  try {
-    const headerPage = await browser.newPage();
-    await headerPage.setContent(headerBuilder.getContent());
-    await headerPage.waitForSelector(".header");
+  const getHeaderScreenshot_browser = await puppeteer.launch({ headless: "new" });
+  const headerPage = await getHeaderScreenshot_browser.newPage();
+  await headerPage.setContent(headerBuilder.getContent());
+  await headerPage.waitForSelector(".header");
 
-    const headerElement = await headerPage.$(".header");
-    if (!headerElement) throw new Error("Elemento .header não encontrado");
+  const headerElement = await headerPage.$(".header");
+  if (!headerElement) throw new Error("Elemento .header não encontrado");
 
-    return headerElement.screenshot({ encoding: "base64" });
-  } finally {
-    await browser.close();
-  }
+  return headerElement.screenshot({ encoding: "base64" });
 }
 
 async function getHeaderBuilder(layout) {
@@ -90,13 +88,34 @@ function customColorsStyleTag(data) {
 
   return `
     .primary-bg-color {
-      background-color: ${primaryColor}
+      background-color: ${primaryColor};
     }
     .secondary-bg-color {
-      background-color: ${secondColor}
+      background-color: ${secondColor};
     }
     .approval-status-bg-color {
-      background-color: ${color}
+      background-color: ${color};
+    }
+    .primary-border-color {
+      border-color: ${primaryColor};
+    }
+    .t-bg-green100 {
+      background-color: #dcfce7;
+    }
+    .t-text-green700 {
+      color: #008236;
+    }
+    .t-bg-red100 {
+      background-color: #ffe2e2;
+    }
+    .t-text-red700 {
+      color: #c10007;
+    }
+    .t-text-red600 {
+      color: #e7000b;
+    }
+    .t-text-blue600 {
+     color: #155dfc
     }
   `;
 }
@@ -140,6 +159,20 @@ function createTempDir() {
   return TEMP_DIR;
 }
 
+function getFormattedField(type, value) {
+  const availableTypes = {
+    CEP: normalizeCepNumber(value),
+    CNPJ: normalizeCnpjNumber(value),
+    CPF: normalizeCpfNumber(value),
+    PHONE: normalizePhoneNumber(value),
+  };
+  return availableTypes[type] || value;
+}
+
+function formatValue(value) {
+  return new Intl.NumberFormat("pt-BR", { currency: "BRL", style: "currency" }).format(value);
+}
+
 module.exports = {
   deleteFile,
   saveJsonToFile,
@@ -151,4 +184,6 @@ module.exports = {
   getNestedValue,
   setGroupOrder,
   createTempDir,
+  getFormattedField,
+  formatValue,
 };

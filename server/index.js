@@ -29,8 +29,8 @@ app.post("/pdf", async (req, res) => {
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
     await page.addStyleTag({ content: customColorsStyleTag(req.body) });
-
     const pdfBuffer = await page.pdf(pdfBufferOptions);
+
     await browser.close();
     await deleteFile(filePath);
 

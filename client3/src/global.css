@@ -15,8 +15,7 @@
   }
 
   @page:first {
-    margin-top: 0;
-    padding-top: 25px;
+    margin-top: 0px;
   }
 
   html,
