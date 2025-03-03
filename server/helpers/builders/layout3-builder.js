@@ -299,6 +299,7 @@ function vehicleGrid6Component(restParts, location, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleGrid6").each((_, element) => {
+    $(element).removeClass("hidden");
     const item = $(element).find("#VehicleChunk");
 
     for (let i = 1; i < chunks.length; i++) {
@@ -340,6 +341,71 @@ function vehicleGrid6Component(restParts, location, content) {
         vehicleItem.find(iconId).removeClass("hidden");
       });
     });
+  });
+
+  return $.html();
+}
+
+function vehicleGrid15Component(restParts, location, content) {
+  const ITEMS_PER_PAGE = 15;
+  const chunks = createChunks(restParts, ITEMS_PER_PAGE);
+
+  const $ = cheerio.load(content);
+
+  $("#VehicleGrid15").each((_, element) => {
+    $(element).removeClass("hidden");
+    const item = $(element).find("#VehicleChunk");
+
+    for (let i = 1; i < chunks.length; i++) {
+      const newItem = item.clone();
+      item.after(newItem);
+    }
+
+    const items = $(element).find("#VehicleChunk");
+
+    items.each((index, itemItems) => {
+      if (index === 0) {
+        $(item).find("#VehicleGrid15Title").removeClass("hidden");
+      }
+
+      const vehicleChunkItem = $(itemItems).find("#VehicleChunkItem");
+
+      for (let i = 1; i < chunks[index].length; i++) {
+        const newItem = vehicleChunkItem.clone();
+        vehicleChunkItem.after(newItem);
+      }
+
+      chunks[index].forEach((part, partIndex) => {
+        const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
+        const selectedRating = part.ratings.find((rating) => rating.isSelected);
+
+        vehicleItem.find("img").attr("src", part?.s3File?.url);
+        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("p").text(location);
+
+        const statusToId = {
+          SUCCESS: "#VehicleGrid15-SUCCESS",
+          RESTRICTION: "#VehicleGrid15-RESTRICTION",
+          OBSERVATION: "#VehicleGrid15-OBSERVATION",
+          FAILED: "#VehicleGrid15-FAILED",
+        };
+
+        const iconId = statusToId[selectedRating?.icon];
+        vehicleItem.find(iconId).removeClass("hidden");
+      });
+    });
+  });
+
+  return $.html();
+}
+
+function notesGridComponent(notes, content) {
+  const $ = cheerio.load(content);
+
+  $("#NotesGrid").each((_, element) => {
+    const description = $(element).find("p");
+    description.text(notes);
   });
 
   return $.html();
@@ -409,13 +475,10 @@ async function Layout3Builder(data) {
       content = vehicleGrid6Component(allParts.slice(0, 6), location, content);
 
       // Resto das fotos
-      // content = vehicleGrid15Component(allParts.slice(4), content);
+      content = vehicleGrid15Component(allParts.slice(6), location, content);
     }
 
-    // const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
-    // if (groupDescriptionIndex !== -1) {
-    //   content = observationGridComponent(data.groups[groupDescriptionIndex], content);
-    // }
+    content = notesGridComponent(data.notes, content);
 
     fs.writeFileSync(tempFilePath, content, "utf8");
 
