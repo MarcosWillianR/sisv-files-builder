@@ -24,7 +24,8 @@ app.post("/pdf", async (req, res) => {
 
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox']});
+
     const page = await browser.newPage();
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
