@@ -6,15 +6,15 @@ export function Location() {
         <div className="space-y-1">
           <div className="flex gap-2">
             <p className="text-gray-800 text-sm">
-              {`{client.address.city}`}, {`{client.address.state}`}, Brasil
+              {`{address.city}`}, {`{address.state}`}, Brasil
             </p>
             <p className="text-gray-800 text-sm">
-              Latitude: {`{client.address.latitude}`}, Longitude: {`{client.address.longitude}`}
+              Latitude: {`{address.latitude}`}, Longitude: {`{address.longitude}`}
             </p>
           </div>
           <p className="text-xs text-gray-500 mt-1">
-            O endereço exibido é determinado com base nos parâmetros de Latitude e Longitude registrados pelo usuário
-            durante a inspeção, podendo apresentar pequenas variações em alguns casos.
+            O endereço exibido é determinado com base nos parâmetros de Latitude e Longitude registrados pelo usuário durante
+            a inspeção, podendo apresentar pequenas variações em alguns casos.
           </p>
         </div>
       </div>
