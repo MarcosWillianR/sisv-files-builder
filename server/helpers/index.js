@@ -9,7 +9,7 @@ async function getHeaderScreenshot(data, layout) {
   const headerBuilder = await getHeaderBuilder(layout);
   await headerBuilder.build(data);
 
-  const getHeaderScreenshot_browser = await puppeteer.launch({ headless: "new" });
+  const getHeaderScreenshot_browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const headerPage = await getHeaderScreenshot_browser.newPage();
   await headerPage.setContent(headerBuilder.getContent());
   await headerPage.waitForSelector(".header");
