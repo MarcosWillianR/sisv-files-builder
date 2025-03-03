@@ -5,7 +5,7 @@ const { processTimesheet } = require("../excel-builder/src");
 
 const { buildPDF } = require("./buildPDF");
 
-const PORT = 3000;
+const PORT = 4715;
 const app = express();
 
 app.use(express.json());
@@ -20,11 +20,12 @@ app.use((req, res, next) => {
 
 app.post("/pdf", async (req, res) => {
   try {
-    // await saveJsonToFile(req.body, __dirname);
+    await saveJsonToFile(req.body, __dirname);
 
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
-    const browser = await puppeteer.launch({ headless: "new" });
+    const browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox']});
+
     const page = await browser.newPage();
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
