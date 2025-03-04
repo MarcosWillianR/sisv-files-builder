@@ -14,7 +14,7 @@ class HeaderBuilder {
       :root {
           --primary-color: ${customizationConfig.primaryColor};
           --secondary-color: ${customizationConfig.secondColor};
-          --text-color: #333;
+          --text-color: #000;
           --icon-size: 14px;
       }
 
@@ -51,7 +51,7 @@ class HeaderBuilder {
       }
 
       .logo {
-          max-height: 40px;
+          max-height: 65px;
           width: auto;
       }
 
@@ -80,14 +80,15 @@ class HeaderBuilder {
       }
 
       .info-id {
-          font-weight: 600;
+        font-weight: 600;
       }
 
       .info-date, .info-time {
-          color: #666;
+          color: #000;
           display: flex;
           align-items: center;
           gap: 0.25rem;
+          font-weight: 600;
       }
 
       .icon {
