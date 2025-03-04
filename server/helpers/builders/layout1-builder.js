@@ -28,14 +28,14 @@ function formattedCNPJ(value) {
 }
 
 function formattedClientName(client) {
-  if (!client || client.clientType === 'AVULSO') return "";
+  if (!client || client.clientType === 'AVULSO') return "PARTICULAR";
   if (client.clientType === 'INDIVIDUAL') {
     return `${client.firstName} ${client.lastName}`;
   }
   if (client.clientType === 'COMPANY') {
     return `${client.company.name}`
   }
-  return "";
+  return "PARTICULAR";
 }
 
 function formattedClientPhone(client) {
