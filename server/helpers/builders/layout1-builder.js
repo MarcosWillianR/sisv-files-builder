@@ -62,12 +62,14 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
 
     let key;
 
-    if (label.includes("Placa")) key = "licensePlate";
-    if (label.includes("Gravação do chassi")) key = "chassis";
-    if (label.includes("Gravação do motor")) key = "engineNumber";
-    if (label.includes("Gravação do câmbio")) key = "NCambio";
-    if (label.includes("Cor")) key = "color";
-    if (label.includes("Combustível")) key = "fuelType";
+    if (label.includes("PLACA")) key = "licensePlate";
+    if (label.includes("MARCA/MODELO")) key = "brandModel";
+    if (label.includes("COR")) key = "color";
+    if (label.includes("COMBUSTÍVEL")) key = "fuelType";
+    if (label.includes("ANO")) key = "yearManufactureModel";
+    if (label.includes("GRAV. DO CHASSI")) key = "chassis";
+    if (label.includes("GRAV. DO MOTOR")) key = "engineNumber";
+    if (label.includes("KM")) key = "km";
 
     if (key) {
       const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
