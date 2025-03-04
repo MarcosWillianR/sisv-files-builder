@@ -15,11 +15,9 @@ export function VehicleStatusGrid() {
         </div>
 
         <div className="pt-[5px]">
-          <div className="flex justify-end w-full px-12">
-            <div className="inline-flex items-center w-[230px] h-[30px] approval-status-bg-color text-white rounded-[100px]">
-              <div className="flex justify-between items-center w-full px-0.4">
-                <span className="flex-grow text-sm font-bold text-center">{`{approvalStatus.name}`}</span>
-              </div>
+          <div className="flex justify-end w-full px-4">
+            <div className="flex justify-center items-center min-w-[260px] h-[30px] approval-status-bg-color text-white rounded-[100px]">
+              <span className="text-sm font-bold">{`{approvalStatus.name}`}</span>
             </div>
           </div>
 

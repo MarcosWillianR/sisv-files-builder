@@ -7,9 +7,8 @@ class HeaderBuilder {
     this.content = "";
   }
 
-  buildCss(customizationConfig) {
+  buildCss(customizationConfig, approvalStatus) {
     return `
-      <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,460;1,460&display=swap');
 
         :root {
@@ -34,12 +33,12 @@ class HeaderBuilder {
 
         .header {
           -webkit-print-color-adjust: exact;
-          height: 80px;
+          height: 100px;
           position: absolute;
           top: 0px; 
           left: 0px; 
           right: 0px;
-          padding: 8px 24px;
+          padding: 4px 24px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           align-items: center;
@@ -84,6 +83,16 @@ class HeaderBuilder {
             font-weight: 600;
         }
 
+        .approvalstatus {
+          background-color: ${approvalStatus.color};
+          min-width: 274px;
+          text-align: center;
+          color: #ffffff;
+          padding: 4px 12px;
+          font-size: 14px;
+          border-radius: 999px;
+        }
+
         .info-date, .info-time {
             color: #666;
             display: flex;
@@ -95,12 +104,11 @@ class HeaderBuilder {
             width: var(--icon-size);
             height: var(--icon-size);
         }
-      </style>
     `;
   }
 
   async buildHeader(data) {
-    const { id, completeDate, file_token, customizationConfig } = data;
+    const { id, completeDate, file_token, customizationConfig, approvalStatus } = data;
     const logoUrl = customizationConfig?.s3File?.url ?? null;
     const pdfLink = `https://sisv.cardados.com/inspection-link-view/${file_token}`;
     const qrCodeUrl = await QRCode.toDataURL(pdfLink);
@@ -118,7 +126,7 @@ class HeaderBuilder {
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Laudo Veículo</title>
               <style>
-                ${this.buildCss(customizationConfig)}
+                ${this.buildCss(customizationConfig, approvalStatus)}
               </style>
           </head>
           <body>
@@ -154,6 +162,9 @@ class HeaderBuilder {
                     </svg>
                     ${formattedHour}
                   </span>
+                </div>
+                <div class="approvalstatus">
+                  ${approvalStatus.name}
                 </div>
               </div>
             </header>

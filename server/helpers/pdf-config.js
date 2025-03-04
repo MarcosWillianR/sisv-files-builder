@@ -19,20 +19,7 @@ async function getPdfConfigsByLayout(data) {
     LAYOUT_1: {
       ...defaultConfigs,
       headerTemplate: `<div><img src="data:image/png;base64,${await getHeaderScreenshot(data, "LAYOUT_1")}" /></div>`,
-      // footerTemplate: `
-      //     <style>
-      //       .footer {
-      //         -webkit-print-color-adjust: exact;
-      //         height: 25px;
-      //         background-color: ${data.customizationConfig.primaryColor};
-      //         position: absolute;
-      //         bottom: 0px;
-      //         left: 0px;
-      //         right: 0px;
-      //       }
-      //     </style>
-      //     <div class='footer'></div>
-      //   `,
+      footerTemplate: '<div />'
     },
     LAYOUT_2: {
       ...defaultConfigs,
