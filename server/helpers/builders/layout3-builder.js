@@ -475,7 +475,9 @@ async function Layout3Builder(data) {
       content = vehicleGrid6Component(allParts.slice(0, 6), location, content);
 
       // Resto das fotos
-      content = vehicleGrid15Component(allParts.slice(6), location, content);
+      if (allParts.length > 6) {
+        content = vehicleGrid15Component(allParts.slice(6), location, content);
+      }
     }
 
     content = notesGridComponent(data.notes, content);
