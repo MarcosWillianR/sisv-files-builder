@@ -80,7 +80,7 @@ class HeaderBuilder {
         }
 
         .info-id {
-            font-weight: 600;
+          font-weight: 600;
         }
 
         .approvalstatus {
@@ -95,11 +95,13 @@ class HeaderBuilder {
 
         .info-date, .info-time {
             display: flex;
+            font-weight: 600;
             align-items: center;
             gap: 0.25rem;
         }
 
         .icon {
+            font-weight: 600;
             width: var(--icon-size);
             height: var(--icon-size);
         }
