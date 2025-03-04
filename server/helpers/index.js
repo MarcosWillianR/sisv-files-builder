@@ -20,9 +20,10 @@ async function getHeaderScreenshot(data, layout) {
   if (!headerElement) throw new Error("Elemento .header não encontrado");
 
   return headerElement.screenshot({ 
-    type: 'png',
+    type: 'jpeg',
     omitBackground: true,
-    encoding: 'base64'
+    encoding: 'base64',
+    quality: 100,
   });
 }
 
