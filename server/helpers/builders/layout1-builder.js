@@ -58,7 +58,7 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
 
   $(".grid.grid-cols-4").each((_, element) => {
     const label = $(element).find("div:first-child").text().trim();
-    const cells = $(element).find("div.py-1.px-4.text-sm").slice(-3);
+    const cells = $(element).find("div.py-1.px-4.text-sm").slice(-2);
 
     let key;
 
@@ -73,8 +73,8 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
       const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
       const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
 
-      $(cells[1]).text(formattedFactoryData);
-      $(cells[2]).text(formattedVehicleData);
+      $(cells[0]).text(formattedFactoryData);
+      $(cells[1]).text(formattedVehicleData);
 
       if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase()) {
         $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");

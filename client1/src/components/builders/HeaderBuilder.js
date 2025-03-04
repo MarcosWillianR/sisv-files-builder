@@ -51,7 +51,7 @@ class HeaderBuilder {
         }
 
         .logo {
-            max-height: 40px;
+            max-height: 80px;
             width: auto;
         }
 
