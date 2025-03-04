@@ -5,21 +5,12 @@ const cheerio = require("cheerio");
 const QRCode = require("qrcode");
 const { format } = require("date-fns");
 
-const {
-  getClientName,
-  createChunks,
-  getNestedValue,
-  setGroupOrder,
-  createTempDir,
-  getFormattedField,
-  formatValue,
-} = require("..");
+const { getClientName, createChunks, getNestedValue, createTempDir, getFormattedField } = require("..");
 
 const TEMP_DIR = createTempDir();
 
-async function generateQRCode(file_token) {
-  const pdfLink = `https://sisv.cardados.com/inspection-link-view/${file_token}`;
-  const qrCodeUrl = await QRCode.toDataURL(pdfLink);
+async function generateQRCode(pdfViewToken) {
+  const qrCodeUrl = await QRCode.toDataURL(pdfViewToken);
   return qrCodeUrl;
 }
 
