@@ -13,6 +13,7 @@ async function getHeaderScreenshot(data, layout) {
 
   const headerPage = await getHeaderScreenshot_browser.newPage();
   
+  await headerPage.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 2 });
   await headerPage.setContent(headerBuilder.getContent());
   await headerPage.waitForSelector(".header");
 
@@ -20,7 +21,6 @@ async function getHeaderScreenshot(data, layout) {
   if (!headerElement) throw new Error("Elemento .header não encontrado");
 
   return headerElement.screenshot({ 
-    fullPage: true,
     type: 'png',
     omitBackground: true,
     encoding: 'base64'
