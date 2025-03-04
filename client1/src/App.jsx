@@ -17,7 +17,7 @@ function App() {
         <IconDescription />
       </div>
 
-      <div className="break-inside-avoid-page">
+      <div id="VehicleDataComparison" className="break-inside-avoid-page hidden">
         <VehicleDataComparison />
       </div>
 

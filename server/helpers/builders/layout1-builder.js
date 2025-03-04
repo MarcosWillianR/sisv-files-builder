@@ -56,7 +56,7 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
     $(element).removeClass("hidden");
   });
 
-  $(".grid.grid-cols-4").each((_, element) => {
+  $(".grid.grid-cols-3").each((_, element) => {
     const label = $(element).find("div:first-child").text().trim();
     const cells = $(element).find("div.py-1.px-4.text-sm").slice(-2);
 
@@ -301,8 +301,8 @@ async function Layout1Builder(data) {
 
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
-      const factoryData = { ...data.inspectionVehicleData.data, NCambio: "" };
-      const vehicleData = { ...data.groups[vehicleDataIndex].data, NCambio: "" };
+      const factoryData = data.inspectionVehicleData.data;
+      const vehicleData = data.groups[vehicleDataIndex].data;
       content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
     }
 
