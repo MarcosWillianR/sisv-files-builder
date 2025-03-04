@@ -1,4 +1,4 @@
-import { Building2, Smartphone, User } from "lucide-react";
+import { Smartphone, User } from "lucide-react";
 import { PiHouse } from "react-icons/pi";
 
 export function VehicleStatusGrid() {
@@ -31,7 +31,7 @@ export function VehicleStatusGrid() {
           <div className="space-y-4">
             <div className="flex flex-col">
               <div className="flex items-center">
-                <Building2 size={20} className="text-gray-600" />
+                <User size={20} className="text-gray-600" />
                 <span className="ml-2 font-semibold">Cliente:</span>
               </div>
               <span className="ml-7">{`{formattedClientName}`}</span>

@@ -3,9 +3,20 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 
-const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
+const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
+
+function formattedClientName(client) {
+  if (!client || client.clientType === 'AVULSO') return "PARTICULAR";
+  if (client.clientType === 'INDIVIDUAL') {
+    return `${client.firstName} ${client.lastName}`;
+  }
+  if (client.clientType === 'COMPANY') {
+    return `${client.company.name}`
+  }
+  return "PARTICULAR";
+}
 
 function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
   const $ = cheerio.load(content);
@@ -212,7 +223,7 @@ async function Layout2Builder(data) {
     let content = fs.readFileSync(path.join(__dirname, "../../../client2/dist/index.html"), "utf8");
 
     content = content.replace(/{([\w.]+)}/g, (match, path) => {
-      if (path === "clientName") return getClientName(data.client);
+      if (path === "formattedClientName") return formattedClientName(data.client);
       return getNestedValue(data, path) || "";
     });
 
