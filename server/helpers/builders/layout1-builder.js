@@ -28,6 +28,7 @@ function formattedCNPJ(value) {
 }
 
 function formattedClientName(client) {
+  console.log(client)
   if (!client || client.clientType === 'AVULSO') return "PARTICULAR";
   if (client.clientType === 'INDIVIDUAL') {
     return `${client.firstName} ${client.lastName}`;
