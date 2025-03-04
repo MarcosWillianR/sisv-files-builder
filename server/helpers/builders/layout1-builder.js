@@ -75,12 +75,9 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
       const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
 
       $(cells[1]).text(formattedFactoryData);
-      $(cells[2]).text(formattedSenatramData);
+      $(cells[2]).text(formattedVehicleData);
 
-      if (
-        formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() ||
-        formattedVehicleData.toLowerCase() !== formattedSenatramData.toLowerCase()
-      ) {
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase()) {
         $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
       } else {
         $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
