@@ -1,6 +1,6 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
-const path = require("path");
+// const path = require("path");
 const { deleteFile, customColorsStyleTag, saveJsonToFile } = require("./helpers");
 const { processTimesheet } = require("../excel-builder/src");
 
@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 
 app.post("/pdf", async (req, res) => {
   try {
-    const jsonPath = path.join(__dirname, 'data.json');
-    await saveJsonToFile(req.body, jsonPath);
+    // const jsonPath = path.join(__dirname, 'data.json');
+    // await saveJsonToFile(req.body, jsonPath);
 
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
