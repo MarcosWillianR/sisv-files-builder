@@ -8,12 +8,12 @@ const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("
 const TEMP_DIR = createTempDir();
 
 function formattedClientName(client) {
-  if (!client || client.clientType === 'AVULSO') return "PARTICULAR";
-  if (client.clientType === 'INDIVIDUAL') {
+  if (!client || client.clientType === "AVULSO") return "PARTICULAR";
+  if (client.clientType === "INDIVIDUAL") {
     return `${client.user.firstName} ${client.user.lastName}`;
   }
-  if (client.clientType === 'COMPANY') {
-    return `${client.company.name}`
+  if (client.clientType === "COMPANY") {
+    return `${client.company.name}`;
   }
   return "PARTICULAR";
 }
@@ -250,7 +250,10 @@ async function Layout2Builder(data) {
       content = ratingsComponent(allParts, content);
 
       // Resto das fotos
-      content = vehicleGrid6Component(allParts.slice(4), content);
+      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
+      if (onlyPartsWithRatings.length > 4) {
+        content = vehicleGrid6Component(allParts.slice(4), content);
+      }
     }
 
     const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");

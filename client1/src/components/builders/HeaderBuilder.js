@@ -109,9 +109,9 @@ class HeaderBuilder {
   }
 
   async buildHeader(data) {
-    const { id, completeDate, file_token, customizationConfig, approvalStatus } = data;
+    const { id, completeDate, pdfViewToken, customizationConfig, approvalStatus } = data;
     const logoUrl = customizationConfig?.s3File?.url ?? null;
-    const pdfLink = `https://sisv.cardados.com/inspection-link-view/${file_token}`;
+    const pdfLink = `https://sisv.cardados.com/inspection-link-view/${pdfViewToken}`;
     const qrCodeUrl = await QRCode.toDataURL(pdfLink);
     const timePart = completeDate.split(" ")[1];
     const [hours, minutes] = timePart.split(":");

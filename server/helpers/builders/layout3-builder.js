@@ -51,7 +51,7 @@ async function replaceAsync(content, data) {
           replacement = getFormattedField("CNPJ", data.unit.cnpj);
           break;
         case "QRCode":
-          replacement = await generateQRCode(data.file_token);
+          replacement = await generateQRCode(data.pdfViewToken);
           break;
         case "formattedDate":
           replacement = formattedDate(data.completeDate);
@@ -81,44 +81,24 @@ async function replaceAsync(content, data) {
 }
 
 function vehicleStatusGridComponent(data, content) {
-  const {
-    HISTORICOROUBOFURTO,
-    BASEESTADUAL,
-    SINISTROINDENIZACAO,
-    INDICIOSINISTRO2,
-    LEILAO1,
-    LEILAO2,
-    RECALL,
-    DENATRANROBO,
-    BASENACIONAL,
-  } = data;
+  const { HISTORICOROUBOFURTO, RECALL, QUADRORESUMO } = data;
 
-  const hasDebits = (obj) => Object.values(obj).some((value) => value.trim() !== "" && value !== "0,00");
-  const hasRestrictions = (obj) => Object.values(obj).some((value) => value !== "NADA CONSTA" && value !== "NÃO INFORMADO");
   const hasAuction = () => {
-    const hasAuction1 = LEILAO1.filter((l) => l.Consta !== "0").length > 0;
-    const hasAuction2 = LEILAO2.Consta !== "0";
-    return hasAuction1 || hasAuction2;
+    const hasAuction1 = QUADRORESUMO?.Leilao1 === "SIM";
+    const hasAuction2 = QUADRORESUMO?.Leilao2 === "SIM";
+    const hasAuction3 = QUADRORESUMO?.Leilao3 === "SIM";
+    return hasAuction1 || hasAuction2 || hasAuction3;
   };
 
-  // { title: "Roubo / Furto", status: "não possui" },
-  const roubofurtoValue = HISTORICOROUBOFURTO.Consta === "0" ? "Não possui" : "Possui";
-  // { title: "Débitos / Multas", status: "possui" },
-  const debitosMultas = hasDebits(BASEESTADUAL.DebitosBaseEstadual) ? "Possui" : "Não possui";
-  // { title: "Restrições", status: "não possui" },
-  const restricoes = hasRestrictions(BASEESTADUAL.RestricoesBaseEstadual) ? "Possui" : "Não possui";
-  // { title: "Indício de Sinistro", status: "não possui" },
-  const indicioSinistro = INDICIOSINISTRO2.Consta === "Sim" ? "Possui" : "Não possui";
-  // { title: "Sinistro", status: "não possui" },
-  const sinistro = SINISTROINDENIZACAO.Mensagem.includes("NÃO EXISTE OCORRÊNCIA") ? "Não possui" : "Possui";
-  // { title: "Leilão", status: "possui" },
+  const roubofurtoValue = HISTORICOROUBOFURTO?.Consta === "0" ? "Não possui" : "Possui";
+  const debitosMultas = QUADRORESUMO?.TotalDeDebitos === "SIM" ? "Possui" : "Não possui";
+  const restricoes = QUADRORESUMO?.Restricoes === "SIM" ? "Possui" : "Não possui";
+  const indicioSinistro = QUADRORESUMO?.IndicioDeSinistro1 === "SIM" ? "Possui" : "Não possui";
+  const sinistro = QUADRORESUMO?.Sinistro === "SIM" ? "Possui" : "Não possui";
   const leilao = hasAuction() ? "Possui" : "Não possui";
-  // { title: "Recall", status: "não possui" },
-  const recall = RECALL.Recall === "Não" ? "Não possui" : "Possui";
-  // { title: "Venda direta", status: "não possui" },
-  const vendadireta = DENATRANROBO.Resumo.ComunicadoDeVendaAtivo === "Não" ? "Não possui" : "Possui";
-  // { title: "Remarketing", status: "não possui" },
-  const remarketing = BASENACIONAL.ChassiRemarcado === "Não" ? "Não possui" : "Possui";
+  const recall = RECALL?.Recall?.includes("Não") ? "Não possui" : "Possui";
+  const vendadireta = QUADRORESUMO?.VendaDireta === "SIM" ? "Possui" : "Não possui";
+  const remarketing = QUADRORESUMO?.Remarketing === "SIM" ? "Possui" : "Não possui";
 
   const $ = cheerio.load(content);
 
@@ -200,11 +180,16 @@ function vehicleStatusGridComponent(data, content) {
 }
 
 function debtsSummaryComponent(data, content) {
-  const { Ipva, Licenciamento, Dpvat, Multas } = data;
-  const totalValue = [Ipva, Licenciamento, Dpvat, Multas]
-    .filter((v) => v !== " " && v !== "0,00")
-    .map((v) => parseFloat(v.replace(",", ".")))
-    .reduce((acc, num) => acc + num, 0);
+  const { IPVA, Licenciamento, Multas, DPVAT, TotalDeDividas } = data;
+
+  // function somarDebitos(obj) {
+  //   return Object.values(obj)
+  //     .filter((valor) => valor !== "R$ 0,00" && valor !== "-")
+  //     .map((valor) => Number(valor.replace("R$", "").replace(",", ".")))
+  //     .reduce((total, num) => total + num, 0);
+  // }
+
+  // const totalValue = somarDebitos({ IPVA, Licenciamento, DPVAT, Multas })
 
   const $ = cheerio.load(content);
 
@@ -218,11 +203,11 @@ function debtsSummaryComponent(data, content) {
 
     let key;
 
-    if (label === "IPVA") key = `R$ ${Ipva}`;
-    if (label === "Licenciamento") key = `R$ ${Licenciamento}`;
-    if (label === "DPVAT") key = `R$ ${Dpvat}`;
-    if (label === "Multas") key = `R$ ${Multas}`;
-    if (label === "Total de dívidas") key = formatValue(totalValue);
+    if (label === "IPVA") key = IPVA;
+    if (label === "Licenciamento") key = Licenciamento;
+    if (label === "DPVAT") key = DPVAT;
+    if (label === "Multas") key = Multas;
+    if (label === "Total de dívidas") key = TotalDeDividas; //formatValue(totalValue);
 
     if (key) {
       if (key === "R$ 0,00") {
@@ -431,9 +416,9 @@ async function Layout3Builder(data) {
 
       content = vehicleStatusGridComponent(apiDataParsed, content);
 
-      const hasDebits = (obj) => Object.values(obj).some((value) => value.trim() !== "" && value !== "0,00");
-      if (hasDebits(apiDataParsed.BASEESTADUAL.DebitosBaseEstadual)) {
-        content = debtsSummaryComponent(apiDataParsed.BASEESTADUAL.DebitosBaseEstadual, content);
+      const hasDebits = (obj) => Object.values(obj).some((valor) => valor !== "R$ 0,00" && valor !== "-");
+      if (hasDebits(apiDataParsed.QUADRODEBITOS)) {
+        content = debtsSummaryComponent(apiDataParsed.QUADRODEBITOS, content);
       }
     }
 
@@ -475,7 +460,8 @@ async function Layout3Builder(data) {
       content = vehicleGrid6Component(allParts.slice(0, 6), location, content);
 
       // Resto das fotos
-      if (allParts.length > 6) {
+      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
+      if (onlyPartsWithRatings.length > 6) {
         content = vehicleGrid15Component(allParts.slice(6), location, content);
       }
     }
