@@ -14,7 +14,7 @@ class HeaderBuilder {
         :root {
           --primary-color: ${customizationConfig.primaryColor};
           --secondary-color: ${customizationConfig.secondColor};
-          --text-color: #333;
+          --text-color: #000;
           --icon-size: 14px;
         }
 
@@ -94,7 +94,6 @@ class HeaderBuilder {
         }
 
         .info-date, .info-time {
-            color: #666;
             display: flex;
             align-items: center;
             gap: 0.25rem;

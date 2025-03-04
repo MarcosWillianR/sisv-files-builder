@@ -50,7 +50,7 @@ function formattedClientPhone(client) {
   return "";
 };
 
-function vehicleDetailComparisonComponent(vehicleData, factoryData, senatramData, content) {
+function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleDataComparison").each((_, element) => {
@@ -73,7 +73,6 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, senatramData
     if (key) {
       const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
       const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
-      const formattedSenatramData = senatramData[key] || "NÃO INFORMADO";
 
       $(cells[1]).text(formattedFactoryData);
       $(cells[2]).text(formattedSenatramData);
@@ -306,20 +305,7 @@ async function Layout1Builder(data) {
     if (vehicleDataIndex !== -1) {
       const factoryData = { ...data.inspectionVehicleData.data, NCambio: "" };
       const vehicleData = { ...data.groups[vehicleDataIndex].data, NCambio: "" };
-      const senatramData = { licensePlate: "", chassis: "", engineNumber: "", NCambio: "", color: "", fuelType: "" };
-
-      const vehicleHistoryIndex = availableGroups.findIndex((group) => group.groupType === "HISTORY");
-      if (vehicleHistoryIndex !== -1) {
-        const { BASENACIONAL } = JSON.parse(data.groups[vehicleHistoryIndex].data.apiData);
-        senatramData.fuelType = BASENACIONAL.Combustivel;
-        senatramData.color = BASENACIONAL.Cor;
-        senatramData.NCambio = BASENACIONAL.NCambio;
-        senatramData.engineNumber = BASENACIONAL.NMotor;
-        senatramData.chassis = BASENACIONAL.chassi;
-        senatramData.licensePlate = BASENACIONAL.placa;
-      }
-
-      content = vehicleDetailComparisonComponent(vehicleData, factoryData, senatramData, content);
+      content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
     }
 
     const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
@@ -340,8 +326,9 @@ async function Layout1Builder(data) {
       content = vehicleGrid2Component(allParts.slice(0, 2), content);
 
       // Resto das fotos
-      if (allParts.length > 2) {
-        content = vehicleGrid12Component(allParts.slice(2), content);
+      const onlyPartsWithRatings = allParts.filter(p => p.ratings.findIndex(r => r.isSelected) !== -1);
+      if (onlyPartsWithRatings.length > 2) {
+        content = vehicleGrid12Component(onlyPartsWithRatings.slice(2), content);
       }
 
       // Classificações
