@@ -21,16 +21,17 @@ async function getHeaderScreenshot(data, layout) {
 }
 
 async function getHeaderBuilder(layout) {
-  const layouts = {
-    LAYOUT_1: "../../client1/src/components/builders/HeaderBuilder.js",
-    LAYOUT_2: "../../client2/src/components/builders/HeaderBuilder.js",
-    LAYOUT_3: "../../client3/src/components/builders/HeaderBuilder.js",
-  };
+  let HeaderBuilder;
+  if (layout === 'LAYOUT_1') {
+    HeaderBuilder = (await import('../../client1/src/components/builders/HeaderBuilder.js')).default;
+  } else if (layout === 'LAYOUT_2') {
+    HeaderBuilder = (await import('../../client2/src/components/builders/HeaderBuilder.js')).default;
+  } else if (layout === 'LAYOUT_3') {
+    HeaderBuilder = (await import('../../client3/src/components/builders/HeaderBuilder.js')).default;
+  } else {
+    throw new Error(`LAYOUT inválido: ${layout}`);
+  }
 
-  const path = layouts[layout];
-  if (!path) throw new Error(`LAYOUT inválido: ${layout}`);
-
-  const { default: HeaderBuilder } = await import(path);
   return new HeaderBuilder();
 }
 
