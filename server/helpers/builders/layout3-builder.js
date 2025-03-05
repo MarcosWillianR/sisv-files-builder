@@ -9,8 +9,8 @@ const { getClientName, createChunks, getNestedValue, createTempDir, getFormatted
 
 const TEMP_DIR = createTempDir();
 
-async function generateQRCode(pdfViewToken) {
-  const qrCodeUrl = await QRCode.toDataURL(pdfViewToken);
+async function generateQRCode(pdfViewUrl) {
+  const qrCodeUrl = await QRCode.toDataURL(pdfViewUrl);
   return qrCodeUrl;
 }
 
@@ -42,7 +42,7 @@ async function replaceAsync(content, data) {
           replacement = getFormattedField("CNPJ", data.unit.cnpj);
           break;
         case "QRCode":
-          replacement = await generateQRCode(data.pdfViewToken);
+          replacement = await generateQRCode(data.pdfViewUrl);
           break;
         case "formattedDate":
           replacement = formattedDate(data.completeDate);
