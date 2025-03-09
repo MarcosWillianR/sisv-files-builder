@@ -393,8 +393,7 @@ async function Layout3Builder(data) {
 
   try {
     let content = fs.readFileSync(path.join(__dirname, "../../../client3/dist/index.html"), "utf8");
-    const { city, state } = data.address;
-    const location = `${city}, ${state}`;
+    const location = `${data.address?.city ?? '-'}, ${data.address?.state ?? '-'}`;
 
     content = await replaceAsync(content, data);
 
