@@ -26,7 +26,7 @@ function App() {
         </div>
 
         <div className="break-inside-avoid-page order-2">
-          <div className="mb-6">
+          <div className="mb-4">
             <IconDescription />
           </div>
 
