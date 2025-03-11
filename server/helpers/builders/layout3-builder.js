@@ -445,14 +445,25 @@ async function Layout3Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 6 fotos
-      content = vehicleGrid6Component(allParts.slice(0, 6), location, content);
-
+      content = vehicleGrid6Component(availableParts.slice(0, 6), location, content);
+      
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 6) {
-        content = vehicleGrid15Component(allParts.slice(6), location, content);
+      if (availableParts.length > 6) {
+        content = vehicleGrid15Component(availableParts.slice(6), location, content);
       }
     }
 

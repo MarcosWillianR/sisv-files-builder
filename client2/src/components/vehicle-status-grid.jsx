@@ -31,7 +31,7 @@ export function VehicleStatusGrid() {
             </div>
             <div className="flex flex-col justify-end">
               <h2 className="text-gray-700 text-base mb-1 font-bold">Cliente:</h2>
-              <p className="text-lg">{`{clientName}`}</p>
+              <p className="text-lg">{`{formattedClientName}`}</p>
             </div>
           </div>
         </div>

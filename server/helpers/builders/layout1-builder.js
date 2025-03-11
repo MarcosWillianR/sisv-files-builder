@@ -212,6 +212,8 @@ function vehicleGrid12Component(restParts, content) {
 }
 
 function ratingsComponent(allParts, content) {
+  const $ = cheerio.load(content);
+
   const ITEMS_PER_PAGE = 28;
 
   const formattedRatingsList = allParts
@@ -220,11 +222,10 @@ function ratingsComponent(allParts, content) {
     })
     .flat();
 
-  if (!formattedRatingsList.length) return;
+  if (!formattedRatingsList.length) return $.html();
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
-  const $ = cheerio.load(content);
 
   $("#RatingGrid").each((_, element) => {
     $(element).removeClass('hidden');
@@ -321,14 +322,25 @@ async function Layout1Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 2 fotos
-      content = vehicleGrid2Component(allParts.slice(0, 2), content);
+      content = vehicleGrid2Component(availableParts.slice(0, 2), content);
 
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter(p => p.ratings.findIndex(r => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 2) {
-        content = vehicleGrid12Component(onlyPartsWithRatings.slice(2), content);
+      if (availableParts.length > 2) {
+        content = vehicleGrid12Component(availableParts.slice(2), content);
       }
 
       // Classificações

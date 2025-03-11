@@ -80,6 +80,8 @@ function vehicleGrid4Component(first4Parts, content) {
 }
 
 function ratingsComponent(allParts, content) {
+  const $ = cheerio.load(content);
+
   const ITEMS_PER_PAGE = 10;
 
   const formattedRatingsList = allParts
@@ -88,13 +90,13 @@ function ratingsComponent(allParts, content) {
     })
     .flat();
   
-  if (!formattedRatingsList.length) return;
+  if (!formattedRatingsList.length) return $.html();
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
-  const $ = cheerio.load(content);
 
   $("#RatingGrid").each((_, element) => {
+    $(element).removeClass("hidden");
     const item = $(element).find("#RatingChunk");
 
     for (let i = 1; i < chunks.length; i++) {
@@ -243,17 +245,28 @@ async function Layout2Builder(data) {
 
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 4 fotos
-      content = vehicleGrid4Component(allParts.slice(0, 4), content);
+      content = vehicleGrid4Component(availableParts.slice(0, 4), content);
 
       // Classificações
-      content = ratingsComponent(allParts, content);
+      content = ratingsComponent(availableParts, content);
 
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 4) {
-        content = vehicleGrid6Component(allParts.slice(4), content);
+      if (availableParts.length > 4) {
+        content = vehicleGrid6Component(availableParts.slice(4), content);
       }
     }
 

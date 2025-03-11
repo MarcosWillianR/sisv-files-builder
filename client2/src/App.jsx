@@ -33,7 +33,7 @@ function App() {
           <VehicleGrid4 />
         </div>
 
-        <div id="RatingGrid" className="break-inside-avoid-page order-3">
+        <div id="RatingGrid" className="break-inside-avoid-page order-3 hidden">
           <RatingGrid />
         </div>
 
