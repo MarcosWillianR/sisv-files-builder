@@ -87,6 +87,8 @@ function ratingsComponent(allParts, content) {
       return part.ratings.filter((rating) => rating.isSelected).map((rating) => ({ rating, partName: part.name }));
     })
     .flat();
+  
+  if (!formattedRatingsList.length) return;
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
@@ -236,10 +238,9 @@ async function Layout2Builder(data) {
 
     const groupParts = data.groups
       .filter((group) => group.groupType === "PARTS")
-      .map((group) => ({
-        ...group,
-        data: group.data.filter((item) => !item.isPlaceholder),
-      }));
+      .map((group) => ({ ...group, data: group.data.filter((item) => !item.isPlaceholder),
+    }));
+
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
 

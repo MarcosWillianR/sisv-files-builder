@@ -220,6 +220,8 @@ function ratingsComponent(allParts, content) {
     })
     .flat();
 
+  if (!formattedRatingsList.length) return;
+
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
   const $ = cheerio.load(content);
