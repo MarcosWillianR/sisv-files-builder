@@ -18,7 +18,7 @@ function formattedClientName(client) {
   return "PARTICULAR";
 }
 
-function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
+function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content) {
   const $ = cheerio.load(content);
 
   setGroupOrder("VehicleDataComparison", vehicleData, $);
@@ -39,8 +39,8 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
-      const formattedVehicleData = vehicleData.data[key] || "NÃO INFORMADO";
+      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "NÃO INFORMADO");
+      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
 
       $(cells[1]).text(formattedFactoryData);
 
@@ -121,8 +121,8 @@ function ratingsComponent(allParts, content) {
       chunks[index].forEach(({ rating, partName }, ratingIndex) => {
         const ratingItem = $(itemItems).find("#RatingChunkItem").eq(ratingIndex);
 
-        ratingItem.find("#title").text(partName);
-        ratingItem.find("#description").text(rating.name);
+        ratingItem.find("#title").text(partName ?? "");
+        ratingItem.find("#description").text(rating.name ?? "");
 
         const statusToId = {
           SUCCESS: "#SUCCESS",
@@ -173,8 +173,8 @@ function vehicleGrid6Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "");
 
         const statusToId = {
           SUCCESS: "#VehicleGrid6-SUCCESS",
@@ -231,11 +231,16 @@ async function Layout2Builder(data) {
       return getNestedValue(data, path) || "";
     });
 
+    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = data.groups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.inspectionVehicleData.data;
-      const vehicleData = data.groups[vehicleDataIndex];
-      content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
+      const vehicleData = data.groups[vehicleDataIndex].data;
+      let kmValue = 0;
+      if (groupDescriptionIndex !== -1) {
+        kmValue = data.groups[groupDescriptionIndex].data.km;
+      }
+      content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 
     const groupParts = data.groups
@@ -270,7 +275,6 @@ async function Layout2Builder(data) {
       }
     }
 
-    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     if (groupDescriptionIndex !== -1) {
       content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     }

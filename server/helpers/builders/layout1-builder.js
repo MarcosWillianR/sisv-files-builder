@@ -49,7 +49,7 @@ function formattedClientPhone(client) {
   return "";
 };
 
-function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
+function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleDataComparison").each((_, element) => {
@@ -72,7 +72,7 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
+      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "NÃO INFORMADO");
       const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
 
       $(cells[0]).text(formattedFactoryData);
@@ -135,8 +135,8 @@ function vehicleGrid2Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "");
 
         const statusToId = {
           SUCCESS: "#VehicleGrid2-SUCCESS",
@@ -186,13 +186,13 @@ function vehicleGrid12Component(restParts, content) {
       chunks[index].forEach((part, partIndex) => {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
-        let formattedDesc = selectedRating?.name ?? "NÃO INFORMADO";
+        let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length > 30) {
           formattedDesc = formattedDesc.substring(0, 25) + '...';
         }
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
         vehicleItem.find("#vehicleDesc").text(formattedDesc);
 
         const statusToId = {
@@ -302,14 +302,18 @@ async function Layout1Builder(data) {
       return getNestedValue(data, path) || "";
     });
 
+    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.inspectionVehicleData.data;
       const vehicleData = data.groups[vehicleDataIndex].data;
-      content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
+      let kmValue = 0;
+      if (groupDescriptionIndex !== -1) {
+        kmValue = data.groups[groupDescriptionIndex].data.km;
+      }
+      content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 
-    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     if (groupDescriptionIndex !== -1) {
       content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     }
