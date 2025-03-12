@@ -1,204 +1,130 @@
 {
-  "id": 282,
-  "address": {
-    "street": "Rua das Camélias",
-    "city": "Viamão",
-    "state": "RS",
-    "number": "139",
-    "complement": "",
-    "neighborhood": "São Lucas",
-    "zipCode": "94451-140",
-    "latitude": -30.0843008,
-    "longitude": -51.0623744
-  },
-  "layout": "LAYOUT_3",
-  "notes": "Este laudo trata-se da vistoria cautelar do veículo, possuindo caráter informativo da análise de itens, conforme padrões estabelecidos pelos fabricantes. Cabe destacar que a unidade não se responsabiliza por quaisquer modificações nos itens do veículo contemplados nesta Vistoria, posteriores à realização deste laudo, cuja validade tem sua garantia certificada no momento da realização da vistoria. O resultado do laudo técnico segue critérios de avaliação estabelecidos, podendo sofrer alterações necessárias em determinado momento, sem prévia comunicação. As informações dos veículos, obtidas através de pesquisa via base de dados dos órgãos públicos e empresas privadas, são de responsabilidade da empresa fornecedora da pesquisa, cabendo apenas reiterar os dados cadastrados nas referidas bases de consulta. Ao receber este laudo, o cliente fica ciente que as companhias de seguro possuem métodos e critérios próprios de avaliação do riscopara aceitação ou não de veículos. Não obstante, o critério de avaliação bem como o resultado final da vistoria, independete da aceitação ou não da seguradora. Importante notar que NÃO sãoexaminados itens de mecânica, elétrica, transmissão, suspensão e freios. A análise de pintura érealizada através de medidores digitais que informam a espessura da camada de tinta, apenas emcaráter informativo de retoques ou reparos expressivos em sua lataria, que não afetam a estruturado veículo, NÃO apontamos pequenos riscos nem desgastes na pintura. NÃO nos responsabilizamospor defeitos ou fraudes em equipamentos de Air-Bag. A verificação da numeração da caixa de câmbio somente é realizadas se tal item está aparente, sem a necessidade de desmontar partes do veículo que tornam a gravação obstruída. A vistoria cautelar não afere a idoneidade da quilometragem constante no hodômetro do veículo, sendo apenas registrado em caráter informativo a quilometragem aparente em seu painel de instrumentos. Alguns itens obrigatórios e acessórios como pneus, setas, cintos e outros acessórios, são apenas informados quanto a sua existência e funcionamento mínimo, não sendo atestada calibragem ou cumprimento de normas técnicas especificas.",
+  "id": 48,
+  "inspectionName": "CAUTELAR SIMPLES RODRIGO (T)",
+  "address": null,
+  "layout": "LAYOUT_1",
+  "notes": "Este laudo trata-se da vistoria cautelar do veículo, possuindo caráter informativo da análise de itens, conforme padrões estabelecidos pelos\nfabricantes.\nNÃO substituindo em nenhuma hipótese a Perícia Oficial do Instituto de Criminalística.\nCabe destacar que a unidade não se responsabiliza por quaisquer modificações nos itens do veículo contemplados nesta vistoria, posteriores à\nrealização deste laudo, cuja validade tem sua garantia certificada no momento da realização da vistoria.\nO resultado do laudo técnico segue critérios de avaliação estabelecidos, podendo sofrer alterações necessárias em determinado momento, sem\nprévia comunicação.\nAs informações dos veículos, obtidas através de pesquisa via base de dados dos órgãos públicos e empresas privadas, são de responsabilidade da\nempresa fornecedora da pesquisa, cabendo apenas reiterar os dados cadastrados nas referidas bases de consulta.",
   "inspectionVehicleData": {
-    "id": 282,
+    "id": 48,
     "data": {
-      "licensePlate": "CNA3804",
-      "brandModel": "CORSA GL",
-      "yearManufactureModel": "1998",
-      "color": "Prata",
-      "chassis": "9BGSE08NXWC628627",
-      "engineNumber": "JD0038389",
-      "state": "RS",
+      "licensePlate": "BSZ0057",
+      "brandModel": "I/VOLVO XC40 T5 MOMENTUM",
+      "yearManufactureModel": "2018",
+      "color": "Azul",
+      "chassis": "YV1XZ16CCJ2010999",
+      "engineNumber": "B4204T182514999",
+      "state": "SP",
       "city": "",
       "fuelType": "Gasolina",
-      "power": "92",
-      "vehicleType": "Automovel",
-      "engineDisplacement": "1600",
+      "power": "252",
+      "vehicleType": "Utilitario",
+      "engineDisplacement": "1969",
       "grossTotalWeight": "",
       "grv": "",
-      "km": ""
+      "km": "23511"
     }
   },
   "customizationConfig": {
-    "id": 6,
+    "id": 7,
     "s3File": {
-      "s3Key": "unit/2/logo",
-      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/2/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cf6f988544bf78483fe3dbd2003354c59233dcc4e35c44d2fd75a0de133e9531",
+      "s3Key": "unit/3/logo",
+      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/3/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024632Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6ebe2f7b7e08f7ef0fb245f1cc2aa0a52338c886f6549a0b2aaede86a3cfe8c0",
       "fileType": "image/png"
     },
-    "primaryColor": "#1d7bdb",
-    "secondColor": "#26e0f8",
+    "primaryColor": "#8c8c8c",
+    "secondColor": "#086fdd",
     "primaryFontColor": "#ffffff",
-    "secondFontColor": "#10477f"
+    "secondFontColor": "#ffffff"
   },
-  "createDate": "2025-03-02 23:23:10",
-  "completeDate": "2025-03-02 23:24:38",
+  "createDate": "2025-03-11 10:41:50",
+  "completeDate": "2025-03-11 10:48:11",
   "unit": {
-    "id": 2,
-    "dueDate": "28",
-    "billingDate": "27",
-    "name": "SISV INSPEÇÃO E VISTORIA UNIDADE",
-    "fantasyName": "SISV INSPEÇÃO E VISTORIA UNIDADE",
-    "cnpj": "10472656000100",
-    "phone": "48999999999",
-    "email": "uni@gmail.com.br",
-    "cnaeCode": "9492800",
-    "stateRegistration": "",
+    "id": 3,
+    "dueDate": "01",
+    "billingDate": "10",
+    "name": "KAVAK TECNOLOGIA E COMERCIO DE VEICULOS LTDA.",
+    "fantasyName": "KAVAK TECNOLOGIA E COMERCIO DE VEICULOS LTDA.",
+    "cnpj": "36740390000264",
+    "phone": "1138865100",
+    "email": "fiscal.br@kavak.com",
+    "cnaeCode": "4511102",
+    "stateRegistration": "123456",
     "municipalRegistration": "",
-    "responsiblePerson": "",
+    "responsiblePerson": "Bruno",
     "address": {
-      "street": "Alameda Quarenta e Sete Quintino",
-      "city": "Benevides",
-      "state": "PA",
+      "street": "Avenida das Nacoes Unidas",
+      "city": "São Paulo",
+      "state": "SP",
       "number": null,
       "complement": null,
       "neighborhood": null,
-      "zipCode": "68795000",
+      "zipCode": "04794905",
       "latitude": null,
       "longitude": null
     },
-    "startDate": "2025-01-18 01:00:36"
+    "startDate": "2025-02-19 10:06:18"
   },
   "client": null,
-  "expert": null,
+  "expert": {
+    "id": 7,
+    "firstName": "Rodrigo",
+    "lastName": "Garcia",
+    "cpf": "38788776840",
+    "signature": null
+  },
   "analyst": {
-    "id": 2,
-    "firstName": "Felipe",
-    "lastName": "Mazoni",
-    "cpf": "85523780006",
-    "signature": "https://sisvvist.s3.sa-east-1.amazonaws.com/user/2/document/SIGNATURE?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f96edd6145b5bbf65456bb22d89378f3f69a32edf668beff727dc1eb39b7a288"
+    "id": 7,
+    "firstName": "Rodrigo",
+    "lastName": "Garcia",
+    "cpf": "38788776840",
+    "signature": null
   },
   "groups": [
     {
-      "id": 965,
+      "id": 162,
       "name": "DADOS",
       "isRequired": false,
       "isPdfEnabled": true,
       "appOrder": 1,
-      "printOrder": 1,
+      "printOrder": 0,
       "groupType": "DATA",
-      "s3File": {
-        "id": 452,
-        "fileName": "group_image",
-        "s3Key": "vistoria/group/1/group_image",
-        "bucketName": "sisvvist",
-        "fileSize": 8805,
-        "fileType": "image/png",
-        "uploadAt": "2025-02-12 00:03:35"
-      },
+      "s3File": null,
       "data": {
-        "licensePlate": "CNA3804",
-        "brandModel": "CORSA GL",
-        "yearManufactureModel": "1998",
-        "color": "Prata",
-        "chassis": "9BGSE08NXWC628627",
-        "engineNumber": "JD0038389",
-        "state": "RS",
+        "licensePlate": "BSZ0057",
+        "brandModel": "I/VOLVO XC40 T5 MOMENTUM",
+        "yearManufactureModel": "2018",
+        "color": "Azul",
+        "chassis": "YV1XZ16CCJ2010469",
+        "engineNumber": "B4204T182514522",
+        "state": "SP",
         "city": "",
         "fuelType": "Gasolina",
-        "power": "92",
-        "vehicleType": "Automovel",
-        "engineDisplacement": "1600",
-        "grossTotalWeight": "0"
+        "power": "252",
+        "vehicleType": "Utilitario",
+        "engineDisplacement": "1969",
+        "grossTotalWeight": "225"
       }
     },
     {
-      "id": 966,
-      "name": "Observação",
-      "isRequired": false,
-      "isPdfEnabled": true,
-      "appOrder": 2,
-      "printOrder": 2,
-      "groupType": "OBSERVATION",
-      "s3File": {
-        "id": 453,
-        "fileName": "group_image",
-        "s3Key": "vistoria/group/2/group_image",
-        "bucketName": "sisvvist",
-        "fileSize": 833,
-        "fileType": "image/png",
-        "uploadAt": "2025-02-12 00:06:25"
-      },
-      "data": {
-        "id": 288,
-        "km": "123123",
-        "textObservation": ""
-      }
-    },
-    {
-      "id": 967,
+      "id": 163,
       "name": "FOTOS",
       "isRequired": false,
       "isPdfEnabled": true,
-      "appOrder": 3,
-      "printOrder": 3,
+      "appOrder": 0,
+      "printOrder": 0,
       "groupType": "PARTS",
       "s3File": null,
       "data": [
         {
-          "id": 2829,
-          "name": "Placa Dianteira",
+          "id": 1194,
+          "name": "Placa da frente",
           "observation": null,
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 24118,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24115,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24121,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24119,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": true
-            },
-            {
-              "id": 24114,
-              "name": "Em perfeito estado",
-              "color": "#22f309",
+              "id": 33788,
+              "name": "Lixada",
+              "color": "#ff0004",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -206,228 +132,650 @@
               "isSelected": false
             },
             {
-              "id": 24116,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24120,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
+              "id": 33782,
+              "name": "Não é original",
+              "color": "#0034d1",
               "icon": "DEFAULT",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24117,
+              "id": 33765,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33776,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33786,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33790,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33785,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33768,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33764,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33780,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33778,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33770,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33777,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33792,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33779,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33773,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33774,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33762,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33775,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33767,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33771,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33766,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33789,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33772,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33761,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33787,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33769,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33763,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33783,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33784,
               "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "OBSERVATION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33791,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33781,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             }
           ],
           "isRequiredImage": false,
           "isPlaceholder": false,
-          "appOrder": 5,
-          "printOrder": 4,
-          "s3File": {
-            "s3Key": "vistoria/items/2829/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2829/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=53bfe38f11937f92689abaf7d923d8fd6863c29824aaa9b0fc188b128907ab31",
-            "fileType": "image/jpeg"
-          },
-          "isRequired": false
-        },
-        {
-          "id": 2830,
-          "name": "Placa Traseira",
-          "observation": null,
-          "type": "DEFAULT",
-          "ratings": [
-            {
-              "id": 24129,
-              "name": "Possui reparo",
-              "color": "#fdfd1c",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24123,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24122,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24126,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24128,
-              "name": "Em perfeito estado",
-              "color": "#22f309",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24127,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24124,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24125,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": true
-            }
-          ],
-          "isRequiredImage": false,
-          "isPlaceholder": false,
-          "appOrder": 6,
+          "appOrder": 2,
           "printOrder": 5,
           "s3File": {
-            "s3Key": "vistoria/items/2830/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2830/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ec3d25458b7645c47c7ff76b7cdd78bc4d50ce3b5cd771f4e988b76c1038b584",
+            "s3Key": "vistoria/items/1194/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1194/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024632Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0463aa6def18c51678571bc4f54ef86d1cc13193dc8b922f7b5cfc32bf62a2a9",
             "fileType": "image/jpeg"
           },
           "isRequired": false
         },
         {
-          "id": 2831,
-          "name": "Frente 45",
+          "id": 1195,
+          "name": "Placa traseira",
           "observation": null,
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 24131,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24137,
+              "id": 33824,
               "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "OBSERVATION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24132,
+              "id": 33799,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33812,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33813,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33793,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33795,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33820,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33816,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33822,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33815,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33807,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33819,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33801,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33805,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33803,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33800,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33797,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33806,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33818,
               "name": "Possui reparo",
-              "color": "#fdfd1c",
-              "icon": "OBSERVATION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24136,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33809,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24130,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24135,
+              "id": 33817,
               "name": "Em perfeito estado",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": true
-            },
-            {
-              "id": 24133,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24134,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33821,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33796,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33810,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33794,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33814,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33798,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33802,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33804,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33808,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33811,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33823,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             }
@@ -435,97 +783,337 @@
           "isRequiredImage": false,
           "isPlaceholder": false,
           "appOrder": 3,
-          "printOrder": 1,
+          "printOrder": 9,
           "s3File": {
-            "s3Key": "vistoria/items/2831/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2831/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8629624faa341d5afed0cecedb0ea2444cf1f9a45d533e53d21e051c452786fc",
+            "s3Key": "vistoria/items/1195/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1195/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024632Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ece3a17c4eee5b998932015844606cbb938c8686c7e272d11ca5073fbdd42c00",
             "fileType": "image/jpeg"
           },
           "isRequired": false
         },
         {
-          "id": 2832,
-          "name": "Traseira 45",
+          "id": 1196,
+          "name": "Frente e lateral esquerda",
           "observation": null,
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 24144,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33847,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24142,
+              "id": 33835,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33856,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33825,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33844,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33834,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33850,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33832,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33843,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33851,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33830,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33838,
               "name": "Em perfeito estado",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24138,
+              "id": 33849,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33852,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33826,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33845,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33853,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33828,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33829,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33846,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33848,
               "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24139,
+              "id": 33827,
               "name": "Possui reparo",
-              "color": "#fdfd1c",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24140,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
-              "icon": "RESTRICTION",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
-              "isEnabledForClient": false,
-              "isSelected": true
-            },
-            {
-              "id": 24143,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33831,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24141,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
-              "icon": "FAILED",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33837,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             },
             {
-              "id": 24145,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "SUCCESS",
-              "isEnabledForAnalyst": true,
-              "isEnabledForExpert": true,
+              "id": 33842,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33833,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33836,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33841,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33839,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33840,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33855,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33854,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
               "isEnabledForClient": false,
               "isSelected": false
             }
@@ -533,24 +1121,24 @@
           "isRequiredImage": false,
           "isPlaceholder": false,
           "appOrder": 4,
-          "printOrder": 3,
+          "printOrder": 1,
           "s3File": {
-            "s3Key": "vistoria/items/2832/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2832/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=dca97476294d114b5fe640280400ff1426a4e5ec087b27af122059c31b177842",
+            "s3Key": "vistoria/items/1196/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1196/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024632Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4fed281df48be7459074d741e5af2db3ebbd505624e3577611aa4e1151531244",
             "fileType": "image/jpeg"
           },
           "isRequired": false
         },
         {
-          "id": 2833,
-          "name": "Gravação do Chassi",
+          "id": 1197,
+          "name": "Frente e lateral direita",
           "observation": null,
           "type": "DEFAULT",
           "ratings": [
             {
-              "id": 24151,
-              "name": "Fora do padrão",
-              "color": "#f40d10",
+              "id": 33881,
+              "name": "Danificada",
+              "color": "#0034d1",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -558,9 +1146,9 @@
               "isSelected": false
             },
             {
-              "id": 24150,
-              "name": "Sem acesso",
-              "color": "#fdfd1c",
+              "id": 33862,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -568,9 +1156,9 @@
               "isSelected": false
             },
             {
-              "id": 24146,
-              "name": "Fora dos padrões do fabricanteou adulterado",
-              "color": "#64efc8",
+              "id": 33882,
+              "name": "Lixada",
+              "color": "#ff0004",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -578,49 +1166,9 @@
               "isSelected": false
             },
             {
-              "id": 24154,
-              "name": "Dentro dos padrões",
-              "color": "#22f309",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24148,
-              "name": "Possui avaria",
-              "color": "#ea0d11",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24149,
-              "name": "Original/Dentro dos padrões do fabricante",
-              "color": "#48ff24",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24153,
-              "name": "teste nossa rede",
-              "color": "#4cae3f",
-              "icon": "DEFAULT",
-              "isEnabledForAnalyst": false,
-              "isEnabledForExpert": false,
-              "isEnabledForClient": false,
-              "isSelected": false
-            },
-            {
-              "id": 24147,
+              "id": 33860,
               "name": "Possui reparo",
-              "color": "#fdfd1c",
+              "color": "#0034d1",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -628,9 +1176,279 @@
               "isSelected": false
             },
             {
-              "id": 24152,
+              "id": 33888,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33885,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33859,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33861,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33864,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33863,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33868,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33875,
               "name": "Em perfeito estado",
-              "color": "#22f309",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33884,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33879,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33874,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33872,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33865,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33857,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33871,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33870,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33877,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33858,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33866,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33887,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33873,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33886,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33867,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33869,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33883,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33880,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33876,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33878,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
               "icon": "DEFAULT",
               "isEnabledForAnalyst": false,
               "isEnabledForExpert": false,
@@ -640,23 +1458,1745 @@
           ],
           "isRequiredImage": false,
           "isPlaceholder": false,
-          "appOrder": 7,
-          "printOrder": 7,
+          "appOrder": 5,
+          "printOrder": 2,
           "s3File": {
-            "s3Key": "vistoria/items/2833/item_image",
-            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/2833/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250304T010853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250304%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=88e70dfe3753ed6b4b8fa7c71ff748a9be75a8a5aa1e3b4d2972a6ddbf10000e",
+            "s3Key": "vistoria/items/1197/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1197/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9d092b2b78cc5ab3ff0ffef9b4786f1c77401c70144f3bf664b359ee5761fd67",
             "fileType": "image/jpeg"
           },
           "isRequired": false
+        },
+        {
+          "id": 1198,
+          "name": "Painel e hodômetro",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 33912,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33917,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33909,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33916,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33894,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33904,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33890,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33902,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33905,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33907,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33893,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33895,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33920,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33889,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33899,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33911,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33906,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33892,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33901,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33896,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33897,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33891,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33915,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33908,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33913,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33910,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33900,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 33898,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33918,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33919,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33914,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33903,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 0,
+          "printOrder": 8,
+          "s3File": {
+            "s3Key": "vistoria/items/1198/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1198/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e22d63947b8997c13f2fa22dae86d8f55210f7fbbb15509e09283d1b0b0c4eca",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 1199,
+          "name": "Compartimento do motor",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 33932,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33952,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33921,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33939,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33943,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33937,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33942,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33935,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33925,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33931,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33923,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33936,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33930,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33951,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33944,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33946,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33947,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33933,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": true
+            },
+            {
+              "id": 33926,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33922,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33950,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33927,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33945,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33938,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33940,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33924,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33928,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33929,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33948,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33934,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33949,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33941,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 0,
+          "printOrder": 7,
+          "s3File": {
+            "s3Key": "vistoria/items/1199/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1199/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=3a41d82371265c8bbf83bd5820897333f704a51758c8713d26272b8ee1e4c7e1",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 1200,
+          "name": "Gravação do vidro para-brisa",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 33966,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33967,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33970,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33964,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33965,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33974,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33971,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33957,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33953,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33972,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33955,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33983,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33968,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33977,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33982,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33981,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33984,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33975,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33962,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33973,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33980,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33978,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33954,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33963,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33956,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33969,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33960,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33958,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33961,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33976,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33959,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33979,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 0,
+          "printOrder": 6,
+          "s3File": {
+            "s3Key": "vistoria/items/1200/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1200/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6de1bb11ef95b9bd155a471da563d6e1db8f24606d0e6297ea24444784f12ccc",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 1201,
+          "name": "Traseira e lateral direita",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 33997,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34006,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34014,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33986,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33994,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34011,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34013,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34016,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33990,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34001,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34009,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33996,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34010,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33987,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33991,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33993,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33995,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34012,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34005,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34008,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34003,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33988,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33992,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34002,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34007,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33985,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34015,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33989,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33998,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34004,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 33999,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34000,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 0,
+          "printOrder": 4,
+          "s3File": {
+            "s3Key": "vistoria/items/1201/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1201/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b5a51e0a37f7f39171c60b426a9d7b373b125cc61724d5c25bcc1cd4bb08e273",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 1202,
+          "name": "Traseira e lateral esquerda",
+          "observation": null,
+          "type": "DEFAULT",
+          "ratings": [
+            {
+              "id": 34029,
+              "name": "Possui reparo com solda",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34048,
+              "name": "Fora dos padrões",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34045,
+              "name": "Danificada",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34039,
+              "name": "Removida",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34027,
+              "name": "Possui reparo",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34031,
+              "name": "Luz de air-bag acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34040,
+              "name": "Com vestígios de adulteração",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34032,
+              "name": "Remarcada NÃO regularizada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34036,
+              "name": "Obstruída",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34042,
+              "name": "Possui repintura",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34022,
+              "name": "Luz de temperatura acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34019,
+              "name": "Em perfeito estado",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34028,
+              "name": "Não é original",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34037,
+              "name": "Ilegível",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34017,
+              "name": "Possui reparo com massa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34043,
+              "name": "Remarcada regularizada REM",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34023,
+              "name": "Luz de óleo acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34046,
+              "name": "Possui oxidação avançada",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34025,
+              "name": "Divergente",
+              "color": "#ff9d00",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34026,
+              "name": "Obliterada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34034,
+              "name": "Lixada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34047,
+              "name": "Incompleta",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34018,
+              "name": "Possui avaria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34030,
+              "name": "Possui repintura em toda carroceria",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34038,
+              "name": "Luz de alerta acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34035,
+              "name": "Possui avaria em toda carroceria",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34044,
+              "name": "Original",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34020,
+              "name": "Possui oxidação",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34021,
+              "name": "Luz de injeção acesa",
+              "color": "#0034d1",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34024,
+              "name": "Implantada",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34033,
+              "name": "Dentro dos padrões",
+              "color": "#0f9703",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            },
+            {
+              "id": 34041,
+              "name": "Inexistente",
+              "color": "#ff0004",
+              "icon": "DEFAULT",
+              "isEnabledForAnalyst": false,
+              "isEnabledForExpert": false,
+              "isEnabledForClient": false,
+              "isSelected": false
+            }
+          ],
+          "isRequiredImage": false,
+          "isPlaceholder": false,
+          "appOrder": 0,
+          "printOrder": 3,
+          "s3File": {
+            "s3Key": "vistoria/items/1202/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1202/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=abfde10cac90b4c5623254232db5072619ee985183c3a22561755b7c9a2af40f",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": false
+        },
+        {
+          "id": 1213,
+          "name": "Farol frente esquerda",
+          "observation": "Possui avaria",
+          "type": "EXTRA",
+          "ratings": [],
+          "isRequiredImage": true,
+          "isPlaceholder": false,
+          "appOrder": 6,
+          "printOrder": 10,
+          "s3File": {
+            "s3Key": "vistoria/items/1213/item_image",
+            "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/vistoria/items/1213/item_image?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250312T024633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250312%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1f426a8295439a4e5a78d002d991217b46f641abebd126ebdee7b07fd37cda03",
+            "fileType": "image/jpeg"
+          },
+          "isRequired": true
         }
       ]
+    },
+    {
+      "id": 164,
+      "name": "OBSERVAÇÃO",
+      "isRequired": false,
+      "isPdfEnabled": true,
+      "appOrder": 6,
+      "printOrder": 0,
+      "groupType": "OBSERVATION",
+      "s3File": null,
+      "data": {
+        "id": 51,
+        "km": "34222",
+        "textObservation": "Teste 2 suv"
+      }
     }
   ],
   "approvalStatus": {
-    "id": 19,
-    "name": "APROVADO COM APONTAMENTO",
-    "color": "#ee9055",
+    "id": 14,
+    "name": "Inspecionado",
+    "color": "#3ce71d",
     "approvalStatusPurpose": "NOT_DEFAULT"
   },
-  "pdfViewToken": "684e6be9-195e-4512-a76c-c9fb31c7179c"
+  "pdfViewUrl": "https://sisv.cardados.com/inspection-link-view/271f3b3b-c370-4192-b4cb-e64de2836db2"
 }

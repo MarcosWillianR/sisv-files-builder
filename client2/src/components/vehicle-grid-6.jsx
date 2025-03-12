@@ -17,7 +17,7 @@ export function VehicleGrid6() {
             </div>
 
             <div className="w-full bg-gray-200 flex items-center justify-center">
-              <img src="" alt="Car" style={{ height: 155 }} className={`w-full object-fill`} />
+              <img src="" alt="Car" style={{ height: 155 }} className={`w-full object-contain`} />
             </div>
 
             <div className="px-4 py-2 flex items-center gap-2">
