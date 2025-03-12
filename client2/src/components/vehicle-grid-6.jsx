@@ -11,7 +11,7 @@ export function VehicleGrid6() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 py-6 place-items-center">
-          <div id="VehicleChunkItem" className="flex flex-col w-full rounded-2xl overflow-hidden bg-gray-100 shadow-md">
+          <div id="VehicleChunkItem" className="flex flex-col w-full rounded-2xl overflow-hidden bg-gray-100">
             <div className="px-4 py-2 text-black">
               <h2 id="vehicleName" className="text-sm font-medium"></h2>
             </div>

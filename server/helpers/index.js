@@ -130,6 +130,9 @@ function customColorsStyleTag(data) {
     .t-text-blue600 {
      color: #155dfc
     }
+    .text-transparent {
+     color: transparent
+    }
   `;
 }
 
