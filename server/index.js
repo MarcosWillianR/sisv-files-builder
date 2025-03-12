@@ -6,6 +6,8 @@ const { processTimesheet } = require("../excel-builder/src");
 
 const { buildPDF } = require("./buildPDF");
 
+const TermsContractPolicyBuilder = require('../terms-contract-policy-builder/index');
+
 const PORT = 4715;
 const app = express();
 
@@ -50,6 +52,48 @@ app.post("/pdf", async (req, res) => {
 
 app.post("/timesheet-report", async (req, res) => {
   await processTimesheet(req, res);
+});
+
+app.post('/contract-pdf', async (req, res) => {
+  const data = req.body;
+  const builder = new TermsContractPolicyBuilder(data);
+  try {
+    const pdfBuffer = await builder.generateContract();
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
+    res.end(pdfBuffer)
+  } catch (err) {
+    console.error('Erro ao gerar contrato: ', err);
+    res.status(500).send({ mensagem: 'Erro ao gerar PDF', erro: err.message });
+  }
+});
+
+app.post('/policy-pdf', async (req, res) => {
+  const data = req.body;
+  const builder = new TermsContractPolicyBuilder(data);
+  try {
+    const pdfBuffer = await builder.generatePrivacyPolicy();
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
+    res.end(pdfBuffer)
+  } catch (err) {
+    console.error('Erro ao gerar Politica de privacidade: ', err);
+    res.status(500).send({ mensagem: 'Erro ao gerar PDF', erro: err.message });
+  }
+});
+
+app.post('/terms-pdf', async (req, res) => {
+  const data = req.body;
+  const builder = new TermsContractPolicyBuilder(data);
+  try {
+    const pdfBuffer = await builder.generateTerms();
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
+    res.end(pdfBuffer);
+  } catch (err) {
+    console.error('Erro ao gerar termos: ', err);
+    res.status(500).send({ mensagem: 'Erro ao gerar PDF', erro: err.message });
+  }
 });
 
 // Iniciar o servidor
