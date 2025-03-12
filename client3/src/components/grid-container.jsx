@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export function GridContainer({ title = "", columns = 3, children, fullPage = false, withShadow = true }) {
+export function GridContainer({ title = "", columns = 3, children, fullPage = false, withShadow = false }) {
   const getGridCols = () => {
     const gridMap = {
       1: "grid-cols-1",
@@ -14,9 +14,7 @@ export function GridContainer({ title = "", columns = 3, children, fullPage = fa
 
   return (
     <div
-      className={`w-full rounded-2xl overflow-hidden bg-gray-100 ${
-        withShadow ? "shadow-md" : ""
-      } border border-[#9D9D9D]`}
+      className={`w-full rounded-2xl overflow-hidden bg-gray-100 ${withShadow ? "shadow-md" : ""} border border-[#9D9D9D]`}
     >
       {title && title.length !== 0 && (
         <div className="bg-gray-400 px-4 py-2 text-white">

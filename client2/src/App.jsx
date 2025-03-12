@@ -26,14 +26,14 @@ function App() {
         </div>
 
         <div className="break-inside-avoid-page order-2">
-          <div className="mb-6">
+          <div className="mb-4">
             <IconDescription />
           </div>
 
           <VehicleGrid4 />
         </div>
 
-        <div id="RatingGrid" className="break-inside-avoid-page order-3">
+        <div id="RatingGrid" className="break-inside-avoid-page order-3 hidden">
           <RatingGrid />
         </div>
 

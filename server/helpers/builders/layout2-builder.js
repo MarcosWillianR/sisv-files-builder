@@ -18,7 +18,7 @@ function formattedClientName(client) {
   return "PARTICULAR";
 }
 
-function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
+function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content) {
   const $ = cheerio.load(content);
 
   setGroupOrder("VehicleDataComparison", vehicleData, $);
@@ -39,15 +39,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
-      const formattedVehicleData = vehicleData.data[key] || "NÃO INFORMADO";
+      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "Não informado");
+      const formattedVehicleData = vehicleData[key] || "Não informado";
 
-      $(cells[1]).text(formattedFactoryData);
+      $(cells[0]).text(formattedFactoryData);
+      $(cells[1]).text(formattedVehicleData);
 
-      if (formattedVehicleData !== formattedFactoryData) {
-        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== "km") {
+        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -80,6 +81,8 @@ function vehicleGrid4Component(first4Parts, content) {
 }
 
 function ratingsComponent(allParts, content) {
+  const $ = cheerio.load(content);
+
   const ITEMS_PER_PAGE = 10;
 
   const formattedRatingsList = allParts
@@ -87,12 +90,14 @@ function ratingsComponent(allParts, content) {
       return part.ratings.filter((rating) => rating.isSelected).map((rating) => ({ rating, partName: part.name }));
     })
     .flat();
+  
+  if (!formattedRatingsList.length) return $.html();
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
-  const $ = cheerio.load(content);
 
   $("#RatingGrid").each((_, element) => {
+    $(element).removeClass("hidden");
     const item = $(element).find("#RatingChunk");
 
     for (let i = 1; i < chunks.length; i++) {
@@ -117,8 +122,8 @@ function ratingsComponent(allParts, content) {
       chunks[index].forEach(({ rating, partName }, ratingIndex) => {
         const ratingItem = $(itemItems).find("#RatingChunkItem").eq(ratingIndex);
 
-        ratingItem.find("#title").text(partName);
-        ratingItem.find("#description").text(rating.name);
+        ratingItem.find("#title").text(partName ?? "");
+        ratingItem.find("#description").text(rating.name ?? "");
 
         const statusToId = {
           SUCCESS: "#SUCCESS",
@@ -169,8 +174,13 @@ function vehicleGrid6Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid6-SUCCESS",
@@ -227,36 +237,50 @@ async function Layout2Builder(data) {
       return getNestedValue(data, path) || "";
     });
 
+    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = data.groups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.inspectionVehicleData.data;
-      const vehicleData = data.groups[vehicleDataIndex];
-      content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
+      const vehicleData = data.groups[vehicleDataIndex].data;
+      let kmValue = 0;
+      if (groupDescriptionIndex !== -1) {
+        kmValue = data.groups[groupDescriptionIndex].data.km;
+      }
+      content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 
     const groupParts = data.groups
       .filter((group) => group.groupType === "PARTS")
-      .map((group) => ({
-        ...group,
-        data: group.data.filter((item) => !item.isPlaceholder),
-      }));
+      .map((group) => ({ ...group, data: group.data.filter((item) => !item.isPlaceholder),
+    }));
+
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 4 fotos
-      content = vehicleGrid4Component(allParts.slice(0, 4), content);
+      content = vehicleGrid4Component(availableParts.slice(0, 4), content);
 
       // Classificações
-      content = ratingsComponent(allParts, content);
+      content = ratingsComponent(availableParts, content);
 
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 4) {
-        content = vehicleGrid6Component(allParts.slice(4), content);
+      if (availableParts.length > 4) {
+        content = vehicleGrid6Component(availableParts.slice(4), content);
       }
     }
 
-    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     if (groupDescriptionIndex !== -1) {
       content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     }

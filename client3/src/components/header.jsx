@@ -48,7 +48,7 @@ export function Header() {
 
         <div className="flex flex-col gap-1">
           <span className="text-[10px] font-medium">Km</span>
-          <span className="font-bold">{`{inspectionVehicleData.data.km}`}</span>
+          <span className="font-bold">{`{formattedVehicleKm}`}</span>
         </div>
 
         <div className="relative flex flex-col gap-1">
