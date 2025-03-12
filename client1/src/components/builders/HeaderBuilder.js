@@ -109,9 +109,9 @@ class HeaderBuilder {
   }
 
   async buildHeader(data) {
-    const { id, completeDate, pdfViewToken, customizationConfig, approvalStatus } = data;
-    const logoUrl = customizationConfig?.s3File?.url ?? null;
-    const qrCodeUrl = await QRCode.toDataURL(pdfViewToken);
+    const { id, completeDate, pdfViewUrl, customizationConfig, approvalStatus } = data;
+    const logoUrl = customizationConfig?.logo?.url ?? null;
+    const qrCodeUrl = await QRCode.toDataURL(pdfViewUrl);
     const timePart = completeDate.split(" ")[1];
     const [hours, minutes] = timePart.split(":");
 
