@@ -7,7 +7,7 @@ export function Header() {
         <div className="flex items-start gap-4">
           <div className="flex-1 bg-white rounded-xl px-6 py-4">
             <div className="flex items-center gap-6">
-              <img src={`{customizationConfig.s3File.url}`} width={175} height={45} />
+              <img src={`{customizationConfig.logo.url}`} width={175} height={45} />
 
               <div>
                 <div className="text-zinc-900 text-[8px]">CNPJ da Franquia:</div>
