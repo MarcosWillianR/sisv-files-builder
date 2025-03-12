@@ -37,7 +37,9 @@ export function VehicleGrid6() {
                 <X className="text-white" size={16} />
               </div>
 
-              <span id="vehicleDesc" className="text-sm text-semibold text-black"></span>
+              <span id="vehicleDesc" className="text-sm text-semibold text-black">
+                texto padrão
+              </span>
             </div>
           </div>
         </div>
