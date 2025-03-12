@@ -136,7 +136,12 @@ function vehicleGrid2Component(restParts, content) {
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "");
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid2-SUCCESS",
@@ -193,7 +198,12 @@ function vehicleGrid12Component(restParts, content) {
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
-        vehicleItem.find("#vehicleDesc").text(formattedDesc);
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid12-SUCCESS",
