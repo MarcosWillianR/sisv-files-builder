@@ -255,9 +255,9 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, senatramData
     if (label.includes("Combustível")) key = "fuelType";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
-      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
-      const formattedSenatramData = senatramData[key] || "NÃO INFORMADO";
+      const formattedFactoryData = factoryData[key] || "Não informado";
+      const formattedVehicleData = vehicleData[key] || "Não informado";
+      const formattedSenatramData = senatramData[key] || "Não informado";
 
       $(cells[1]).text(formattedFactoryData);
       $(cells[2]).text(formattedSenatramData);

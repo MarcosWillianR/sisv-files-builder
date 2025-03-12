@@ -39,15 +39,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "NÃO INFORMADO");
-      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
+      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "Não informado");
+      const formattedVehicleData = vehicleData[key] || "Não informado";
 
-      $(cells[1]).text(formattedFactoryData);
+      $(cells[0]).text(formattedFactoryData);
+      $(cells[1]).text(formattedVehicleData);
 
-      if (formattedVehicleData !== formattedFactoryData) {
-        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== "km") {
+        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -231,7 +232,7 @@ async function Layout2Builder(data) {
       return getNestedValue(data, path) || "";
     });
 
-    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
+    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = data.groups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.inspectionVehicleData.data;

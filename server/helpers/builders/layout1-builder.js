@@ -72,16 +72,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "NÃO INFORMADO");
-      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
-
+      const formattedFactoryData = key === 'km' ? kmValue : factoryData[key] || "Não informado";
+      const formattedVehicleData = vehicleData[key] || "Não informado";
+      
       $(cells[0]).text(formattedFactoryData);
       $(cells[1]).text(formattedVehicleData);
 
-      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase()) {
-        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== 'km') {
+        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -308,6 +308,7 @@ async function Layout1Builder(data) {
       const factoryData = data.inspectionVehicleData.data;
       const vehicleData = data.groups[vehicleDataIndex].data;
       let kmValue = 0;
+
       if (groupDescriptionIndex !== -1) {
         kmValue = data.groups[groupDescriptionIndex].data.km;
       }
