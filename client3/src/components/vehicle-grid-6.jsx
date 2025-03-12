@@ -17,7 +17,7 @@ export function VehicleGrid6() {
             </div>
 
             <div className="w-full bg-gray-200 flex items-center justify-center">
-              <img src="" alt="Car" style={{ height: 195 }} className={`w-full object-fill`} />
+              <img src="" alt="Car" style={{ height: 195 }} className={`w-full object-contain`} />
             </div>
 
             <div className="px-4 py-2 flex flex-col gap-1 bg-[#9D9D9D]">
@@ -38,7 +38,9 @@ export function VehicleGrid6() {
                   <X className="text-white" size={16} />
                 </div>
 
-                <span id="vehicleDesc" className="text-sm text-semibold text-white"></span>
+                <span id="vehicleDesc" className="text-sm text-semibold text-white">
+                  texto padrão
+                </span>
               </div>
               <p className="text-xs text-white" />
             </div>

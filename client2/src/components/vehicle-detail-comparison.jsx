@@ -2,14 +2,14 @@ export function VehicleDataComparison() {
   return (
     <div className="rounded-xl overflow-hidden shadow-sm border border-rounded">
       <div className="secondary-bg-color text-white grid grid-cols-3">
-        <div className="py-2 px-4 text-left font-medium text-sm">Itens</div>
-        <div className="py-2 px-4 text-left font-medium text-sm">Dados do veículo</div>
-        <div className="py-2 px-4 text-left font-medium text-sm">Dados da fábrica</div>
+        <div className="py-1 px-4 text-left font-medium text-sm">Itens</div>
+        <div className="py-1 px-4 text-left font-medium text-sm">Dados do veículo</div>
+        <div className="py-1 px-4 text-left font-medium text-sm">Dados da fábrica</div>
       </div>
       <div>
         <div className="grid grid-cols-3 border-b last:border-b-0">
           <div className="py-1 px-4 text-sm font-bold text-gray-700">PLACA:</div>
-          <div className={`py-1 px-4 text-sm text-red-600 underline font-bold`}>licensePlate</div>
+          <div className="py-1 px-4 text-sm text-red-600 underline font-bold">licensePlate</div>
           <div className="py-1 px-4 text-sm text-gray-900">licensePlate</div>
         </div>
 

@@ -9,8 +9,8 @@ const { getClientName, createChunks, getNestedValue, createTempDir, getFormatted
 
 const TEMP_DIR = createTempDir();
 
-async function generateQRCode(pdfViewToken) {
-  const qrCodeUrl = await QRCode.toDataURL(pdfViewToken);
+async function generateQRCode(pdfViewUrl) {
+  const qrCodeUrl = await QRCode.toDataURL(pdfViewUrl);
   return qrCodeUrl;
 }
 
@@ -42,7 +42,7 @@ async function replaceAsync(content, data) {
           replacement = getFormattedField("CNPJ", data.unit.cnpj);
           break;
         case "QRCode":
-          replacement = await generateQRCode(data.pdfViewToken);
+          replacement = await generateQRCode(data.pdfViewUrl);
           break;
         case "formattedDate":
           replacement = formattedDate(data.completeDate);
@@ -55,6 +55,14 @@ async function replaceAsync(content, data) {
           break;
         case "formattedModel":
           replacement = data.inspectionVehicleData.data.brandModel.split(" ")[1];
+          break;
+        case "formattedVehicleKm":
+          const observationGroupIndex = data.groups.findIndex(group => group.groupType === "OBSERVATION");
+          let kmValue = 0;
+          if (observationGroupIndex !== -1) {
+            kmValue = data.groups[observationGroupIndex].data.km;
+          }
+          replacement = kmValue;
           break;
         default:
           replacement = getNestedValue(data, path) || "";
@@ -247,9 +255,9 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, senatramData
     if (label.includes("Combustível")) key = "fuelType";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
-      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
-      const formattedSenatramData = senatramData[key] || "NÃO INFORMADO";
+      const formattedFactoryData = factoryData[key] || "Não informado";
+      const formattedVehicleData = vehicleData[key] || "Não informado";
+      const formattedSenatramData = senatramData[key] || "Não informado";
 
       $(cells[1]).text(formattedFactoryData);
       $(cells[2]).text(formattedSenatramData);
@@ -302,9 +310,15 @@ function vehicleGrid6Component(restParts, location, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
         vehicleItem.find("p").text(location);
+
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid6-SUCCESS",
@@ -356,9 +370,15 @@ function vehicleGrid15Component(restParts, location, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
         vehicleItem.find("p").text(location);
+
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid15-SUCCESS",
@@ -393,8 +413,7 @@ async function Layout3Builder(data) {
 
   try {
     let content = fs.readFileSync(path.join(__dirname, "../../../client3/dist/index.html"), "utf8");
-    const { city, state } = data.address;
-    const location = `${city}, ${state}`;
+    const location = `${data.address?.city ?? '-'}, ${data.address?.state ?? '-'}`;
 
     content = await replaceAsync(content, data);
 
@@ -446,14 +465,25 @@ async function Layout3Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 6 fotos
-      content = vehicleGrid6Component(allParts.slice(0, 6), location, content);
-
+      content = vehicleGrid6Component(availableParts.slice(0, 6), location, content);
+      
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter((p) => p.ratings.findIndex((r) => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 6) {
-        content = vehicleGrid15Component(allParts.slice(6), location, content);
+      if (availableParts.length > 6) {
+        content = vehicleGrid15Component(availableParts.slice(6), location, content);
       }
     }
 

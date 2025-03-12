@@ -49,7 +49,7 @@ function formattedClientPhone(client) {
   return "";
 };
 
-function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
+function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleDataComparison").each((_, element) => {
@@ -72,16 +72,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, content) {
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "NÃO INFORMADO";
-      const formattedVehicleData = vehicleData[key] || "NÃO INFORMADO";
-
+      const formattedFactoryData = key === 'km' ? kmValue : factoryData[key] || "Não informado";
+      const formattedVehicleData = vehicleData[key] || "Não informado";
+      
       $(cells[0]).text(formattedFactoryData);
       $(cells[1]).text(formattedVehicleData);
 
-      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase()) {
-        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== 'km') {
+        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -135,8 +135,13 @@ function vehicleGrid2Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(selectedRating?.name ?? "NÃO INFORMADO");
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid2-SUCCESS",
@@ -186,14 +191,19 @@ function vehicleGrid12Component(restParts, content) {
       chunks[index].forEach((part, partIndex) => {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
-        let formattedDesc = selectedRating?.name ?? "NÃO INFORMADO";
+        let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length > 30) {
           formattedDesc = formattedDesc.substring(0, 25) + '...';
         }
 
         vehicleItem.find("img").attr("src", part?.s3File?.url);
-        vehicleItem.find("#vehicleName").text(part.name ?? "NÃO INFORMADO");
-        vehicleItem.find("#vehicleDesc").text(formattedDesc);
+        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
+        if (!selectedRating?.name) {
+          vehicleDesc.addClass('text-transparent');
+        } else {
+          vehicleDesc.text(selectedRating?.name);
+        }
 
         const statusToId = {
           SUCCESS: "#VehicleGrid12-SUCCESS",
@@ -212,6 +222,8 @@ function vehicleGrid12Component(restParts, content) {
 }
 
 function ratingsComponent(allParts, content) {
+  const $ = cheerio.load(content);
+
   const ITEMS_PER_PAGE = 28;
 
   const formattedRatingsList = allParts
@@ -220,9 +232,10 @@ function ratingsComponent(allParts, content) {
     })
     .flat();
 
+  if (!formattedRatingsList.length) return $.html();
+
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
-  const $ = cheerio.load(content);
 
   $("#RatingGrid").each((_, element) => {
     $(element).removeClass('hidden');
@@ -299,14 +312,19 @@ async function Layout1Builder(data) {
       return getNestedValue(data, path) || "";
     });
 
+    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.inspectionVehicleData.data;
       const vehicleData = data.groups[vehicleDataIndex].data;
-      content = vehicleDetailComparisonComponent(vehicleData, factoryData, content);
+      let kmValue = 0;
+
+      if (groupDescriptionIndex !== -1) {
+        kmValue = data.groups[groupDescriptionIndex].data.km;
+      }
+      content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 
-    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     if (groupDescriptionIndex !== -1) {
       content = observationGridComponent(data.groups[groupDescriptionIndex], content);
     }
@@ -319,14 +337,25 @@ async function Layout1Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
+      const availableParts = []
+
+      allParts.forEach(p => {
+        if (p.isRequired) {
+          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          if (hasOneRatingSelected !== -1) {
+            availableParts.push(p);
+          }
+        } else {
+          availableParts.push(p);
+        }
+      })
 
       // Primeiro grupo com 2 fotos
-      content = vehicleGrid2Component(allParts.slice(0, 2), content);
+      content = vehicleGrid2Component(availableParts.slice(0, 2), content);
 
       // Resto das fotos
-      const onlyPartsWithRatings = allParts.filter(p => p.ratings.findIndex(r => r.isSelected) !== -1);
-      if (onlyPartsWithRatings.length > 2) {
-        content = vehicleGrid12Component(onlyPartsWithRatings.slice(2), content);
+      if (availableParts.length > 2) {
+        content = vehicleGrid12Component(availableParts.slice(2), content);
       }
 
       // Classificações
