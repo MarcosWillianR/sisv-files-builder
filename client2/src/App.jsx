@@ -27,7 +27,6 @@ export default function App() {
 
         <div className="break-inside-avoid-page order-2">
           <IconDescription />
-
           <VehicleGrid4 />
         </div>
 

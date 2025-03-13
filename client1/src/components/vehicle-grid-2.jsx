@@ -12,9 +12,7 @@ export function VehicleGrid2() {
               <h2 id="vehicleName" className="text-sm font-medium"></h2>
             </div>
 
-            <div className="w-full bg-gray-200 flex items-center justify-center">
-              <img src="" alt="Car" style={{ height: 185 }} className="w-full object-contain" />
-            </div>
+            <div id="VehicleGrid2-Image" className="w-full h-[185px] bg-gray-200 bg-cover bg-center" />
 
             <div className="px-4 py-2 flex flex-col gap-1 bg-[#9D9D9D]">
               <div className="flex items-center gap-2">

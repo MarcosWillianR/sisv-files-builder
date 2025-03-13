@@ -134,7 +134,7 @@ function vehicleGrid2Component(restParts, content) {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
-        vehicleItem.find("img").attr("src", part?.s3File?.url);
+        vehicleItem.find("#VehicleGrid2-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
@@ -196,7 +196,7 @@ function vehicleGrid12Component(restParts, content) {
           formattedDesc = formattedDesc.substring(0, 25) + '...';
         }
 
-        vehicleItem.find("img").attr("src", part?.s3File?.url);
+        vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
