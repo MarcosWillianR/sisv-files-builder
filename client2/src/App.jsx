@@ -9,7 +9,7 @@ import { VehicleGrid6 } from "./components/vehicle-grid-6";
 import { ObservationGrid } from "./components/observation-grid";
 import { NotesGrid } from "./components/notes-grid";
 
-function App() {
+export default function App() {
   return (
     <div className="flex flex-col gap-2">
       {/* <div className="break-inside-avoid-page">
@@ -26,9 +26,7 @@ function App() {
         </div>
 
         <div className="break-inside-avoid-page order-2">
-          <div className="mb-4">
-            <IconDescription />
-          </div>
+          <IconDescription />
 
           <VehicleGrid4 />
         </div>
@@ -58,5 +56,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
