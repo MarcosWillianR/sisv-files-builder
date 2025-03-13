@@ -259,13 +259,17 @@ async function Layout2Builder(data) {
       const availableParts = []
 
       allParts.forEach(p => {
-        if (p.isRequired) {
-          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
-          if (hasOneRatingSelected !== -1) {
+        if (p.type === 'EXTRA') {
+          availableParts.push(p);
+        } else {
+          if (p.isRequired) {
+            const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+            if (hasOneRatingSelected !== -1) {
+              availableParts.push(p);
+            }
+          } else {
             availableParts.push(p);
           }
-        } else {
-          availableParts.push(p);
         }
       })
 
