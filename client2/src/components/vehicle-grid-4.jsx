@@ -3,9 +3,7 @@ export function VehicleGrid4() {
     <div id="VehicleGrid4" className="w-full rounded-2xl overflow-hidden">
       <div className="grid grid-cols-2 gap-4 py-6 place-items-center">
         <div id="VehicleGrid4Item" className="flex flex-col w-full rounded-2xl overflow-hidden bg-gray-100">
-          <div className="w-full bg-gray-200 flex items-center justify-center">
-            <img src="" style={{ height: 164 }} className="w-full object-contain" />
-          </div>
+          <div id="VehicleGrid4-Image" className="w-full h-[164px] bg-gray-200 bg-cover bg-center" />
         </div>
       </div>
     </div>

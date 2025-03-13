@@ -70,10 +70,8 @@ function vehicleGrid4Component(first4Parts, content) {
     const items = $(element).find("#VehicleGrid4Item");
 
     items.each((index, item) => {
-      const img = $(item).find("img");
       const part = first4Parts[index];
-      const imgSrc = part?.s3File?.url;
-      img.attr("src", imgSrc);
+      $(item).find("#VehicleGrid4-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
     });
   });
 
