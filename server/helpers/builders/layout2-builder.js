@@ -173,7 +173,7 @@ function vehicleGrid6Component(restParts, content) {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
-        vehicleItem.find("#VehicleGrid6-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
+        vehicleItem.find("#VehicleGrid6-Image").attr("style", `background-image: url('${part?.s3File?.url}'); background-size: cover; background-position: center;`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
