@@ -1,6 +1,7 @@
 const ContractHtmlBuilder = require('./ContractHtmlBuilder');
 const PrivacyPolicyHtmlBuilder = require('./PrivacyPolicyHtmlBuilder');
 const TermsHtmlBuilder = require('./TermsHtmlBuilder');
+const puppeteer = require("puppeteer");
 
 class TermsContractPolicyBuilder {
     constructor(data) {
