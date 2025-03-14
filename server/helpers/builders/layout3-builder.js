@@ -57,7 +57,7 @@ async function replaceAsync(content, data) {
           replacement = data.inspectionVehicleData.data.brandModel.split(" ")[1];
           break;
         case "formattedVehicleKm":
-          const observationGroupIndex = data.groups.findIndex(group => group.groupType === "OBSERVATION");
+          const observationGroupIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
           let kmValue = 0;
           if (observationGroupIndex !== -1) {
             kmValue = data.groups[observationGroupIndex].data.km;
@@ -315,7 +315,7 @@ function vehicleGrid6Component(restParts, location, content) {
 
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
-          vehicleDesc.addClass('text-transparent');
+          vehicleDesc.addClass("text-transparent");
         } else {
           vehicleDesc.text(selectedRating?.name);
         }
@@ -375,7 +375,7 @@ function vehicleGrid15Component(restParts, location, content) {
 
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
-          vehicleDesc.addClass('text-transparent');
+          vehicleDesc.addClass("text-transparent");
         } else {
           vehicleDesc.text(selectedRating?.name);
         }
@@ -413,7 +413,7 @@ async function Layout3Builder(data) {
 
   try {
     let content = fs.readFileSync(path.join(__dirname, "../../../client3/dist/index.html"), "utf8");
-    const location = `${data.address?.city ?? '-'}, ${data.address?.state ?? '-'}`;
+    const location = `${data.address?.city ?? "-"}, ${data.address?.state ?? "-"}`;
 
     content = await replaceAsync(content, data);
 
@@ -440,8 +440,8 @@ async function Layout3Builder(data) {
 
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
-      const factoryData = { ...data.inspectionVehicleData.data, NCambio: "" };
-      const vehicleData = { ...data.groups[vehicleDataIndex].data, NCambio: "" };
+      const factoryData = { ...data.groups[vehicleDataIndex].data, NCambio: "" };
+      const vehicleData = { ...data.inspectionVehicleData.data, NCambio: "" };
       const senatramData = { licensePlate: "", chassis: "", engineNumber: "", NCambio: "", color: "", fuelType: "" };
 
       if (vehicleHistoryIndex !== -1) {
@@ -465,22 +465,22 @@ async function Layout3Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
-      const availableParts = []
+      const availableParts = [];
 
-      allParts.forEach(p => {
+      allParts.forEach((p) => {
         if (p.isRequired) {
-          const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+          const hasOneRatingSelected = p.ratings.findIndex((r) => r.isSelected);
           if (hasOneRatingSelected !== -1) {
             availableParts.push(p);
           }
         } else {
           availableParts.push(p);
         }
-      })
+      });
 
       // Primeiro grupo com 6 fotos
       content = vehicleGrid6Component(availableParts.slice(0, 6), location, content);
-      
+
       // Resto das fotos
       if (availableParts.length > 6) {
         content = vehicleGrid15Component(availableParts.slice(6), location, content);
