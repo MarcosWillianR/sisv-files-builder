@@ -9,7 +9,6 @@ async function processTimesheet(req, res) {
     
         const fileName = `relatorio_vistoria_${req.body.id}.xlsx`;
         const filePath = path.join(__dirname, fileName);
-        console.log(filePath);
     
         const excelBuilder = new ExcelBuilder(inspections, inspectionColumns, {
           sheetName: "Relatório de Vistoria",
