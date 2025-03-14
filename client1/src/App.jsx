@@ -8,7 +8,7 @@ import ContactInfo from "./components/contact-info";
 
 function App() {
   return (
-    <div className="flex flex-col gap-4 mx-6">
+    <div className="flex flex-col gap-2 mx-6">
       <div className="break-inside-avoid-page">
         <VehicleStatusGrid />
       </div>

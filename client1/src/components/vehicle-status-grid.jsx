@@ -5,13 +5,13 @@ export function VehicleStatusGrid() {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
       <div className="flex flex-row primary-bg-color text-white px-4 py-2">
-        <div className="self-end text-l font-bold">
+        <div className="self-end text-md font-bold">
           {`{inspectionVehicleData.data.licensePlate}`} - {`{inspectionName}`}
         </div>
       </div>
-      <div className="relative px-6 py-4">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-          <div className="space-y-4">
+      <div className="relative px-6 py-2">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+          <div className="space-y-2">
             <div className="flex flex-col">
               <div className="flex items-center">
                 <PiHouse size={20} className="text-gray-600" />
@@ -28,7 +28,7 @@ export function VehicleStatusGrid() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-2">
             <div className="flex flex-col">
               <div className="flex items-center">
                 <User size={20} className="text-gray-600" />
@@ -46,7 +46,7 @@ export function VehicleStatusGrid() {
           </div>
         </div>
       </div>
-      <div className="rounded-1xl h-10 primary-bg-color"></div>
+      <div className="rounded-1xl h-5 primary-bg-color"></div>
     </div>
   );
 }

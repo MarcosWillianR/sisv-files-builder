@@ -58,7 +58,7 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
 
   $(".grid.grid-cols-3").each((_, element) => {
     const label = $(element).find("div:first-child").text().trim();
-    const cells = $(element).find("div.py-1.px-4.text-sm").slice(-2);
+    const cells = $(element).find("div.py-px.px-4.text-xs").slice(-2);
 
     let key;
 
@@ -137,10 +137,16 @@ function vehicleGrid2Component(restParts, content) {
         vehicleItem.find("#VehicleGrid2-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
+
+        let formattedDesc = selectedRating?.name ?? "";
+        if (formattedDesc.length >= 25) {
+          formattedDesc = formattedDesc.substring(0, 25) + '...';
+        }
+
         if (!selectedRating?.name) {
           vehicleDesc.addClass('text-transparent');
         } else {
-          vehicleDesc.text(selectedRating?.name);
+          vehicleDesc.text(formattedDesc);
         }
 
         const statusToId = {
@@ -192,7 +198,8 @@ function vehicleGrid12Component(restParts, content) {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
         let formattedDesc = selectedRating?.name ?? "";
-        if (formattedDesc.length > 30) {
+
+        if (formattedDesc.length >= 25) {
           formattedDesc = formattedDesc.substring(0, 25) + '...';
         }
 
@@ -202,7 +209,7 @@ function vehicleGrid12Component(restParts, content) {
         if (!selectedRating?.name) {
           vehicleDesc.addClass('text-transparent');
         } else {
-          vehicleDesc.text(selectedRating?.name);
+          vehicleDesc.text(formattedDesc);
         }
 
         const statusToId = {
