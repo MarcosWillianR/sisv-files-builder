@@ -75,13 +75,13 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
       const formattedFactoryData = key === "km" ? kmValue : factoryData[key] || "Não informado";
       const formattedVehicleData = vehicleData[key] || "Não informado";
 
-      $(cells[0]).text(formattedFactoryData);
-      $(cells[1]).text(formattedVehicleData);
+      $(cells[0]).text(formattedVehicleData);
+      $(cells[1]).text(formattedFactoryData);
 
       if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== "km") {
-        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
