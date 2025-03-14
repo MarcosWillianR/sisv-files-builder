@@ -1,9 +1,9 @@
-import carPlate from "../assets/carPlate.png";
+import carPlate from "../assets/car-plate.png";
 
 export function VehicleStatusGrid() {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
-      <div className="flex flex-col primary-bg-color text-white p-4">
+      <div className="flex flex-col primary-bg-color text-white p-2">
         <div className="self-end text-l font-bold">{`{inspectionName}`}</div>
       </div>
       <div className="relative px-6">
@@ -23,14 +23,14 @@ export function VehicleStatusGrid() {
 
           <div className="grid grid-cols-2 gap-x-8">
             <div className="flex flex-col">
-              <h2 className="text-gray-700 text-base mb-1 font-bold">Veículo:</h2>
-              <p className="text-lg mb-1">{`{inspectionVehicleData.data.brandModel}`}</p>
+              <h2 className="text-gray-700 text-base font-bold">Veículo:</h2>
+              <p className="text-lg">{`{inspectionVehicleData.data.brandModel}`}</p>
               <p className="text-gray-600 text-sm">
                 {`{inspectionVehicleData.data.yearManufactureModel} - {inspectionVehicleData.data.color} - {inspectionVehicleData.data.fuelType}`}
               </p>
             </div>
             <div className="flex flex-col justify-end">
-              <h2 className="text-gray-700 text-base mb-1 font-bold">Cliente:</h2>
+              <h2 className="text-gray-700 text-base font-bold">Cliente:</h2>
               <p className="text-lg">{`{formattedClientName}`}</p>
             </div>
           </div>

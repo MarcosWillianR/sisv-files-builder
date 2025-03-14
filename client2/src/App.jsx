@@ -16,7 +16,7 @@ export default function App() {
         <Header />
       </div> */}
 
-      <div className="flex flex-col gap-4 mx-6">
+      <div className="flex flex-col gap-2 mx-6">
         <div className="break-inside-avoid-page order-first">
           <VehicleStatusGrid />
         </div>
@@ -34,7 +34,7 @@ export default function App() {
           <RatingGrid />
         </div>
 
-        <div id="VehicleGrid6" className="break-inside-avoid-page order-4">
+        <div id="VehicleGrid6" className="break-inside-avoid-page order-4 hidden">
           <VehicleGrid6 />
         </div>
 

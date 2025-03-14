@@ -146,6 +146,7 @@ function vehicleGrid6Component(restParts, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleGrid6").each((_, element) => {
+    $(element).removeClass('hidden');
     const item = $(element).find("#VehicleChunk");
 
     for (let i = 1; i < chunks.length; i++) {

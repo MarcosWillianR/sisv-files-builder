@@ -4,7 +4,7 @@ import { AiOutlineInfo } from "react-icons/ai";
 
 export function IconDescription() {
   return (
-    <div className="flex flex-wrap gap-6 items-center justify-between px-8 mb-2">
+    <div className="flex flex-wrap gap-2 items-center justify-between px-8 mb-2">
       <div className="flex items-center gap-2">
         <div className="rounded-full" style={{ backgroundColor: "#48BB78", padding: "0.25rem" }}>
           <Check className="w-4 h-4 text-white" />
