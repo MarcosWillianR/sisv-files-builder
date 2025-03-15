@@ -199,8 +199,8 @@ function vehicleGrid12Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
         let formattedDesc = selectedRating?.name ?? "";
 
-        if (formattedDesc.length >= 25) {
-          formattedDesc = formattedDesc.substring(0, 25) + "...";
+        if (formattedDesc.length >= 20) {
+          formattedDesc = formattedDesc.substring(0, 20) + "...";
         }
 
         vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);

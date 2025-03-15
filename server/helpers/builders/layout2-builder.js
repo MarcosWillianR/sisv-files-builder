@@ -170,6 +170,12 @@ function vehicleGrid6Component(restParts, content) {
       chunks[index].forEach((part, partIndex) => {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
+        
+        let formattedDesc = selectedRating?.name ?? "";
+
+        if (formattedDesc.length >= 20) {
+          formattedDesc = formattedDesc.substring(0, 20) + "...";
+        }
 
         vehicleItem.find("#VehicleGrid6-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
@@ -177,7 +183,7 @@ function vehicleGrid6Component(restParts, content) {
         if (!selectedRating?.name) {
           vehicleDesc.addClass("text-transparent");
         } else {
-          vehicleDesc.text(selectedRating?.name);
+          vehicleDesc.text(formattedDesc);
         }
 
         const statusToId = {
