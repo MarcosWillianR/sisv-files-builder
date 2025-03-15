@@ -14,7 +14,7 @@ function formattedPhoneNumber(value) {
     .replace(/(\d{2})(\d)/, "($1) $2")
     .replace(/(\d{5})(\d)/, "$1-$2")
     .replace(/(-\d{4})(\d+?)/, "$1");
-};
+}
 
 function formattedCNPJ(value) {
   if (!value) return "";
@@ -28,26 +28,26 @@ function formattedCNPJ(value) {
 }
 
 function formattedClientName(client) {
-  if (!client || client.clientType === 'AVULSO') return "PARTICULAR";
-  if (client.clientType === 'INDIVIDUAL') {
+  if (!client || client.clientType === "AVULSO") return "PARTICULAR";
+  if (client.clientType === "INDIVIDUAL") {
     return `${client.user.firstName} ${client.user.lastName}`;
   }
-  if (client.clientType === 'COMPANY') {
-    return `${client.company.name}`
+  if (client.clientType === "COMPANY") {
+    return `${client.company.name}`;
   }
   return "PARTICULAR";
 }
 
 function formattedClientPhone(client) {
-  if (!client || client.clientType === 'AVULSO') return "";
-  if (client.clientType === 'INDIVIDUAL') {
+  if (!client || client.clientType === "AVULSO") return "";
+  if (client.clientType === "INDIVIDUAL") {
     return formattedPhoneNumber(client.phone);
   }
-  if (client.clientType === 'COMPANY') {
+  if (client.clientType === "COMPANY") {
     return formattedPhoneNumber(client.company.phone);
   }
   return "";
-};
+}
 
 function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content) {
   const $ = cheerio.load(content);
@@ -72,16 +72,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = key === 'km' ? kmValue : factoryData[key] || "Não informado";
+      const formattedFactoryData = key === "km" ? kmValue : factoryData[key] || "Não informado";
       const formattedVehicleData = vehicleData[key] || "Não informado";
-      
-      $(cells[0]).text(formattedFactoryData);
-      $(cells[1]).text(formattedVehicleData);
 
-      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== 'km') {
-        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
+      $(cells[0]).text(formattedVehicleData);
+      $(cells[1]).text(formattedFactoryData);
+
+      if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== "km") {
+        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -93,7 +93,7 @@ function observationGridComponent(descriptionData, content) {
   const $ = cheerio.load(content);
 
   $("#ObservationGrid").each((_, element) => {
-    $(element).removeClass('hidden');
+    $(element).removeClass("hidden");
 
     const title = $(element).find("h2");
     const description = $(element).find("p");
@@ -140,11 +140,11 @@ function vehicleGrid2Component(restParts, content) {
 
         let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length >= 25) {
-          formattedDesc = formattedDesc.substring(0, 25) + '...';
+          formattedDesc = formattedDesc.substring(0, 25) + "...";
         }
 
         if (!selectedRating?.name) {
-          vehicleDesc.addClass('text-transparent');
+          vehicleDesc.addClass("text-transparent");
         } else {
           vehicleDesc.text(formattedDesc);
         }
@@ -200,14 +200,14 @@ function vehicleGrid12Component(restParts, content) {
         let formattedDesc = selectedRating?.name ?? "";
 
         if (formattedDesc.length >= 25) {
-          formattedDesc = formattedDesc.substring(0, 25) + '...';
+          formattedDesc = formattedDesc.substring(0, 25) + "...";
         }
 
         vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
-          vehicleDesc.addClass('text-transparent');
+          vehicleDesc.addClass("text-transparent");
         } else {
           vehicleDesc.text(formattedDesc);
         }
@@ -243,9 +243,8 @@ function ratingsComponent(allParts, content) {
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
 
-
   $("#RatingGrid").each((_, element) => {
-    $(element).removeClass('hidden');
+    $(element).removeClass("hidden");
     const item = $(element).find("#RatingChunk");
 
     for (let i = 1; i < chunks.length; i++) {
@@ -293,7 +292,7 @@ function notesGridComponent(notes, content) {
   const $ = cheerio.load(content);
 
   $("#NotesGrid").each((_, element) => {
-    $(element).removeClass('hidden');
+    $(element).removeClass("hidden");
     const description = $(element).find("#NotesGridText");
     description.text(notes);
   });
@@ -322,8 +321,8 @@ async function Layout1Builder(data) {
     const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
-      const factoryData = data.inspectionVehicleData.data;
-      const vehicleData = data.groups[vehicleDataIndex].data;
+      const factoryData = data.groups[vehicleDataIndex].data;
+      const vehicleData = data.inspectionVehicleData.data;
       let kmValue = 0;
 
       if (groupDescriptionIndex !== -1) {
@@ -344,14 +343,14 @@ async function Layout1Builder(data) {
       }));
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
-      const availableParts = []
+      const availableParts = [];
 
-      allParts.forEach(p => {
-        if (p.type === 'EXTRA') {
+      allParts.forEach((p) => {
+        if (p.type === "EXTRA") {
           availableParts.push(p);
         } else {
           if (p.isRequired) {
-            const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+            const hasOneRatingSelected = p.ratings.findIndex((r) => r.isSelected);
             if (hasOneRatingSelected !== -1) {
               availableParts.push(p);
             }
@@ -359,7 +358,7 @@ async function Layout1Builder(data) {
             availableParts.push(p);
           }
         }
-      })
+      });
 
       // Primeiro grupo com 2 fotos
       content = vehicleGrid2Component(availableParts.slice(0, 2), content);

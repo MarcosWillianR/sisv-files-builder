@@ -39,16 +39,16 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = key === 'km' ? kmValue : (factoryData[key] || "Não informado");
+      const formattedFactoryData = key === "km" ? kmValue : factoryData[key] || "Não informado";
       const formattedVehicleData = vehicleData[key] || "Não informado";
 
-      $(cells[0]).text(formattedFactoryData);
-      $(cells[1]).text(formattedVehicleData);
+      $(cells[0]).text(formattedVehicleData);
+      $(cells[1]).text(formattedFactoryData);
 
       if (formattedVehicleData.toLowerCase() !== formattedFactoryData.toLowerCase() && key !== "km") {
-        $(cells[0]).text(formattedFactoryData).addClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedVehicleData).addClass("text-red-600 underline font-bold");
       } else {
-        $(cells[0]).text(formattedFactoryData).removeClass("text-red-600 underline font-bold");
+        $(cells[0]).text(formattedVehicleData).removeClass("text-red-600 underline font-bold");
       }
     }
   });
@@ -88,11 +88,10 @@ function ratingsComponent(allParts, content) {
       return part.ratings.filter((rating) => rating.isSelected).map((rating) => ({ rating, partName: part.name }));
     })
     .flat();
-  
+
   if (!formattedRatingsList.length) return $.html();
 
   const chunks = createChunks(formattedRatingsList, ITEMS_PER_PAGE);
-
 
   $("#RatingGrid").each((_, element) => {
     $(element).removeClass("hidden");
@@ -146,7 +145,7 @@ function vehicleGrid6Component(restParts, content) {
   const $ = cheerio.load(content);
 
   $("#VehicleGrid6").each((_, element) => {
-    $(element).removeClass('hidden');
+    $(element).removeClass("hidden");
     const item = $(element).find("#VehicleChunk");
 
     for (let i = 1; i < chunks.length; i++) {
@@ -176,7 +175,7 @@ function vehicleGrid6Component(restParts, content) {
         vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
-          vehicleDesc.addClass('text-transparent');
+          vehicleDesc.addClass("text-transparent");
         } else {
           vehicleDesc.text(selectedRating?.name);
         }
@@ -239,8 +238,8 @@ async function Layout2Builder(data) {
     const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = data.groups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
-      const factoryData = data.inspectionVehicleData.data;
-      const vehicleData = data.groups[vehicleDataIndex].data;
+      const factoryData = data.groups[vehicleDataIndex].data;
+      const vehicleData = data.inspectionVehicleData.data;
       let kmValue = 0;
       if (groupDescriptionIndex !== -1) {
         kmValue = data.groups[groupDescriptionIndex].data.km;
@@ -250,19 +249,18 @@ async function Layout2Builder(data) {
 
     const groupParts = data.groups
       .filter((group) => group.groupType === "PARTS")
-      .map((group) => ({ ...group, data: group.data.filter((item) => !item.isPlaceholder),
-    }));
+      .map((group) => ({ ...group, data: group.data.filter((item) => !item.isPlaceholder) }));
 
     if (groupParts.length > 0) {
       const allParts = groupParts.flatMap((group) => group.data).sort((a, b) => a.printOrder - b.printOrder);
-      const availableParts = []
+      const availableParts = [];
 
-      allParts.forEach(p => {
-        if (p.type === 'EXTRA') {
+      allParts.forEach((p) => {
+        if (p.type === "EXTRA") {
           availableParts.push(p);
         } else {
           if (p.isRequired) {
-            const hasOneRatingSelected = p.ratings.findIndex(r => r.isSelected);
+            const hasOneRatingSelected = p.ratings.findIndex((r) => r.isSelected);
             if (hasOneRatingSelected !== -1) {
               availableParts.push(p);
             }
@@ -270,7 +268,7 @@ async function Layout2Builder(data) {
             availableParts.push(p);
           }
         }
-      })
+      });
 
       // Primeiro grupo com 4 fotos
       content = vehicleGrid4Component(availableParts.slice(0, 4), content);

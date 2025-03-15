@@ -4,7 +4,7 @@ export function VehicleDataComparison() {
       <div className="primary-bg-color text-white grid grid-cols-3">
         <div className="py-px px-4 text-left font-medium text-sm">Itens</div>
         <div className="py-px px-4 text-left font-medium text-sm">Dados do veículo</div>
-        <div className="py-px px-4 text-left font-medium text-sm">Dados da fábrica</div>
+        <div className="py-px px-4 text-left font-medium text-sm">Dados de fábrica</div>
       </div>
       <div>
         <div className="grid grid-cols-3 border-b last:border-b-0">
