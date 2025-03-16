@@ -33,6 +33,22 @@ app.post("/pdf", async (req, res) => {
     const page = await browser.newPage();
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0" });
+
+    const iframeHeight = await page.evaluate(() => {
+      const iframe = document.querySelector("iframe");
+      if (!iframe) return 0;
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+      const body = iframeDocument.body;
+      return body.scrollHeight;
+    });
+
+    await page.evaluate((height) => {
+      const iframe = document.querySelector("iframe");
+      if (iframe) {
+        iframe.style.height = `${height - 1520}px`;
+      }
+    }, iframeHeight);
+
     await page.addStyleTag({ content: customColorsStyleTag(req.body) });
     const pdfBuffer = await page.pdf(pdfBufferOptions);
 

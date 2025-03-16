@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
+const axios = require("axios");
 
 const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
@@ -300,6 +301,17 @@ function notesGridComponent(notes, content) {
   return $.html();
 }
 
+async function fetchAndModifyExternalHtml(url) {
+  try {
+    const { data: externalHtml } = await axios.get(url);
+    const $ = cheerio.load(externalHtml);
+    return $.html();
+  } catch (error) {
+    console.error("Erro ao buscar HTML externo:", error.message);
+    return "";
+  }
+}
+
 async function Layout1Builder(data) {
   const fileId = uuidv4();
   const tempFilePath = path.join(TEMP_DIR, `index-${fileId}.html`);
@@ -373,6 +385,17 @@ async function Layout1Builder(data) {
     }
 
     content = notesGridComponent(data.notes, content);
+
+    const groupHistoryIndex = availableGroups.findIndex((group) => group.groupType === "HISTORY");
+    if (groupHistoryIndex !== -1 && data.IsSearchMandatory) {
+      const groupHistory = data.groups[groupHistoryIndex];
+      const apiDataParsed = JSON.parse(groupHistory.data.apiData);
+      const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
+      const $ = cheerio.load(content);
+      const iframeHtml = `<iframe srcdoc="${modifiedHtml.replace(/"/g, '&quot;')}" style="width:100%; border: none;"></iframe>`;
+      $('body').append(iframeHtml);
+      content = $.html();
+    }
 
     fs.writeFileSync(tempFilePath, content, "utf8");
 

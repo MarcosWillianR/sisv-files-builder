@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
+const axios = require("axios");
 
 const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
@@ -229,6 +230,17 @@ function notesGridComponent(notes, content) {
   return $.html();
 }
 
+async function fetchAndModifyExternalHtml(url) {
+  try {
+    const { data: externalHtml } = await axios.get(url);
+    const $ = cheerio.load(externalHtml);
+    return $.html();
+  } catch (error) {
+    console.error("Erro ao buscar HTML externo:", error.message);
+    return "";
+  }
+}
+
 async function Layout2Builder(data) {
   const fileId = uuidv4();
   const tempFilePath = path.join(TEMP_DIR, `index-${fileId}.html`);
@@ -236,13 +248,15 @@ async function Layout2Builder(data) {
   try {
     let content = fs.readFileSync(path.join(__dirname, "../../../client2/dist/index.html"), "utf8");
 
+    const availableGroups = data.groups.filter((g) => g.isPdfEnabled);
+
     content = content.replace(/{([\w.]+)}/g, (match, path) => {
       if (path === "formattedClientName") return formattedClientName(data.client);
       return getNestedValue(data, path) || "";
     });
 
-    const groupDescriptionIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
-    const vehicleDataIndex = data.groups.findIndex((group) => group.groupType === "DATA");
+    const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
+    const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");
     if (vehicleDataIndex !== -1) {
       const factoryData = data.groups[vehicleDataIndex].data;
       const vehicleData = data.inspectionVehicleData.data;
@@ -253,7 +267,7 @@ async function Layout2Builder(data) {
       content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 
-    const groupParts = data.groups
+    const groupParts = availableGroups
       .filter((group) => group.groupType === "PARTS")
       .map((group) => ({ ...group, data: group.data.filter((item) => !item.isPlaceholder) }));
 
@@ -293,6 +307,17 @@ async function Layout2Builder(data) {
     }
 
     content = notesGridComponent(data.notes, content);
+
+    const groupHistoryIndex = availableGroups.findIndex((group) => group.groupType === "HISTORY");
+    if (groupHistoryIndex !== -1 && data.IsSearchMandatory) {
+      const groupHistory = data.groups[groupHistoryIndex];
+      const apiDataParsed = JSON.parse(groupHistory.data.apiData);
+      const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
+      const $ = cheerio.load(content);
+      const iframeHtml = `<iframe srcdoc="${modifiedHtml.replace(/"/g, '&quot;')}" style="width:100%; border: none;"></iframe>`;
+      $('body').append(iframeHtml);
+      content = $.html();
+    }
 
     fs.writeFileSync(tempFilePath, content, "utf8");
 
