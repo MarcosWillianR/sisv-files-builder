@@ -372,16 +372,21 @@ async function Layout1Builder(data) {
         }
       });
 
-      // Primeiro grupo com 2 fotos
-      content = vehicleGrid2Component(availableParts.slice(0, 2), content);
+      if (availableParts.length > 0) {
+        // Primeiro grupo com 2 fotos
+        content = vehicleGrid2Component(availableParts.slice(0, 2), content);
+      }
+
 
       // Resto das fotos
       if (availableParts.length > 2) {
         content = vehicleGrid12Component(availableParts.slice(2), content);
       }
 
-      // Classificações
-      content = ratingsComponent(allParts, content);
+      if (allParts.length > 0) {
+        // Classificações
+        content = ratingsComponent(allParts, content);
+      }
     }
 
     content = notesGridComponent(data.notes, content);
