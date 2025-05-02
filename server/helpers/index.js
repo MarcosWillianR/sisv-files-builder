@@ -9,27 +9,26 @@ async function getHeaderScreenshot(data, layout) {
   const headerBuilder = await getHeaderBuilder(layout);
   await headerBuilder.build(data);
 
-  const getHeaderScreenshot_browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-  const headerPage = await getHeaderScreenshot_browser.newPage();
-
-  // await headerPage.setViewport({
-  //   width: 547,
-  //   height: layout === 'LAYOUT_1' ? 100 : 80,
-  //   deviceScaleFactor: 3
-  // });
+  const browser = await puppeteer.launch({ headless: "new", args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  const headerPage = await browser.newPage();
 
   await headerPage.setContent(headerBuilder.getContent());
   await headerPage.waitForSelector(".header");
 
   const headerElement = await headerPage.$(".header");
-  if (!headerElement) throw new Error("Elemento .header não encontrado");
+  if (!headerElement) {
+    await browser.close();
+    throw new Error("Elemento .header não encontrado");
+  }
 
-  // Captura o screenshot com alta qualidade
-  return headerElement.screenshot({ 
+  const screenshot = await headerElement.screenshot({
     type: 'jpeg',
     encoding: 'base64',
-    quality: 100, // Mantém máxima qualidade do JPEG
+    quality: 100,
   });
+
+  await browser.close();
+  return screenshot;
 }
 
 async function getHeaderBuilder(layout) {
@@ -60,8 +59,6 @@ async function saveJsonToFile(jsonData, filePath) {
   try {
     await fs.mkdir(path.dirname(filePath), { recursive: true }); // Garante que o diretório existe
     const jsonString = JSON.stringify(jsonData, null, 2);
-
-    console.log(jsonString);
     await fs.writeFile(filePath, jsonString);
     console.log("Arquivo salvo com sucesso!");
   } catch (err) {
