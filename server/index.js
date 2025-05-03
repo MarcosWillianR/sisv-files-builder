@@ -50,7 +50,10 @@ app.post("/pdf", async (req, res) => {
     }, iframeHeight);
 
     await page.addStyleTag({ content: customColorsStyleTag(req.body) });
-    const pdfBuffer = await page.pdf(pdfBufferOptions);
+    const pdfBuffer = await page.pdf({
+      ...pdfBufferOptions,
+      timeout: 60000,
+    });
 
     await browser.close();
     await deleteFile(filePath);
