@@ -51,10 +51,10 @@ async function replaceAsync(content, data) {
           replacement = formattedHour(data.completeDate);
           break;
         case "formattedBrand":
-          replacement = data.inspectionVehicleData.data.brandModel.split(" ")[0];
+          replacement = data.inspectionVehicleData.data.brandModel.split(" ")[0] ?? "";
           break;
         case "formattedModel":
-          replacement = data.inspectionVehicleData.data.brandModel.split(" ")[1];
+          replacement = data.inspectionVehicleData.data.brandModel.split(" ")[1] ?? "";
           break;
         case "formattedVehicleKm":
           const observationGroupIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
@@ -181,15 +181,6 @@ function vehicleStatusGridComponent(data, content) {
 function debtsSummaryComponent(data, content) {
   const { IPVA, Licenciamento, Multas, DPVAT, TotalDeDividas } = data;
 
-  // function somarDebitos(obj) {
-  //   return Object.values(obj)
-  //     .filter((valor) => valor !== "R$ 0,00" && valor !== "-")
-  //     .map((valor) => Number(valor.replace("R$", "").replace(",", ".")))
-  //     .reduce((total, num) => total + num, 0);
-  // }
-
-  // const totalValue = somarDebitos({ IPVA, Licenciamento, DPVAT, Multas })
-
   const $ = cheerio.load(content);
 
   $("#DebtsSummary").each((_, element) => {
@@ -206,7 +197,7 @@ function debtsSummaryComponent(data, content) {
     if (label === "Licenciamento") key = Licenciamento;
     if (label === "DPVAT") key = DPVAT;
     if (label === "Multas") key = Multas;
-    if (label === "Total de dívidas") key = TotalDeDividas; //formatValue(totalValue);
+    if (label === "Total de dívidas") key = TotalDeDividas;
 
     if (key) {
       if (key === "R$ 0,00") {
@@ -478,8 +469,10 @@ async function Layout3Builder(data) {
         }
       });
 
-      // Primeiro grupo com 6 fotos
-      content = vehicleGrid6Component(availableParts.slice(0, 6), location, content);
+      if (availableParts.length > 0) {
+        // Primeiro grupo com 6 fotos
+        content = vehicleGrid6Component(availableParts.slice(0, 6), location, content);
+      }
 
       // Resto das fotos
       if (availableParts.length > 6) {

@@ -377,7 +377,6 @@ async function Layout1Builder(data) {
         content = vehicleGrid2Component(availableParts.slice(0, 2), content);
       }
 
-
       // Resto das fotos
       if (availableParts.length > 2) {
         content = vehicleGrid12Component(availableParts.slice(2), content);

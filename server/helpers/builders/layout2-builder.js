@@ -290,11 +290,14 @@ async function Layout2Builder(data) {
         }
       });
 
-      // Primeiro grupo com 4 fotos
-      content = vehicleGrid4Component(availableParts.slice(0, 4), content);
+      if (availableParts.length > 0) {
+        // Primeiro grupo com 4 fotos
+        content = vehicleGrid4Component(availableParts.slice(0, 4), content);
+        
+        // Classificações
+        content = ratingsComponent(availableParts, content);
+      }
 
-      // Classificações
-      content = ratingsComponent(availableParts, content);
 
       // Resto das fotos
       if (availableParts.length > 4) {
