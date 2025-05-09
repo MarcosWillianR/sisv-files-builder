@@ -1,0 +1,20 @@
+{
+  "vehicleType": "CAR - STRUCTURE",
+  "items": {
+    "1": {
+      "status": "Fora do padrão",
+      "name": "Capô",
+      "color": "#f40d10"
+    },
+    "2": {
+      "status": "Fora do padrão",
+      "name": "Paralama dianteiro direito",
+      "color": "#f40d10"
+    },
+    "3": {
+      "status": "Fora dos padrões do fabricanteou adulterado",
+      "name": "Porta dianteira direita",
+      "color": "#64efc8"
+    }
+  }
+}
