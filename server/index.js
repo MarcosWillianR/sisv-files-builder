@@ -27,10 +27,9 @@ app.post("/pdf", async (req, res) => {
     const jsonPath = path.join(__dirname, 'data.json');
     await saveJsonToFile(req.body, jsonPath);
     
-    const savePath = path.join('./', 'croqui.png');
+    const savePath = path.join('./', 'croqui/');
     await createCroquiImage(req.body, savePath);
-    
-
+  
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
     const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox", "--disable-setuid-sandbox"] });

@@ -1,5 +1,5 @@
 {
-  "CAR": {
+  "CAR - PAINTING": {
     "width": 2400,
     "height": 1800,
     "imagePath": "../assets/images/sedan_pintura.png",
@@ -138,6 +138,192 @@
         "to": {
           "x": 475,
           "y": 1300
+        }
+      }
+    }
+  },
+  "CAR - STRUCTURE": {
+    "width": 2800,
+    "height": 2200,
+    "imagePath": "../assets/images/sedan_estrutura.png",
+    "cardWidth": 350,
+    "cardHeight": 80,
+    "headerHeight": 40,
+    "textConfig": {
+      "headerFontSize": 25,
+      "headerFontStyle": "bold",
+      "headerTextColor": "#FFFFFF",
+      "headerTextAlign": "center",
+      "nameFontSize": 20,
+      "nameFontStyle": "bold",
+      "nameTextColor": "#000000",
+      "nameTextAlign": "left",
+      "fontFamily": "Arial"
+    },
+    "positions": {
+      "1": {
+        "from": {
+          "x": 760,
+          "y": 1260,
+          "width": 100
+        },
+        "to": {
+          "x": 300,
+          "y": 1350
+        }
+      },
+      "2": {
+        "from": {
+          "x": 860,
+          "y": 1220,
+          "width": 100
+        },
+        "to": {
+          "x": 300,
+          "y": 1000
+        }
+      },
+      "3": {
+        "from": {
+          "x": 1250,
+          "y": 1000,
+          "width": 200
+        },
+        "to": {
+          "x": 500,
+          "y": 750
+        }
+      },
+      "4": {
+        "from": {
+          "x": 1100,
+          "y": 830,
+          "width": 200
+        },
+        "to": {
+          "x": 800,
+          "y": 600
+        }
+      },
+      "5": {
+        "from": {
+          "x": 1280,
+          "y": 760,
+          "width": 200
+        },
+        "to": {
+          "x": 1000,
+          "y": 450
+        }
+      },
+      "6": {
+        "from": {
+          "x": 1520,
+          "y": 700,
+          "width": 200
+        },
+        "to": {
+          "x": 1300,
+          "y": 325
+        }
+      },
+      "7": {
+        "from": {
+          "x": 1700,
+          "y": 780,
+          "width": 200
+        },
+        "to": {
+          "x": 1800,
+          "y": 350
+        }
+      },
+      "8": {
+        "from": {
+          "x": 1800,
+          "y": 780,
+          "width": 200
+        },
+        "to": {
+          "x": 2200,
+          "y": 470
+        }
+      },
+      "9": {
+        "from": {
+          "x": 1980,
+          "y": 900,
+          "width": 200
+        },
+        "to": {
+          "x": 2300,
+          "y": 620
+        }
+      },
+      "10": {
+        "from": {
+          "x": 1780,
+          "y": 950,
+          "width": 200
+        },
+        "to": {
+          "x": 2300,
+          "y": 900
+        }
+      },
+      "11": {
+        "from": {
+          "x": 1575,
+          "y": 950,
+          "width": 200
+        },
+        "to": {
+          "x": 2100,
+          "y": 1050
+        }
+      },
+      "12": {
+        "from": {
+          "x": 1380,
+          "y": 1000,
+          "width": 200
+        },
+        "to": {
+          "x": 2000,
+          "y": 1220
+        }
+      },
+      "13": {
+        "from": {
+          "x": 1450,
+          "y": 1280,
+          "width": 200
+        },
+        "to": {
+          "x": 1700,
+          "y": 1400
+        }
+      },
+      "14": {
+        "from": {
+          "x": 1000,
+          "y": 1350,
+          "width": 200
+        },
+        "to": {
+          "x": 1300,
+          "y": 1550
+        }
+      },
+      "15": {
+        "from": {
+          "x": 680,
+          "y": 1370,
+          "width": 200
+        },
+        "to": {
+          "x": 700,
+          "y": 1650
         }
       }
     }

@@ -1,0 +1,482 @@
+{
+  "id": 344,
+  "inspectionName": "PRODUTO CROQUI TEST",
+  "address": null,
+  "layout": "LAYOUT_1",
+  "vehicleType": "CAR",
+  "IsSearchMandatory": false,
+  "notes": "Produto Croqui Test",
+  "inspectionVehicleData": {
+    "id": 344,
+    "data": {
+      "licensePlate": "",
+      "brandModel": "",
+      "yearManufactureModel": "",
+      "color": "",
+      "chassis": "",
+      "engineNumber": "",
+      "state": "",
+      "city": "",
+      "fuelType": "",
+      "power": "",
+      "vehicleType": "",
+      "engineDisplacement": "",
+      "grossTotalWeight": "",
+      "grv": "",
+      "km": ""
+    }
+  },
+  "customizationConfig": {
+    "id": 17,
+    "logo": {
+      "s3Key": "unit/4/logo",
+      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/4/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250509T214402Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250509%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=945fb68575b944dd47fc8db5a29c0e43ccb065e7aad310c37f9612cca0e4ab1c",
+      "fileType": "image/png"
+    },
+    "primaryColor": "#7b3d92",
+    "secondColor": "#f6ad16",
+    "primaryFontColor": "#ffffff",
+    "secondFontColor": "#ffffff"
+  },
+  "createDate": "2025-05-09 01:36:25",
+  "completeDate": "2025-05-09 01:37:35",
+  "unit": {
+    "id": 4,
+    "dueDate": "05",
+    "billingDate": "01",
+    "name": "CAR DADOS PROCESSAMENTO DE DADOS LTDA.",
+    "fantasyName": "CARDADOS VISTORIA",
+    "cnpj": "10472656000160",
+    "phone": "11300000000",
+    "email": "financeiro@email.com.br",
+    "cnaeCode": "6202300",
+    "stateRegistration": "",
+    "municipalRegistration": "",
+    "responsiblePerson": "",
+    "address": {
+      "street": "Alameda Rio Negro",
+      "city": "Barueri",
+      "state": "SP",
+      "number": null,
+      "complement": null,
+      "neighborhood": null,
+      "zipCode": "06454000",
+      "latitude": null,
+      "longitude": null
+    },
+    "startDate": "2025-01-30 16:51:12",
+    "productExportUuid": "454d9503-fe27-11ef-b1f0-0a30e7dbe26f"
+  },
+  "client": null,
+  "expert": {
+    "id": 2,
+    "firstName": "Felipe",
+    "lastName": "Mazoni",
+    "cpf": "85523780006",
+    "signature": "https://sisvvist.s3.sa-east-1.amazonaws.com/user/2/document/SIGNATURE?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250509T214402Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250509%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e0d2087a886f3ce8c347409dde575418f97265e9c7e2d3588f81530a28d089fe"
+  },
+  "analyst": {
+    "id": 2,
+    "firstName": "Felipe",
+    "lastName": "Mazoni",
+    "cpf": "85523780006",
+    "signature": "https://sisvvist.s3.sa-east-1.amazonaws.com/user/2/document/SIGNATURE?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250509T214402Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250509%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=e0d2087a886f3ce8c347409dde575418f97265e9c7e2d3588f81530a28d089fe"
+  },
+  "groups": [
+    {
+      "id": 1253,
+      "name": "DADOS",
+      "isRequired": false,
+      "isPdfEnabled": true,
+      "appOrder": 1,
+      "printOrder": 1,
+      "groupType": "DATA",
+      "s3File": {
+        "id": 452,
+        "fileName": "group_image",
+        "s3Key": "vistoria/group/1/group_image",
+        "bucketName": "sisvvist",
+        "fileSize": 8805,
+        "fileType": "image/png",
+        "uploadAt": "2025-02-12 00:03:35"
+      },
+      "data": {
+        "licensePlate": "",
+        "brandModel": "",
+        "yearManufactureModel": "",
+        "color": "",
+        "chassis": "",
+        "engineNumber": "",
+        "state": "",
+        "city": "",
+        "fuelType": "",
+        "power": "",
+        "vehicleType": "",
+        "engineDisplacement": "",
+        "grossTotalWeight": ""
+      }
+    },
+    {
+      "id": 1254,
+      "name": "FOTOS",
+      "isRequired": false,
+      "isPdfEnabled": true,
+      "appOrder": 2,
+      "printOrder": 3,
+      "groupType": "PARTS",
+      "s3File": null,
+      "data": []
+    },
+    {
+      "id": 1255,
+      "name": "Observação",
+      "isRequired": false,
+      "isPdfEnabled": true,
+      "appOrder": 6,
+      "printOrder": 6,
+      "groupType": "OBSERVATION",
+      "s3File": {
+        "id": 453,
+        "fileName": "group_image",
+        "s3Key": "vistoria/group/2/group_image",
+        "bucketName": "sisvvist",
+        "fileSize": 833,
+        "fileType": "image/png",
+        "uploadAt": "2025-02-12 00:06:25"
+      },
+      "data": {
+        "id": 357,
+        "km": "",
+        "textObservation": ""
+      }
+    },
+    {
+      "id": 1256,
+      "name": "CROQUI ESTRUTURAL",
+      "isRequired": false,
+      "isPdfEnabled": true,
+      "appOrder": 5,
+      "printOrder": 5,
+      "groupType": "CROQUI",
+      "s3File": null,
+      "data": {
+        "id": 6,
+        "croquiType": "STRUCTURE",
+        "items": [
+          {
+            "id": 3303,
+            "name": "Capô",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28140,
+                "name": "Dentro dos padrões",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28138,
+                "name": "Em perfeito estado",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28136,
+                "name": "Fora do padrão",
+                "color": "#f40d10",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              },
+              {
+                "id": 28135,
+                "name": "Fora dos padrões do fabricanteou adulterado",
+                "color": "#64efc8",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28139,
+                "name": "Original/Dentro dos padrões do fabricante",
+                "color": "#48ff24",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28142,
+                "name": "Possui avaria",
+                "color": "#ea0d11",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28137,
+                "name": "Possui reparo",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28141,
+                "name": "Sem acesso",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": {
+              "id": 456,
+              "fileName": "item_image",
+              "s3Key": "vistoria/items/27/item_image",
+              "bucketName": "sisvvist",
+              "fileSize": 372673,
+              "fileType": "image/png",
+              "uploadAt": "2025-02-12 00:25:37"
+            },
+            "croquiId": 1
+          },
+          {
+            "id": 3304,
+            "name": "Paralama dianteiro direito",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28146,
+                "name": "Dentro dos padrões",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28147,
+                "name": "Em perfeito estado",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28150,
+                "name": "Fora do padrão",
+                "color": "#f40d10",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              },
+              {
+                "id": 28145,
+                "name": "Fora dos padrões do fabricanteou adulterado",
+                "color": "#64efc8",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28144,
+                "name": "Original/Dentro dos padrões do fabricante",
+                "color": "#48ff24",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28148,
+                "name": "Possui avaria",
+                "color": "#ea0d11",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28143,
+                "name": "Possui reparo",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28149,
+                "name": "Sem acesso",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 2
+          },
+          {
+            "id": 3305,
+            "name": "Porta dianteira direita",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Dentro dos padrões",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28157,
+                "name": "Em perfeito estado",
+                "color": "#22f309",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28154,
+                "name": "Fora do padrão",
+                "color": "#f40d10",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28152,
+                "name": "Fora dos padrões do fabricanteou adulterado",
+                "color": "#64efc8",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              },
+              {
+                "id": 28153,
+                "name": "Original/Dentro dos padrões do fabricante",
+                "color": "#48ff24",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28158,
+                "name": "Possui avaria",
+                "color": "#ea0d11",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28156,
+                "name": "Possui reparo",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              },
+              {
+                "id": 28151,
+                "name": "Sem acesso",
+                "color": "#fdfd1c",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": false
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 3
+          }
+        ]
+      }
+    }
+  ],
+  "approvalStatus": {
+    "id": 20,
+    "name": "Aprovado",
+    "color": "#49ff47",
+    "approvalStatusPurpose": "NOT_DEFAULT"
+  },
+  "pdfViewUrl": "https://sisv.cert.cardados.com/inspection-link-view/760fea24-2ebc-4c6b-ab5f-69fb0820d370"
+}

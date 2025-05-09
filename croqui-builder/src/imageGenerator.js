@@ -14,8 +14,8 @@ const statusColors = {
   adulterado: "#F44336",
 }
 
-export async function generateImage(vehicleType, items) {
-  const config = await getConfigs(vehicleType)
+export async function generateImage(vehicleType, croquiType, items) {
+  const config = await getConfigs(vehicleType, croquiType)
 
   // Definir tamanhos padrão para os cards, se não estiverem na configuração
   const defaultCardHeight = 80
@@ -214,12 +214,12 @@ export async function generateImage(vehicleType, items) {
       ctx.moveTo(fromX, fromY)
       ctx.lineTo(cardCenterX, cardCenterY)
       ctx.strokeStyle = "#555555"
-      ctx.lineWidth = 1
+      ctx.lineWidth = 3
       ctx.stroke()
 
       // Desenhar um pequeno círculo no ponto de início
       ctx.beginPath()
-      ctx.arc(fromX, fromY, 3, 0, 2 * Math.PI)
+      ctx.arc(fromX, fromY, 5, 0, 3 * Math.PI)
       ctx.fillStyle = color
       ctx.fill()
       ctx.strokeStyle = "#333333"
@@ -429,21 +429,23 @@ export async function generateImage(vehicleType, items) {
   return canvas.toBuffer("image/png")
 }
 
-async function getConfigs(vehicleType) {
-  const __filename = fileURLToPath(import.meta.url)
-  const __dirname = path.dirname(__filename)
+async function getConfigs(vehicleType, croquiType) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
-  const configFilePath = path.join(__dirname, "..", "config.json")
-  const rawData = await fs.readFile(configFilePath, "utf-8")
-  const allConfigs = JSON.parse(rawData)
-  const config = allConfigs[vehicleType]
+  const configFilePath = path.join(__dirname, "..", "config.json");
+  const rawData = await fs.readFile(configFilePath, "utf-8");
+  const allConfigs = JSON.parse(rawData);
+
+  const config = allConfigs[`${vehicleType} - ${croquiType}`];
 
   if (!config) {
-    throw new Error(`Config not found for vehicle type: ${vehicleType}`)
+    throw new Error(`Config not found for vehicle type: ${vehicleType} - ${croquiType}`);
   }
 
-  return config
+  return config;
 }
+
 
 // Função para quebrar texto em múltiplas linhas
 function calculateTextLines(ctx, text, maxWidth) {

@@ -10,7 +10,7 @@ app.use(express.json({ limit: '100mb' }));
 
 app.post('/generate-image', async (req, res) => {
   try {
-    const { vehicleType, items, config } = req.body;
+    const { vehicleType, croquiType, items } = req.body;
     
     if (!vehicleType && !config) {
       return res.status(400).json({ 
@@ -27,7 +27,7 @@ app.post('/generate-image', async (req, res) => {
     }
     
     // Gerar a imagem com base nos parâmetros
-    const imageBuffer = await generateImage(vehicleType, items, config);
+    const imageBuffer = await generateImage(vehicleType, croquiType,items);
     
     res.set('Content-Type', 'image/png');
     res.send(imageBuffer);
@@ -37,8 +37,12 @@ app.post('/generate-image', async (req, res) => {
   }
 });
 
+
+
+// Inicializar e iniciar o servidor
 (async () => {
   try {
+    // Criar diretório de imagens
     await fs.mkdir('./images', { recursive: true });
     
     // Iniciar o servidor
