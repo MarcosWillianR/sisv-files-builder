@@ -3,69 +3,80 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export async function createCroquiImage(requestBody, savePath) {
-  const { vehicleType, items, config } = convertBodyToCroquiData(requestBody);
+  const { vehicleType, groups, config } = convertBodyToCroquiData(requestBody);
 
   if (!vehicleType && !config) {
     throw new Error('Você deve fornecer imageType ou config');
   }
 
-  if (!items) {
-    throw new Error('Você deve fornecer os elementos a serem desenhados');
-  }
-
   try {
-    const imageBuffer = await generateImage(vehicleType, items, config);
-
+    // Cria o diretório base, se necessário
     if (savePath) {
-      console.log("Entrando no path para salvar a imagem");
-      console.log('Caminho de salvamento:', savePath);
-
-      const dir = path.dirname(savePath);
-      await fs.mkdir(dir, { recursive: true });
-
-      // Salva a imagem
-      await fs.writeFile(savePath, imageBuffer);
-      console.log(`Imagem salva em: ${savePath}`);
-
-      // Salva o JSON
-      const jsonPath = savePath.replace(path.extname(savePath), '.json');
-      const croquiJson = {
-        vehicleType,
-        items,
-        config,
-      };
-      await fs.writeFile(jsonPath, JSON.stringify(croquiJson, null, 2));
-      console.log(`JSON salvo em: ${jsonPath}`);
+      await fs.mkdir(savePath, { recursive: true });
     }
 
-    return imageBuffer;
+    // Processa todos os grupos em paralelo
+    await Promise.all(groups.map(async (gp) => {
+      const imageBuffer = await generateImage(vehicleType, gp.croquiType, gp.items);
+
+      if (savePath) {
+        const baseName = `${gp.id}`;
+        const imagePath = path.join(savePath, `${baseName}.png`);
+        const jsonPath = path.join(savePath, `${baseName}.json`);
+
+        // Salva imagem
+        await fs.writeFile(imagePath, imageBuffer);
+        console.log(`Imagem salva em: ${imagePath}`);
+
+        // Salva JSON
+        const croquiJson = {
+          vehicleType: `${vehicleType} - ${gp.croquiType}`,
+          items: gp.items,
+          config,
+        };
+
+        await fs.writeFile(jsonPath, JSON.stringify(croquiJson, null, 2));
+        console.log(`JSON salvo em: ${jsonPath}`);
+      }
+    }));
   } catch (error) {
     console.error("Erro ao gerar ou salvar a imagem/JSON:", error);
     throw new Error('Erro ao criar a imagem');
   }
 }
 
-
 function convertBodyToCroquiData(requestBody) {
-  const items = {};
-
+  const groups = [];
   requestBody.groups
     .filter(group => group.groupType === "CROQUI" && group.data?.items?.length > 0)
-    .flatMap(group => group.data.items)
-    .forEach(item => {
-      const selectedRating = item.ratings.find(rating => rating.isSelected);
-      if (selectedRating) {
-        items[item.croquiId] = {
-          status: selectedRating.name,
-          name: item.name,
-          color: selectedRating.color
-        };
-      }
+    .forEach(group => {
+      console.log(group);
+      const groupItems = {};
+      group.data.items.forEach(item => {
+        const selectedRating = item.ratings.find(rating => rating.isSelected);
+        if (selectedRating) {
+          groupItems[item.croquiId] = {
+            status: selectedRating.name,
+            name: item.name,
+            color: selectedRating.color
+          };
+        }
+      });
+
+      const groupFormatted = {
+        id: group.id,
+        name: group.name,
+        croquiType: group.data.croquiType,
+        isPdfEnabled: group.isPdfEnabled,
+        items: groupItems
+      };
+
+      groups.push(groupFormatted);
     });
 
   return {
     vehicleType: requestBody.vehicleType,
-    items,
+    groups,
     config: requestBody.config
   };
 }
