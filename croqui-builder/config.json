@@ -1,0 +1,145 @@
+{
+  "CAR": {
+    "width": 2400,
+    "height": 1800,
+    "imagePath": "../assets/images/sedan_pintura.png",
+    "cardWidth": 350,
+    "cardHeight": 80,
+    "headerHeight": 40,
+    "textConfig": {
+      "headerFontSize": 25,
+      "headerFontStyle": "bold",
+      "headerTextColor": "#FFFFFF",
+      "headerTextAlign": "center",
+      "nameFontSize": 20,
+      "nameFontStyle": "bold",
+      "nameTextColor": "#000000",
+      "nameTextAlign": "left",
+      "fontFamily": "Arial"
+    },
+    "positions": {
+      "1": {
+        "from": {
+          "x": 800,
+          "y": 900,
+          "width": 100
+        },
+        "to": {
+          "x": 200,
+          "y": 860
+        }
+      },
+      "2": {
+        "from": {
+          "x": 850,
+          "y": 700,
+          "width": 100
+        },
+        "to": {
+          "x": 475,
+          "y": 400
+        }
+      },
+      "3": {
+        "from": {
+          "x": 1150,
+          "y": 700,
+          "width": 100
+        },
+        "to": {
+          "x": 850,
+          "y": 250
+        }
+      },
+      "4": {
+        "from": {
+          "x": 1275,
+          "y": 900,
+          "width": 100
+        },
+        "to": {
+          "name": "Teto",
+          "x": 1150,
+          "y": 75
+        }
+      },
+      "5": {
+        "from": {
+          "x": 1350,
+          "y": 700,
+          "width": 100
+        },
+        "to": {
+          "x": 1435,
+          "y": 250
+        }
+      },
+      "6": {
+        "from": {
+          "x": 1500,
+          "y": 700,
+          "width": 100
+        },
+        "to": {
+          "x": 1750,
+          "y": 400
+        }
+      },
+      "7": {
+        "from": {
+          "x": 1625,
+          "y": 900,
+          "width": 100
+        },
+        "to": {
+          "x": 1950,
+          "y": 860
+        }
+      },
+      "8": {
+        "from": {
+          "x": 1500,
+          "y": 1100,
+          "width": 100
+        },
+        "to": {
+          "x": 1750,
+          "y": 1300
+        }
+      },
+      "9": {
+        "from": {
+          "x": 1350,
+          "y": 1100,
+          "width": 100
+        },
+        "to": {
+          "x": 1435,
+          "y": 1475
+        }
+      },
+      "10": {
+        "from": {
+          "x": 1150,
+          "y": 1100,
+          "width": 100
+        },
+        "to": {
+          "x": 850,
+          "y": 1475
+        }
+      },
+      "11": {
+        "from": {
+          "x": 850,
+          "y": 1100,
+          "width": 100
+        },
+        "to": {
+          "x": 475,
+          "y": 1300
+        }
+      }
+    }
+  }
+}

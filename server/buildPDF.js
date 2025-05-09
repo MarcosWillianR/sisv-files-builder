@@ -16,7 +16,6 @@ function getBuilderByLayout(layout) {
 async function buildPDF(data) {
   const layoutType = data.layout;
   const builderContent = getBuilderByLayout(layoutType);
-
   const filePath = await builderContent(data);
   const pdfBufferOptions = await getPdfConfigsByLayout(data);
 
