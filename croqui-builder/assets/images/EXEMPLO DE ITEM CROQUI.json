@@ -1,0 +1,77 @@
+{
+  "name": "Item Croqui",
+  "isRequired": true,
+  "isCroquiEnabled": true,
+  "croquiMap": [
+    {
+      "id": 1,
+      "name": "GrupoTest1",
+      "croquiType": "STRUCTURE",
+      "map": {
+        "CAR": 1,
+        "MOTORCYCLE": 2,
+        "TRUCK": 3,
+        "PICKUP_TRUCK": 4,
+        "VAN": 5,
+        "BUS": 6,
+        "TRAILER": 7,
+        "SUV": 8,
+        "SEMI_TRAILER": 9
+      }
+    },
+    {
+      "id": 2,
+      "name": "GrupoTest2",
+      "croquiType": "PAINTING",
+      "map": {
+        "CAR": 10,
+        "MOTORCYCLE": 11,
+        "TRUCK": 12,
+        "PICKUP_TRUCK": 13,
+        "VAN": 14,
+        "BUS": 15,
+        "TRAILER": 16,
+        "SUV": 17,
+        "SEMI_TRAILER": 18
+      }
+    },
+    {
+      "id": 3,
+      "name": "GrupoTest3",
+      "croquiType": "STRUCTURE",
+      "map": {
+        "CAR": 19,
+        "MOTORCYCLE": 20,
+        "TRUCK": 21,
+        "PICKUP_TRUCK": 22,
+        "VAN": 23,
+        "BUS": 24,
+        "TRAILER": 25,
+        "SUV": 26,
+        "SEMI_TRAILER": 27
+      }
+    },
+    {
+      "id": 4,
+      "name": "GrupoTest4",
+      "croquiType": "PAINTING",
+      "map": {
+        "CAR": 28,
+        "MOTORCYCLE": 29,
+        "TRUCK": 30,
+        "PICKUP_TRUCK": 31,
+        "VAN": 32,
+        "BUS": 33,
+        "TRAILER": 34,
+        "SUV": 35,
+        "SEMI_TRAILER": 36
+      }
+    }
+  ],
+  "observation": "TEST",
+  "isRequiredImage": true,
+  "isPlaceholder": true,
+  "appOrder": 0,
+  "printOrder": 0,
+  "itemPurpose": "DEFAULT"
+}

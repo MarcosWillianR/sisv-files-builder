@@ -7,6 +7,7 @@ const { processTimesheet } = require("../excel-builder/src");
 const { buildPDF } = require("./buildPDF");
 
 const TermsContractPolicyBuilder = require("../terms-contract-policy-builder/index");
+const { createCroquiImage } = require("../croqui-builder/src/croquiService");
 
 const PORT = 4715;
 const app = express();
@@ -25,6 +26,10 @@ app.post("/pdf", async (req, res) => {
   try {
     const jsonPath = path.join(__dirname, 'data.json');
     await saveJsonToFile(req.body, jsonPath);
+    
+    const savePath = path.join('./', 'croqui.png');
+    await createCroquiImage(req.body, savePath);
+    
 
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
@@ -116,6 +121,6 @@ app.post("/terms-pdf", async (req, res) => {
 });
 
 // Iniciar o servidor
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
