@@ -59,7 +59,7 @@ app.post("/pdf", async (req, res) => {
 
     await browser.close();
     await deleteFile(filePath);
-    await deleteFolder(path.join(__dirname, '/helpers/temp'));
+    //await deleteFolder(path.join(__dirname, '/helpers/temp'));
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");

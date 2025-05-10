@@ -106,26 +106,23 @@ module.exports = {
     // Processar cada elemento do body
     console.log("Processando elementos...")
     for (const [positionId, elementData] of Object.entries(items)) {
-      console.log(`Processando posição ID ${positionId}:`, JSON.stringify(elementData))
-
-      // Obter a configuração da posição do config.json
       const position = config.positions[positionId]
       if (!position) {
-        console.warn(`Posição ID ${positionId} não encontrada na configuração`)
+        // console.warn(`Posição ID ${positionId} não encontrada na configuração`)
         continue
       }
 
       // Obter os dados do elemento enviado no body
       const status = elementData.status || "pintura_original"
-      console.log(`Status para posição ${positionId}:`, status)
+      // console.log(`Status para posição ${positionId}:`, status)
 
       // Usar a cor do body se fornecida, caso contrário usar a cor do status
       const color = elementData.color || statusColors[status] || "#CCCCCC"
-      console.log(`Cor para posição ${positionId}:`, color)
+      // console.log(`Cor para posição ${positionId}:`, color)
 
       // Usar o nome do body se fornecido, caso contrário usar o nome do config
       const name = elementData.name || (position.to ? position.to.name : position.name)
-      console.log(`Nome para posição ${positionId}:`, name)
+      // console.log(`Nome para posição ${positionId}:`, name)
 
       // Mesclar configurações de texto em ordem de prioridade
       const positionTextConfig = position.textConfig || (position.to && position.to.textConfig) || {}
@@ -181,9 +178,9 @@ module.exports = {
         ctx.font = `${mergedTextConfig.headerFontStyle} ${mergedTextConfig.headerFontSize}px ${mergedTextConfig.fontFamily}`
         const headerLines = calculateTextLines(ctx, headerText, maxTextWidth)
 
-        console.log(`Texto "${name}" quebrado em ${nameLines.length} linhas`)
-        console.log(`Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas`)
-        console.log(`Largura do texto: ${textWidth}px, Largura do card: ${actualCardWidth}px`)
+        //console.log(`Texto "${name}" quebrado em ${nameLines.length} linhas`)
+        //console.log(`Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas`)
+        //console.log(`Largura do texto: ${textWidth}px, Largura do card: ${actualCardWidth}px`)
 
         // PASSO 2: Usar as coordenadas do to para posicionar o card
         const toX = position.to.x
