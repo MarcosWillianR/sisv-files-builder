@@ -55,6 +55,15 @@ async function deleteFile(filePath) {
   }
 }
 
+async function deleteFolder(folderPath) {
+  try {
+    await fs.rm(folderPath, { recursive: true, force: true });
+    console.log("Pasta removida com sucesso!");
+  } catch (err) {
+    console.error("Erro ao remover a pasta:", err);
+  }
+}
+
 async function saveJsonToFile(jsonData, filePath) {
   try {
     await fs.mkdir(path.dirname(filePath), { recursive: true }); // Garante que o diretório existe
@@ -188,6 +197,7 @@ function formatValue(value) {
 
 module.exports = {
   deleteFile,
+  deleteFolder,
   saveJsonToFile,
   getHeaderScreenshot,
   findPropertyJson,

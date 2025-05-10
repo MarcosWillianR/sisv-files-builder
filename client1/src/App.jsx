@@ -47,6 +47,20 @@ function App() {
         <RatingGrid />
       </div>
 
+      <div id="CroquiGrid" className="break-inside-avoid-page hidden">
+        <div id="CroquiChunk" className="break-before-page first:break-before-auto">
+          <div className="w-full rounded-2xl overflow-hidden">
+            <div id="CroquiGridTitle" className="secondary-bg-color px-4 py-2 text-white hidden">
+              <h2 className="font-medium">Itens Analisados</h2>
+            </div>
+
+            <div className="py-4 place-items-center">
+              <div id="CroquiChunkItem" className="break-before-page first:break-before-auto" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="w-full break-inside-avoid-page self-center">
         <div id="NotesGrid" className="w-full rounded-2xl overflow-hidden hidden">
           <div className="secondary-bg-color px-4 py-2 text-white">

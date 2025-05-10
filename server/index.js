@@ -1,13 +1,11 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
 const path = require("path");
-const { deleteFile, customColorsStyleTag, saveJsonToFile } = require("./helpers");
+const { deleteFile, customColorsStyleTag, saveJsonToFile, deleteFolder } = require("./helpers");
 const { processTimesheet } = require("../excel-builder/src");
-
-const { buildPDF } = require("./buildPDF");
-
-const TermsContractPolicyBuilder = require("../terms-contract-policy-builder/index");
-const { createCroquiImage } = require("../croqui-builder/src/croquiService");
+const { buildPDF } = require("./buildPDF.js");
+const TermsContractPolicyBuilder = require("../terms-contract-policy-builder");
+const { createCroquiImage } = require('../croqui-builder/src/croquiService.js');
 
 const PORT = 4715;
 const app = express();
@@ -24,11 +22,11 @@ app.use((req, res, next) => {
 
 app.post("/pdf", async (req, res) => {
   try {
-    const jsonPath = path.join(__dirname, 'data.json');
-    await saveJsonToFile(req.body, jsonPath);
-    
-    const savePath = path.join('./', 'croqui/');
-    await createCroquiImage(req.body, savePath);
+    // const jsonPath = path.join(__dirname, 'data.json');
+    // await saveJsonToFile(req.body, jsonPath);
+
+    // const savePath = path.join('./', 'croqui/');
+    // await createCroquiImage(req.body, savePath);
   
     const { pdfBufferOptions, filePath } = await buildPDF(req.body);
 
@@ -61,6 +59,7 @@ app.post("/pdf", async (req, res) => {
 
     await browser.close();
     await deleteFile(filePath);
+    await deleteFolder(path.join(__dirname, '/helpers/temp'));
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");

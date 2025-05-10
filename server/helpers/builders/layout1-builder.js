@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 const axios = require("axios");
 
+const { generateImage } = require('../../../croqui-builder/src/imageGenerator');
 const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
@@ -312,6 +313,86 @@ async function fetchAndModifyExternalHtml(url) {
   }
 }
 
+async function croquiGridComponent(vehicleType, groupCroquis, content) {
+  const ITEMS_PER_PAGE = 2; // 2 croquis por página
+  const chunks = createChunks(groupCroquis, ITEMS_PER_PAGE);
+  const $ = cheerio.load(content);
+
+  const groupImages = await Promise.all(
+    groupCroquis.map(async gc => {
+      const imageBuffer = await generateImage(vehicleType, gc.data.croquiType, gc.data.items);
+      return { id: gc.id, name: gc.name, imageBuffer };
+    })
+  );
+
+  const $grid = $('#CroquiGrid');
+  const $chunkTemplate = $('#CroquiChunk').clone().removeAttr('id');
+  $('#CroquiChunk').remove(); // Remove o template do HTML
+
+  const imageMap = Object.fromEntries(groupImages.map(img => [img.id, img]));
+
+  chunks.forEach(groupChunk => {
+    const $chunk = $chunkTemplate.clone(); // Clona o template de chunk
+
+    // Encontra o container de título (CroquiGridTitle)
+    const $title = $chunk.find('#CroquiGridTitle');
+    //$title.removeClass('hidden'); // Torna o título visível
+
+    const $container = $chunk.find('.place-items-center');
+    $container.empty().css({
+      display: 'flex',
+      'flex-direction': 'column', // Empilha os itens (título + imagem) verticalmente
+      'align-items': 'center', // Centraliza os itens horizontalmente
+      'gap': '2rem', // Espaçamento entre os grupos
+      'min-height': '100vh',
+    });
+
+    // Adiciona cada grupo (com título e imagem) no container
+    groupChunk.forEach(({ id }) => {
+      const imgData = imageMap[id];
+      if (!imgData) return;
+
+      // Atualiza o título com o nome dinâmico
+      const $titleClone = $title.clone(); // Clona o título para cada item
+      $titleClone.find('h2').text(imgData.name); // Define o nome do croqui
+      $titleClone.css({
+        'display': 'flex',
+        'border-top-left-radius': '16px', // Raio de borda inferior esquerdo
+        'border-top-right-radius': '16px', // Raio de borda inferior direito
+      });
+
+      const base64 = imgData.imageBuffer.toString('base64');
+      const imageSrc = `data:image/png;base64,${base64}`;
+
+      // Cria o div para cada imagem
+      const $item = $('<div class="w-full text-center"></div>').css({
+        'background-image': `url('${imageSrc}')`,
+        'background-size': 'contain', // A imagem será ajustada para se manter dentro do espaço disponível
+        'background-repeat': 'no-repeat',
+        'background-position': 'center',
+        'height': '400px', // Altura da imagem
+        'width': '100%', // Largura máxima
+      });
+
+      // Adiciona o título e a imagem dentro de um wrapper
+      const $itemWrapper = $('<div class="w-full"></div>').css({
+        'text-align': 'center',
+      });
+
+      $itemWrapper.append($titleClone, $item); // Empilha o título e a imagem
+
+      // Adiciona o item no container da página
+      $container.append($itemWrapper);
+    });
+
+    $grid.append($chunk); // Adiciona o chunk com os itens no grid
+  });
+
+  $grid.removeClass('hidden'); // Torna o grid visível
+
+  return $.html(); // Retorna o HTML final
+}
+
 async function Layout1Builder(data) {
   const fileId = uuidv4();
   const tempFilePath = path.join(TEMP_DIR, `index-${fileId}.html`);
@@ -386,6 +467,11 @@ async function Layout1Builder(data) {
         // Classificações
         content = ratingsComponent(allParts, content);
       }
+    }
+
+    const groupCroquis = availableGroups.filter((group) => group.groupType === "CROQUI");
+    if (groupCroquis.length > 0) {
+      content = await croquiGridComponent(data.vehicleType, groupCroquis, content)
     }
 
     content = notesGridComponent(data.notes, content);
