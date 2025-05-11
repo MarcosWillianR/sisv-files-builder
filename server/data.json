@@ -152,7 +152,7 @@
     },
     {
       "id": 1256,
-      "name": "CROQUI ESTRUTURAL",
+      "name": "CROQUI PINTURA",
       "isRequired": false,
       "isPdfEnabled": true,
       "appOrder": 5,
@@ -161,101 +161,24 @@
       "s3File": null,
       "data": {
         "id": 6,
-        "croquiType": "STRUCTURE",
+        "croquiType": "PAINTING",
         "items": [
           {
             "id": 3303,
-            "name": "Capô",
+            "name": "1",
             "observation": null,
             "type": "DEFAULT",
             "ratings": [
               {
                 "id": 28140,
-                "name": "Dentro dos padrões",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28138,
-                "name": "Em perfeito estado",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28136,
-                "name": "Fora do padrão",
-                "color": "#f40d10",
+                "name": "Capô Dianteiro",
+                "color": "#222222",
                 "order": 0,
                 "icon": "DEFAULT",
                 "isEnabledForAnalyst": true,
                 "isEnabledForExpert": true,
                 "isEnabledForClient": true,
                 "isSelected": true
-              },
-              {
-                "id": 28135,
-                "name": "Fora dos padrões do fabricanteou adulterado",
-                "color": "#64efc8",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28139,
-                "name": "Original/Dentro dos padrões do fabricante",
-                "color": "#48ff24",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28142,
-                "name": "Possui avaria",
-                "color": "#ea0d11",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28137,
-                "name": "Possui reparo",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28141,
-                "name": "Sem acesso",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
               }
             ],
             "isPlaceholder": true,
@@ -272,97 +195,20 @@
           },
           {
             "id": 3304,
-            "name": "Paralama dianteiro direito",
+            "name": "2",
             "observation": null,
             "type": "DEFAULT",
             "ratings": [
               {
                 "id": 28146,
-                "name": "Dentro dos padrões",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28147,
-                "name": "Em perfeito estado",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28150,
-                "name": "Fora do padrão",
-                "color": "#f40d10",
+                "name": "Para-lama dianteiro direito",
+                "color": "#222222",
                 "order": 0,
                 "icon": "DEFAULT",
                 "isEnabledForAnalyst": true,
                 "isEnabledForExpert": true,
                 "isEnabledForClient": true,
                 "isSelected": true
-              },
-              {
-                "id": 28145,
-                "name": "Fora dos padrões do fabricanteou adulterado",
-                "color": "#64efc8",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28144,
-                "name": "Original/Dentro dos padrões do fabricante",
-                "color": "#48ff24",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28148,
-                "name": "Possui avaria",
-                "color": "#ea0d11",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28143,
-                "name": "Possui reparo",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28149,
-                "name": "Sem acesso",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
               }
             ],
             "isPlaceholder": true,
@@ -371,102 +217,245 @@
           },
           {
             "id": 3305,
-            "name": "Porta dianteira direita",
+            "name": "3",
             "observation": null,
             "type": "DEFAULT",
             "ratings": [
               {
                 "id": 28155,
-                "name": "Dentro dos padrões",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28157,
-                "name": "Em perfeito estado",
-                "color": "#22f309",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28154,
-                "name": "Fora do padrão",
-                "color": "#f40d10",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28152,
-                "name": "Fora dos padrões do fabricanteou adulterado",
-                "color": "#64efc8",
+                "name": "Porta dianteira direita",
+                "color": "#222222",
                 "order": 0,
                 "icon": "DEFAULT",
                 "isEnabledForAnalyst": true,
                 "isEnabledForExpert": true,
                 "isEnabledForClient": true,
                 "isSelected": true
-              },
-              {
-                "id": 28153,
-                "name": "Original/Dentro dos padrões do fabricante",
-                "color": "#48ff24",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28158,
-                "name": "Possui avaria",
-                "color": "#ea0d11",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28156,
-                "name": "Possui reparo",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
-              },
-              {
-                "id": 28151,
-                "name": "Sem acesso",
-                "color": "#fdfd1c",
-                "order": 0,
-                "icon": "DEFAULT",
-                "isEnabledForAnalyst": true,
-                "isEnabledForExpert": true,
-                "isEnabledForClient": true,
-                "isSelected": false
               }
             ],
             "isPlaceholder": true,
             "s3File": null,
             "croquiId": 3
+          },
+          {
+            "id": 3306,
+            "name": "4",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Teto",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 4
+          },
+          {
+            "id": 3307,
+            "name": "5",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Porta traseira direita",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 5
+          },
+          {
+            "id": 3308,
+            "name": "6",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Lateral traseira direita",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 6
+          },
+          {
+            "id": 3309,
+            "name": "7",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Capô traseiro",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 7
+          },
+          {
+            "id": 3310,
+            "name": "8",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Lateral traseira esquerda",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 8
+          },
+          {
+            "id": 3311,
+            "name": "9",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Porta traseira esquerda",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 9
+          },
+          {
+            "id": 3312,
+            "name": "10",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Porta dianteira esquerda",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 10
+          },
+          {
+            "id": 3313,
+            "name": "11",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Para-lama dianteiro esquerdo",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 11
+          },
+          {
+            "id": 3314,
+            "name": "12",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Coluna 'A' Esquerda",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 12
+          },
+          {
+            "id": 3315,
+            "name": "13",
+            "observation": null,
+            "type": "DEFAULT",
+            "ratings": [
+              {
+                "id": 28155,
+                "name": "Longarina Dianteira Esquerda",
+                "color": "#222222",
+                "order": 0,
+                "icon": "DEFAULT",
+                "isEnabledForAnalyst": true,
+                "isEnabledForExpert": true,
+                "isEnabledForClient": true,
+                "isSelected": true
+              }
+            ],
+            "isPlaceholder": true,
+            "s3File": null,
+            "croquiId": 13
           }
         ]
       }

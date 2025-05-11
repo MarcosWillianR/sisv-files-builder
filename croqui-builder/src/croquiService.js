@@ -18,7 +18,7 @@ module.exports = {
 
       // Processa todos os grupos em paralelo
       await Promise.all(groups.map(async (gp) => {
-        const imageBuffer = await generateImage(vehicleType, gp.croquiType, gp.items);
+        const imageBuffer = await generateImage(vehicleType, gp.data.croquiType, gp.data.items);
 
         if (savePath) {
           const baseName = `${gp.id}`;
@@ -48,37 +48,9 @@ module.exports = {
 }
 
 function convertBodyToCroquiData(requestBody) {
-  const groups = [];
-  requestBody.groups
-    .filter(group => group.groupType === "CROQUI" && group.data?.items?.length > 0)
-    .forEach(group => {
-      console.log(group);
-      const groupItems = {};
-      group.data.items.forEach(item => {
-        const selectedRating = item.ratings.find(rating => rating.isSelected);
-        if (selectedRating) {
-          groupItems[item.croquiId] = {
-            status: selectedRating.name,
-            name: item.name,
-            color: selectedRating.color
-          };
-        }
-      });
-
-      const groupFormatted = {
-        id: group.id,
-        name: group.name,
-        croquiType: group.data.croquiType,
-        isPdfEnabled: group.isPdfEnabled,
-        items: groupItems
-      };
-
-      groups.push(groupFormatted);
-    });
-
   return {
     vehicleType: requestBody.vehicleType,
-    groups,
+    groups: requestBody.groups.filter(group => group.groupType === "CROQUI" && group.data?.items?.length > 0),
     config: requestBody.config
   };
 }
