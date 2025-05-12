@@ -106,10 +106,10 @@ module.exports = {
     // Processar cada elemento do body
     console.log("Processando elementos...")
 
-    console.log(items)
-
+    
     for (const [positionId, elementData] of Object.entries(items)) {
-      const position = config.positions[positionId]
+      const position = config.positions[elementData.croquiId]
+      
       if (!position) {
         // console.warn(`Posição ID ${positionId} não encontrada na configuração`)
         continue
@@ -125,15 +125,15 @@ module.exports = {
 
       // Obter os dados do elemento enviado no body
       const status = selectedData.name;
-      console.log(`Status para posição ${positionId}:`, status)
+      // console.log(`Status para posição ${positionId}:`, status)
 
       // Usar a cor do body se fornecida, caso contrário usar a cor do status
       const color = selectedData.color;
-      console.log(`Cor para posição ${positionId}:`, color)
+      // console.log(`Cor para posição ${positionId}:`, color)
 
       // Usar o nome do body se fornecido, caso contrário usar o nome do config
       const name = elementData.name || (position.to ? position.to.name : position.name)
-      console.log(`Nome para posição ${positionId}:`, name)
+      // console.log(`Nome para posição ${positionId}:`, name)
 
       // Mesclar configurações de texto em ordem de prioridade
       const positionTextConfig = position.textConfig || (position.to && position.to.textConfig) || {}
