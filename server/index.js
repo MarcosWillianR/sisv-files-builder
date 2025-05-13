@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json({ limit: "1000mb" }));
 app.use(express.urlencoded({ limit: "1000mb", extended: true }));
 app.use((req, res, next) => {
-  req.setTimeout(60000, () => {
+  req.setTimeout(240000, () => {
     console.log("Request timed out.");
     res.status(408).send("Request Timeout");
   });
