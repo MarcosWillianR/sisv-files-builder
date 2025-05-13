@@ -1,18 +1,7 @@
-const { createCanvas, loadImage } = require('canvas')
+const { createCanvas, loadImage } = require("canvas")
 const { fileURLToPath } = require("url")
 const fs = require("fs/promises")
 const path = require("path")
-
-// Definir cores para os diferentes status
-const statusColors = {
-  pintura_original: "#4CAF50",
-  repintura_total: "#FFC107",
-  repintura_parcial: "#FF9800",
-  substituicao: "#2196F3",
-  fora_do_padrao: "#F44336",
-  padroes_do_fabricante: "#4CAF50",
-  adulterado: "#F44336",
-}
 
 module.exports = {
   generateImage: async (vehicleType, croquiType, items) => {
@@ -29,7 +18,7 @@ module.exports = {
 
     // Definir propriedades de texto padrão
     const defaultTextConfig = {
-      headerFontSize: 12,
+      headerFontSize: 11,
       headerFontStyle: "bold",
       headerTextColor: "#FFFFFF",
       headerTextAlign: "center",
@@ -40,6 +29,9 @@ module.exports = {
       nameTextAlign: "center", // Garantir que o alinhamento padrão seja centralizado
 
       fontFamily: "Arial",
+
+      // Tamanho mínimo da fonte antes de quebrar linhas
+      minFontSize: 12,
     }
 
     // Mesclar configurações de texto padrão com as da configuração global
@@ -57,7 +49,7 @@ module.exports = {
 
     try {
       // Carregar a imagem base
-      const filename = fileURLToPath(require('url').pathToFileURL(__filename).toString())
+      const filename = fileURLToPath(require("url").pathToFileURL(__filename).toString())
       const __dirname = path.dirname(filename)
 
       const baseImage = await loadImage(path.resolve(__dirname, `${config.imagePath}`))
@@ -106,29 +98,27 @@ module.exports = {
     // Processar cada elemento do body
     console.log("Processando elementos...")
 
-    
     for (const [positionId, elementData] of Object.entries(items)) {
       const position = config.positions[elementData.croquiId]
-      
+
       if (!position) {
         // console.warn(`Posição ID ${positionId} não encontrada na configuração`)
         continue
       }
 
       const selectedData = { color: "#CCCCCC", name: "pintura_original" }
-      const selectedRating = elementData.ratings.find(r => r.isSelected);
+      const selectedRating = elementData.ratings.find((r) => r.isSelected)
       if (selectedRating) {
-        selectedData.color = selectedRating.color;
-        selectedData.name = selectedRating.name;
+        selectedData.color = selectedRating.color
+        selectedData.name = selectedRating.name
       }
-      
 
       // Obter os dados do elemento enviado no body
-      const status = selectedData.name;
+      const status = selectedData.name
       // console.log(`Status para posição ${positionId}:`, status)
 
       // Usar a cor do body se fornecida, caso contrário usar a cor do status
-      const color = selectedData.color;
+      const color = selectedData.color
       // console.log(`Cor para posição ${positionId}:`, color)
 
       // Usar o nome do body se fornecido, caso contrário usar o nome do config
@@ -179,27 +169,61 @@ module.exports = {
         // Verificar se precisamos quebrar o texto em linhas
         const maxTextWidth = actualCardWidth - padding
 
-        // Configurar a fonte para o nome novamente
-        ctx.font = `${mergedTextConfig.nameFontStyle} ${mergedTextConfig.nameFontSize}px ${mergedTextConfig.fontFamily}`
+        // Definir tamanhos de fonte iniciais (originais)
+        let adjustedNameFontSize = mergedTextConfig.nameFontSize
+        let adjustedHeaderFontSize = mergedTextConfig.headerFontSize
+
+        // Definir o tamanho mínimo da fonte antes de quebrar linhas
+        const minFontSize = mergedTextConfig.minFontSize || 9
+
+        // Verificar se o texto do nome é muito longo e se reduzir a fonte seria melhor que quebrar linhas
+        if (nameWidth > maxTextWidth) {
+          // Calcular o tamanho de fonte necessário para caber em uma linha
+          const scaleFactor = maxTextWidth / nameWidth
+          const calculatedFontSize = Math.floor(mergedTextConfig.nameFontSize * scaleFactor)
+
+          // Se o tamanho calculado for menor que o mínimo, manter o tamanho original e quebrar linhas
+          // Caso contrário, reduzir o tamanho da fonte para caber em uma linha
+          if (calculatedFontSize >= minFontSize) {
+            adjustedNameFontSize = calculatedFontSize
+          }
+        }
+
+        // Fazer o mesmo para o texto do cabeçalho
+        if (headerWidth > maxTextWidth) {
+          const scaleFactor = maxTextWidth / headerWidth
+          const calculatedFontSize = Math.floor(mergedTextConfig.headerFontSize * scaleFactor)
+
+          if (calculatedFontSize >= minFontSize) {
+            adjustedHeaderFontSize = calculatedFontSize
+          }
+        }
+
+        // Configurar a fonte para o nome com o tamanho ajustado
+        ctx.font = `${mergedTextConfig.nameFontStyle} ${adjustedNameFontSize}px ${mergedTextConfig.fontFamily}`
 
         // Quebrar o texto do nome em linhas
         const nameLines = calculateTextLines(ctx, name, maxTextWidth)
 
         // Quebrar o texto do cabeçalho em linhas se necessário
-        ctx.font = `${mergedTextConfig.headerFontStyle} ${mergedTextConfig.headerFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.headerFontStyle} ${adjustedHeaderFontSize}px ${mergedTextConfig.fontFamily}`
         const headerLines = calculateTextLines(ctx, headerText, maxTextWidth)
 
-        //console.log(`Texto "${name}" quebrado em ${nameLines.length} linhas`)
-        //console.log(`Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas`)
-        //console.log(`Largura do texto: ${textWidth}px, Largura do card: ${actualCardWidth}px`)
+        console.log(
+          `Texto "${name}" quebrado em ${nameLines.length} linhas, tamanho da fonte: ${adjustedNameFontSize}px`,
+        )
+        console.log(
+          `Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas, tamanho da fonte: ${adjustedHeaderFontSize}px`,
+        )
+        console.log(`Largura do texto: ${textWidth}px, Largura do card: ${actualCardWidth}px`)
 
         // PASSO 2: Usar as coordenadas do to para posicionar o card
         const toX = position.to.x
         const toY = position.to.y
 
         // Calcular a altura do card com base no número de linhas
-        const lineHeight = mergedTextConfig.nameFontSize * 1.3
-        const headerLineHeight = mergedTextConfig.headerFontSize * 1.3
+        const lineHeight = adjustedNameFontSize * 1.3
+        const headerLineHeight = adjustedHeaderFontSize * 1.3
 
         // Altura do cabeçalho baseada no número de linhas
         const headerTextHeight = headerLines.length * headerLineHeight
@@ -264,11 +288,11 @@ module.exports = {
 
         // Adicionar texto do status no cabeçalho
         ctx.fillStyle = mergedTextConfig.headerTextColor
-        ctx.font = `${mergedTextConfig.headerFontStyle} ${mergedTextConfig.headerFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.headerFontStyle} ${adjustedHeaderFontSize}px ${mergedTextConfig.fontFamily}`
         ctx.textAlign = mergedTextConfig.headerTextAlign
 
         // Desenhar cada linha do texto do cabeçalho
-        let headerTextY = toY + 10 + mergedTextConfig.headerFontSize
+        let headerTextY = toY + 10 + adjustedHeaderFontSize
 
         for (const line of headerLines) {
           const headerTextX = toX + actualCardWidth / 2
@@ -285,11 +309,11 @@ module.exports = {
 
         // Adicionar nome da parte
         ctx.fillStyle = mergedTextConfig.nameTextColor
-        ctx.font = `${mergedTextConfig.nameFontStyle} ${mergedTextConfig.nameFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.nameFontStyle} ${adjustedNameFontSize}px ${mergedTextConfig.fontFamily}`
         ctx.textAlign = "center" // Forçar alinhamento centralizado
 
         // Calcular posição inicial Y para o texto do nome
-        let nameTextY = toY + actualHeaderTextHeight + mergedTextConfig.nameFontSize + 10
+        let nameTextY = toY + actualHeaderTextHeight + adjustedNameFontSize + 10
 
         // Desenhar cada linha do texto do nome
         for (const line of nameLines) {
@@ -333,23 +357,57 @@ module.exports = {
         // Verificar se precisamos quebrar o texto em linhas
         const maxTextWidth = actualCardWidth - padding
 
+        // Definir tamanhos de fonte iniciais (originais)
+        let adjustedNameFontSize = mergedTextConfig.nameFontSize
+        let adjustedHeaderFontSize = mergedTextConfig.headerFontSize
+
+        // Definir o tamanho mínimo da fonte antes de quebrar linhas
+        const minFontSize = mergedTextConfig.minFontSize || 9
+
+        // Verificar se o texto do nome é muito longo e se reduzir a fonte seria melhor que quebrar linhas
+        if (nameWidth > maxTextWidth) {
+          // Calcular o tamanho de fonte necessário para caber em uma linha
+          const scaleFactor = maxTextWidth / nameWidth
+          const calculatedFontSize = Math.floor(mergedTextConfig.nameFontSize * scaleFactor)
+
+          // Se o tamanho calculado for menor que o mínimo, manter o tamanho original e quebrar linhas
+          // Caso contrário, reduzir o tamanho da fonte para caber em uma linha
+          if (calculatedFontSize >= minFontSize) {
+            adjustedNameFontSize = calculatedFontSize
+          }
+        }
+
+        // Fazer o mesmo para o texto do cabeçalho
+        if (headerWidth > maxTextWidth) {
+          const scaleFactor = maxTextWidth / headerWidth
+          const calculatedFontSize = Math.floor(mergedTextConfig.headerFontSize * scaleFactor)
+
+          if (calculatedFontSize >= minFontSize) {
+            adjustedHeaderFontSize = calculatedFontSize
+          }
+        }
+
         // Configurar a fonte para o nome novamente
-        ctx.font = `${mergedTextConfig.nameFontStyle} ${mergedTextConfig.nameFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.nameFontStyle} ${adjustedNameFontSize}px ${mergedTextConfig.fontFamily}`
 
         // Quebrar o texto do nome em linhas
         const nameLines = calculateTextLines(ctx, name, maxTextWidth)
 
         // Quebrar o texto do cabeçalho em linhas se necessário
-        ctx.font = `${mergedTextConfig.headerFontStyle} ${mergedTextConfig.headerFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.headerFontStyle} ${adjustedHeaderFontSize}px ${mergedTextConfig.fontFamily}`
         const headerLines = calculateTextLines(ctx, headerText, maxTextWidth)
 
-        console.log(`Texto "${name}" quebrado em ${nameLines.length} linhas`)
-        console.log(`Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas`)
+        console.log(
+          `Texto "${name}" quebrado em ${nameLines.length} linhas, tamanho da fonte: ${adjustedNameFontSize}px`,
+        )
+        console.log(
+          `Cabeçalho "${headerText}" quebrado em ${headerLines.length} linhas, tamanho da fonte: ${adjustedHeaderFontSize}px`,
+        )
         console.log(`Largura do texto: ${textWidth}px, Largura do card: ${actualCardWidth}px`)
 
         // Calcular a altura do card com base no número de linhas
-        const lineHeight = mergedTextConfig.nameFontSize * 1.3
-        const headerLineHeight = mergedTextConfig.headerFontSize * 1.3
+        const lineHeight = adjustedNameFontSize * 1.3
+        const headerLineHeight = adjustedHeaderFontSize * 1.3
 
         // Altura do cabeçalho baseada no número de linhas
         const headerTextHeight = headerLines.length * headerLineHeight
@@ -390,11 +448,11 @@ module.exports = {
 
         // Adicionar texto do status no cabeçalho
         ctx.fillStyle = mergedTextConfig.headerTextColor
-        ctx.font = `${mergedTextConfig.headerFontStyle} ${mergedTextConfig.headerFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.headerFontStyle} ${adjustedHeaderFontSize}px ${mergedTextConfig.fontFamily}`
         ctx.textAlign = mergedTextConfig.headerTextAlign
 
         // Desenhar cada linha do texto do cabeçalho
-        let headerTextY = cardY + 10 + mergedTextConfig.headerFontSize
+        let headerTextY = cardY + 10 + adjustedHeaderFontSize
 
         for (const line of headerLines) {
           const headerTextX = cardX + actualCardWidth / 2
@@ -411,11 +469,11 @@ module.exports = {
 
         // Adicionar nome da parte
         ctx.fillStyle = mergedTextConfig.nameTextColor
-        ctx.font = `${mergedTextConfig.nameFontStyle} ${mergedTextConfig.nameFontSize}px ${mergedTextConfig.fontFamily}`
+        ctx.font = `${mergedTextConfig.nameFontStyle} ${adjustedNameFontSize}px ${mergedTextConfig.fontFamily}`
         ctx.textAlign = "center" // Forçar alinhamento centralizado
 
         // Calcular posição inicial Y para o texto do nome
-        let nameTextY = cardY + actualHeaderTextHeight + mergedTextConfig.nameFontSize + 10
+        let nameTextY = cardY + actualHeaderTextHeight + adjustedNameFontSize + 10
 
         // Desenhar cada linha do texto do nome
         for (const line of nameLines) {
@@ -436,26 +494,25 @@ module.exports = {
 
     console.log("Imagem gerada com sucesso")
     return canvas.toBuffer("image/png")
-  }
+  },
 }
 
 async function getConfigs(vehicleType, croquiType) {
-  const filename = fileURLToPath(require('url').pathToFileURL(__filename).toString());
-  const __dirname = path.dirname(filename);
+  const filename = fileURLToPath(require("url").pathToFileURL(__filename).toString())
+  const __dirname = path.dirname(filename)
 
-  const configFilePath = path.join(__dirname, "..", "config.json");
-  const rawData = await fs.readFile(configFilePath, "utf-8");
-  const allConfigs = JSON.parse(rawData);
+  const configFilePath = path.join(__dirname, "..", "config.json")
+  const rawData = await fs.readFile(configFilePath, "utf-8")
+  const allConfigs = JSON.parse(rawData)
 
-  const config = allConfigs[`${vehicleType} - ${croquiType}`];
+  const config = allConfigs[`${vehicleType} - ${croquiType}`]
 
   if (!config) {
-    throw new Error(`Config not found for vehicle type: ${vehicleType} - ${croquiType}`);
+    throw new Error(`Config not found for vehicle type: ${vehicleType} - ${croquiType}`)
   }
 
-  return config;
+  return config
 }
-
 
 // Função para quebrar texto em múltiplas linhas
 function calculateTextLines(ctx, text, maxWidth) {
