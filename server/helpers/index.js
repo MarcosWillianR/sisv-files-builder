@@ -2,6 +2,9 @@ const fs = require("fs").promises;
 const fss = require("fs");
 const puppeteer = require("puppeteer");
 const path = require("path");
+const os = require("os");
+const { exec } = require("child_process");
+
 
 const { normalizeCepNumber, normalizeCnpjNumber, normalizeCpfNumber, normalizePhoneNumber } = require("./masks");
 
@@ -195,6 +198,31 @@ function formatValue(value) {
   return new Intl.NumberFormat("pt-BR", { currency: "BRL", style: "currency" }).format(value);
 }
 
+async function compressPDFWithGhostscript(originalPdfBuffer) {
+  const tempDir = os.tmpdir();
+  const originalPath = path.join(tempDir, `original_${Date.now()}.pdf`);
+  const compressedPath = path.join(tempDir, `compressed_${Date.now()}.pdf`);
+
+  try {
+    await fs.writeFile(originalPath, originalPdfBuffer);
+
+    await new Promise((resolve, reject) => {
+      const command = `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="${compressedPath}" "${originalPath}"`;
+      exec(command, (error) => {
+        if (error) reject(error);
+        else resolve();
+      });
+    });
+
+    const compressedBuffer = await fs.readFile(compressedPath);
+    return compressedBuffer;
+  } finally {
+    // Cleanup arquivos temporários
+    fs.unlink(originalPath).catch(() => {});
+    fs.unlink(compressedPath).catch(() => {});
+  }
+}
+
 module.exports = {
   deleteFile,
   deleteFolder,
@@ -209,4 +237,5 @@ module.exports = {
   createTempDir,
   getFormattedField,
   formatValue,
+  compressPDFWithGhostscript
 };
