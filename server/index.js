@@ -56,7 +56,7 @@ app.post("/pdf", async (req, res) => {
       timeout: 60000,
     });
 
-    //const compressedBuffer = await compressPDFWithGhostscript(pdfBuffer);
+    const compressedBuffer = await compressPDFWithGhostscript(pdfBuffer);
 
     await browser.close();
     await deleteFile(filePath);
@@ -64,7 +64,7 @@ app.post("/pdf", async (req, res) => {
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
-    res.end(pdfBuffer);
+    res.end(compressedBuffer);
 
     console.log("PDF gerado com sucesso.");
   } catch (error) {
