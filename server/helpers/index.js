@@ -207,7 +207,7 @@ async function compressPDFWithGhostscript(originalPdfBuffer) {
     await fs.writeFile(originalPath, originalPdfBuffer);
 
     await new Promise((resolve, reject) => {
-      const command = `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="${compressedPath}" "${originalPath}"`;
+      const command = `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dBATCH -dQUIET -sOutputFile="${compressedPath}" "${originalPath}"`;
       exec(command, (error) => {
         if (error) reject(error);
         else resolve();
