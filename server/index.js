@@ -1,7 +1,7 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
 const path = require("path");
-const { deleteFile, customColorsStyleTag, saveJsonToFile, deleteFolder, compressPDFWithGhostscript } = require("./helpers");
+const { deleteFile, customColorsStyleTag, saveJsonToFile, compressPDFWithGhostscript } = require("./helpers");
 const { processTimesheet } = require("../excel-builder/src");
 const { buildPDF } = require("./buildPDF.js");
 const TermsContractPolicyBuilder = require("../terms-contract-policy-builder");
@@ -45,7 +45,6 @@ app.post("/pdf", async (req, res) => {
 
     await browser.close();
     await deleteFile(filePath);
-    await deleteFolder(path.join(__dirname, '/helpers/temp'));
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
