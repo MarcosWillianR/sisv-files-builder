@@ -11,7 +11,7 @@ const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("
 const TEMP_DIR = createTempDir();
 
 async function getHtmlHeight(htmlContent) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
 
   await page.setContent(htmlContent);
