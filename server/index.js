@@ -35,21 +35,6 @@ app.post("/pdf", async (req, res) => {
 
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle0", timeout: 60000 });
 
-    const iframeHeight = await page.evaluate(() => {
-      const iframe = document.querySelector("iframe");
-      if (!iframe) return 0;
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-      const body = iframeDocument.body;
-      return body.scrollHeight;
-    });
-
-    await page.evaluate((height) => {
-      const iframe = document.querySelector("iframe");
-      if (iframe) {
-        iframe.style.height = `${height - 1520}px`;
-      }
-    }, iframeHeight);
-
     await page.addStyleTag({ content: customColorsStyleTag(req.body) });
     const pdfBuffer = await page.pdf({
       ...pdfBufferOptions,
@@ -60,7 +45,7 @@ app.post("/pdf", async (req, res) => {
 
     await browser.close();
     await deleteFile(filePath);
-    //await deleteFolder(path.join(__dirname, '/helpers/temp'));
+    await deleteFolder(path.join(__dirname, '/helpers/temp'));
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");

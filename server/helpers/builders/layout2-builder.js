@@ -3,11 +3,23 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 const axios = require("axios");
+const puppeteer = require("puppeteer");
 
 const { generateImage } = require('../../../croqui-builder/src/imageGenerator');
 const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
+
+async function getHtmlHeight(htmlContent) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.setContent(htmlContent);
+  const height = await page.evaluate(() => document.body.scrollHeight);
+
+  await browser.close();
+  return height;
+}
 
 function formattedClientName(client) {
   if (!client || client.clientType === "AVULSO") return "PARTICULAR";
@@ -403,7 +415,8 @@ async function Layout2Builder(data) {
       const apiDataParsed = JSON.parse(groupHistory.data.apiData);
       const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
       const $ = cheerio.load(content);
-      const iframeHtml = `<iframe srcdoc="${modifiedHtml.replace(/"/g, '&quot;')}" style="width:100%; border: none;"></iframe>`;
+      const cloudPDFHeight = await getHtmlHeight(modifiedHtml)
+      const iframeHtml = `<iframe src="${apiDataParsed.RETORNO.ArquivoPesquisa}" style="width:100%; height: ${cloudPDFHeight}px; border: none;"></iframe>`;
       $('body').append(iframeHtml);
       content = $.html();
     }
