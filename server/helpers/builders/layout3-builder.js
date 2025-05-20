@@ -507,8 +507,8 @@ async function Layout3Builder(data) {
     const vehicleObservationIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     if (vehicleObservationIndex !== -1) {
       const groupData = data.groups[vehicleObservationIndex];
-      let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
-      if (!data.analystObservation && data.analystObservation !== "No observations") {
+      let obsDescription = groupData.data.textObservation;
+      if (data.analystObservation && data.analystObservation !== "No observations") {
         obsDescription = data.analystObservation;
       }
       content = evaluationDetailsComponent(obsDescription, content);

@@ -401,7 +401,7 @@ async function Layout2Builder(data) {
     if (groupDescriptionIndex !== -1) {
       const obsTitle = data.groups[groupDescriptionIndex].name;
       let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
-      if (!data.analystObservation && data.analystObservation !== "No observations") {
+      if (data.analystObservation && data.analystObservation !== "No observations") {
         obsDescription = data.analystObservation;
       }
       content = observationGridComponent(data.groups[groupDescriptionIndex], obsTitle, obsDescription, content);
