@@ -103,7 +103,7 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
   return $.html();
 }
 
-function observationGridComponent(descriptionData, content) {
+function observationGridComponent(obsTitle, obsDescription, content) {
   const $ = cheerio.load(content);
 
   $("#ObservationGrid").each((_, element) => {
@@ -112,8 +112,8 @@ function observationGridComponent(descriptionData, content) {
     const title = $(element).find("h2");
     const description = $(element).find("p");
 
-    title.text(descriptionData.name);
-    description.text(descriptionData.data.textObservation);
+    title.text(obsTitle);
+    description.text(obsDescription);
   });
 
   return $.html();
@@ -437,7 +437,12 @@ async function Layout1Builder(data) {
     }
 
     if (groupDescriptionIndex !== -1) {
-      content = observationGridComponent(data.groups[groupDescriptionIndex], content);
+      const obsTitle = data.groups[groupDescriptionIndex].name;
+      let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
+      if (!data.analystObservation && data.analystObservation !== "No observations") {
+        obsDescription = data.analystObservation;
+      }
+      content = observationGridComponent(obsTitle, obsDescription, content);
     }
 
     const groupParts = availableGroups

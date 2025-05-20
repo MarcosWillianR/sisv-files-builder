@@ -214,13 +214,13 @@ function debtsSummaryComponent(data, content) {
   return $.html();
 }
 
-function evaluationDetailsComponent(data, content) {
+function evaluationDetailsComponent(obsDescription, content) {
   const $ = cheerio.load(content);
 
   $("#EvaluationDetails").each((_, element) => {
     $(element).removeClass("hidden");
     const description = $(element).find("p");
-    description.text(data.data.textObservation);
+    description.text(obsDescription);
   });
 
   return $.html();
@@ -507,7 +507,11 @@ async function Layout3Builder(data) {
     const vehicleObservationIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     if (vehicleObservationIndex !== -1) {
       const groupData = data.groups[vehicleObservationIndex];
-      content = evaluationDetailsComponent(groupData, content);
+      let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
+      if (!data.analystObservation && data.analystObservation !== "No observations") {
+        obsDescription = data.analystObservation;
+      }
+      content = evaluationDetailsComponent(obsDescription, content);
     }
 
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");

@@ -216,7 +216,7 @@ function vehicleGrid6Component(restParts, content) {
   return $.html();
 }
 
-function observationGridComponent(descriptionData, content) {
+function observationGridComponent(descriptionData, obsTitle, obsDescription, content) {
   const $ = cheerio.load(content);
 
   setGroupOrder("ObservationGrid", descriptionData, $);
@@ -225,8 +225,8 @@ function observationGridComponent(descriptionData, content) {
     const title = $(element).find("#ObservationGridTitle");
     const description = $(element).find("#ObservationGridText");
 
-    title.text(descriptionData.name);
-    description.text(descriptionData.data.textObservation);
+    title.text(obsTitle);
+    description.text(obsDescription);
   });
 
   return $.html();
@@ -399,7 +399,12 @@ async function Layout2Builder(data) {
     }
 
     if (groupDescriptionIndex !== -1) {
-      content = observationGridComponent(data.groups[groupDescriptionIndex], content);
+      const obsTitle = data.groups[groupDescriptionIndex].name;
+      let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
+      if (!data.analystObservation && data.analystObservation !== "No observations") {
+        obsDescription = data.analystObservation;
+      }
+      content = observationGridComponent(data.groups[groupDescriptionIndex], obsTitle, obsDescription, content);
     }
 
     const groupCroquis = availableGroups.filter((group) => group.groupType === "CROQUI");
