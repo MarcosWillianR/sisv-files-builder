@@ -149,9 +149,14 @@ function vehicleGrid2Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("#VehicleGrid2-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
-        vehicleItem.find("#vehicleName").text(part.name ?? "");
-        const vehicleDesc = vehicleItem.find("#vehicleDesc");
 
+        let formattedName = part.name ?? "";
+        if (formattedName.length >= 25) {
+          formattedName = formattedName.substring(0, 25) + "...";
+        }
+        vehicleItem.find("#vehicleName").text(formattedName);
+        
+        const vehicleDesc = vehicleItem.find("#vehicleDesc");
         let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length >= 25) {
           formattedDesc = formattedDesc.substring(0, 25) + "...";
@@ -211,14 +216,19 @@ function vehicleGrid12Component(restParts, content) {
       chunks[index].forEach((part, partIndex) => {
         const vehicleItem = $(itemItems).find("#VehicleChunkItem").eq(partIndex);
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
-        let formattedDesc = selectedRating?.name ?? "";
 
+        vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
+        
+        let formattedName = part.name ?? "";
+        if (formattedName.length >= 25) {
+          formattedName = formattedName.substring(0, 25) + "...";
+        }
+        vehicleItem.find("#vehicleName").text(formattedName);
+
+        let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length >= 20) {
           formattedDesc = formattedDesc.substring(0, 20) + "...";
         }
-
-        vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
-        vehicleItem.find("#vehicleName").text(part.name ?? "");
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
           vehicleDesc.addClass("text-transparent");

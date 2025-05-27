@@ -302,14 +302,23 @@ function vehicleGrid6Component(restParts, location, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("#VehicleGrid6-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
-        vehicleItem.find("#vehicleName").text(part.name ?? "");
+
+        let formattedName = part.name ?? "";
+        if (formattedName.length >= 35) {
+          formattedName = formattedName.substring(0, 35) + "...";
+        }
+        vehicleItem.find("#vehicleName").text(formattedName);
         vehicleItem.find("p").text(location);
 
+        let formattedDesc = selectedRating?.name ?? "";
+        if (formattedDesc.length >= 35) {
+          formattedDesc = formattedDesc.substring(0, 35) + "...";
+        }
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
           vehicleDesc.addClass("text-transparent");
         } else {
-          vehicleDesc.text(selectedRating?.name);
+          vehicleDesc.text(formattedDesc);
         }
 
         const statusToId = {
@@ -362,14 +371,22 @@ function vehicleGrid15Component(restParts, location, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("#VehicleGrid15-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
-        vehicleItem.find("#vehicleName").text(part.name ?? "");
+        let formattedName = part.name ?? "";
+        if (formattedName.length >= 25) {
+          formattedName = formattedName.substring(0, 25) + "...";
+        }
+        vehicleItem.find("#vehicleName").text(formattedName);
         vehicleItem.find("p").text(location);
 
+        let formattedDesc = selectedRating?.name ?? "";
+        if (formattedDesc.length >= 20) {
+          formattedDesc = formattedDesc.substring(0, 20) + "...";
+        }
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         if (!selectedRating?.name) {
           vehicleDesc.addClass("text-transparent");
         } else {
-          vehicleDesc.text(selectedRating?.name);
+          vehicleDesc.text(formattedDesc);
         }
 
         const statusToId = {
