@@ -525,7 +525,7 @@ async function Layout3Builder(data) {
     if (vehicleObservationIndex !== -1) {
       const groupData = data.groups[vehicleObservationIndex];
       let obsDescription = groupData.data.textObservation;
-      if (data.analystObservation && data.analystObservation !== "No observations") {
+      if (data.analystObservation && data.analystObservation !== "No observations" && data.analystObservation !== "No additional notes") {
         obsDescription = data.analystObservation;
       }
       content = evaluationDetailsComponent(obsDescription, content);
