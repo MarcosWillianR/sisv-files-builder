@@ -53,8 +53,8 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = factoryData[key] || "Não informado";
-      const formattedVehicleData = key === "km" ? kmValue : vehicleData[key] || "Não informado";
+      const formattedFactoryData = factoryData[key] || "";
+      const formattedVehicleData = key === "km" ? kmValue : vehicleData[key] || "";
 
       $(cells[0]).text(formattedVehicleData);
       $(cells[1]).text(formattedFactoryData);

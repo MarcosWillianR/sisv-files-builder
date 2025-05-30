@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 const puppeteer = require("puppeteer");
 
-const { generateImage } = require('../../../croqui-builder/src/imageGenerator');
+const { generateImage } = require("../../../croqui-builder/src/imageGenerator");
 const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
@@ -86,8 +86,8 @@ function vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, con
     if (label.includes("KM")) key = "km";
 
     if (key) {
-      const formattedFactoryData = key === "km" ? kmValue : factoryData[key] || "Não informado";
-      const formattedVehicleData = vehicleData[key] || "Não informado";
+      const formattedFactoryData = factoryData[key] || "";
+      const formattedVehicleData = key === "km" ? kmValue : vehicleData[key] || "";
 
       $(cells[0]).text(formattedVehicleData);
       $(cells[1]).text(formattedFactoryData);
@@ -155,7 +155,7 @@ function vehicleGrid2Component(restParts, content) {
           formattedName = formattedName.substring(0, 25) + "...";
         }
         vehicleItem.find("#vehicleName").text(formattedName);
-        
+
         const vehicleDesc = vehicleItem.find("#vehicleDesc");
         let formattedDesc = selectedRating?.name ?? "";
         if (formattedDesc.length >= 25) {
@@ -218,7 +218,7 @@ function vehicleGrid12Component(restParts, content) {
         const selectedRating = part.ratings.find((rating) => rating.isSelected);
 
         vehicleItem.find("#VehicleGrid12-Image").attr("style", `background-image: url('${part?.s3File?.url}');`);
-        
+
         let formattedName = part.name ?? "";
         if (formattedName.length >= 25) {
           formattedName = formattedName.substring(0, 25) + "...";
@@ -341,32 +341,32 @@ async function croquiGridComponent(vehicleType, groupCroquis, content) {
   const $ = cheerio.load(content);
 
   const groupImages = await Promise.all(
-    groupCroquis.map(async gc => {
+    groupCroquis.map(async (gc) => {
       const imageBuffer = await generateImage(vehicleType, gc.data.croquiType, gc.data.items);
       return { id: gc.id, name: gc.name, imageBuffer };
     })
   );
 
-  const $grid = $('#CroquiGrid');
-  const $chunkTemplate = $('#CroquiChunk').clone().removeAttr('id');
-  $('#CroquiChunk').remove(); // Remove o template do HTML
+  const $grid = $("#CroquiGrid");
+  const $chunkTemplate = $("#CroquiChunk").clone().removeAttr("id");
+  $("#CroquiChunk").remove(); // Remove o template do HTML
 
-  const imageMap = Object.fromEntries(groupImages.map(img => [img.id, img]));
+  const imageMap = Object.fromEntries(groupImages.map((img) => [img.id, img]));
 
-  chunks.forEach(groupChunk => {
+  chunks.forEach((groupChunk) => {
     const $chunk = $chunkTemplate.clone(); // Clona o template de chunk
 
     // Encontra o container de título (CroquiGridTitle)
-    const $title = $chunk.find('#CroquiGridTitle');
+    const $title = $chunk.find("#CroquiGridTitle");
     //$title.removeClass('hidden'); // Torna o título visível
 
-    const $container = $chunk.find('.place-items-center');
+    const $container = $chunk.find(".place-items-center");
     $container.empty().css({
-      display: 'flex',
-      'flex-direction': 'column', // Empilha os itens (título + imagem) verticalmente
-      'align-items': 'center', // Centraliza os itens horizontalmente
-      'gap': '2rem', // Espaçamento entre os grupos
-      'min-height': '100vh',
+      display: "flex",
+      "flex-direction": "column", // Empilha os itens (título + imagem) verticalmente
+      "align-items": "center", // Centraliza os itens horizontalmente
+      gap: "2rem", // Espaçamento entre os grupos
+      "min-height": "100vh",
     });
 
     // Adiciona cada grupo (com título e imagem) no container
@@ -376,29 +376,29 @@ async function croquiGridComponent(vehicleType, groupCroquis, content) {
 
       // Atualiza o título com o nome dinâmico
       const $titleClone = $title.clone(); // Clona o título para cada item
-      $titleClone.find('h2').text(imgData.name); // Define o nome do croqui
+      $titleClone.find("h2").text(imgData.name); // Define o nome do croqui
       $titleClone.css({
-        'display': 'flex',
-        'border-top-left-radius': '16px', // Raio de borda inferior esquerdo
-        'border-top-right-radius': '16px', // Raio de borda inferior direito
+        display: "flex",
+        "border-top-left-radius": "16px", // Raio de borda inferior esquerdo
+        "border-top-right-radius": "16px", // Raio de borda inferior direito
       });
 
-      const base64 = imgData.imageBuffer.toString('base64');
+      const base64 = imgData.imageBuffer.toString("base64");
       const imageSrc = `data:image/png;base64,${base64}`;
 
       // Cria o div para cada imagem
       const $item = $('<div class="w-full text-center"></div>').css({
-        'background-image': `url('${imageSrc}')`,
-        'background-size': 'contain', // A imagem será ajustada para se manter dentro do espaço disponível
-        'background-repeat': 'no-repeat',
-        'background-position': 'center',
-        'height': '400px', // Altura da imagem
-        'width': '100%', // Largura máxima
+        "background-image": `url('${imageSrc}')`,
+        "background-size": "contain", // A imagem será ajustada para se manter dentro do espaço disponível
+        "background-repeat": "no-repeat",
+        "background-position": "center",
+        height: "400px", // Altura da imagem
+        width: "100%", // Largura máxima
       });
 
       // Adiciona o título e a imagem dentro de um wrapper
       const $itemWrapper = $('<div class="w-full"></div>').css({
-        'text-align': 'center',
+        "text-align": "center",
       });
 
       $itemWrapper.append($titleClone, $item); // Empilha o título e a imagem
@@ -410,7 +410,7 @@ async function croquiGridComponent(vehicleType, groupCroquis, content) {
     $grid.append($chunk); // Adiciona o chunk com os itens no grid
   });
 
-  $grid.removeClass('hidden'); // Torna o grid visível
+  $grid.removeClass("hidden"); // Torna o grid visível
 
   return $.html(); // Retorna o HTML final
 }
@@ -449,7 +449,11 @@ async function Layout1Builder(data) {
     if (groupDescriptionIndex !== -1) {
       const obsTitle = data.groups[groupDescriptionIndex].name;
       let obsDescription = data.groups[groupDescriptionIndex].data.textObservation;
-      if (data.analystObservation && data.analystObservation !== "No observations" && data.analystObservation !== "No additional notes") {
+      if (
+        data.analystObservation &&
+        data.analystObservation !== "No observations" &&
+        data.analystObservation !== "No additional notes"
+      ) {
         obsDescription = data.analystObservation;
       }
       content = observationGridComponent(obsTitle, obsDescription, content);
@@ -498,7 +502,7 @@ async function Layout1Builder(data) {
 
     const groupCroquis = availableGroups.filter((group) => group.groupType === "CROQUI");
     if (groupCroquis.length > 0) {
-      content = await croquiGridComponent(data.vehicleType, groupCroquis, content)
+      content = await croquiGridComponent(data.vehicleType, groupCroquis, content);
     }
 
     content = notesGridComponent(data.notes, content);
@@ -509,9 +513,9 @@ async function Layout1Builder(data) {
       const apiDataParsed = JSON.parse(groupHistory.data.apiData);
       const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
       const $ = cheerio.load(content);
-      const cloudPDFHeight = await getHtmlHeight(modifiedHtml)
+      const cloudPDFHeight = await getHtmlHeight(modifiedHtml);
       const iframeHtml = `<iframe src="${apiDataParsed.RETORNO.ArquivoPesquisa}" style="width:100%; height: ${cloudPDFHeight}px; border: none;"></iframe>`;
-      $('body').append(iframeHtml);
+      $("body").append(iframeHtml);
       content = $.html();
     }
 
