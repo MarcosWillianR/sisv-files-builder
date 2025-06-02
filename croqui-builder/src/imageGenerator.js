@@ -251,13 +251,15 @@ module.exports = {
         ctx.stroke()
 
         // Desenhar um pequeno círculo no ponto de início
-        ctx.beginPath()
-        ctx.arc(fromX, fromY, 5, 0, 3 * Math.PI)
-        ctx.fillStyle = color
-        ctx.fill()
-        ctx.strokeStyle = "#333333"
-        ctx.lineWidth = 0.5
-        ctx.stroke()
+        if (position.showStartPoint) {
+          ctx.beginPath()
+          ctx.arc(fromX, fromY, 5, 0, 3 * Math.PI)
+          ctx.fillStyle = color
+          ctx.fill()
+          ctx.strokeStyle = "#333333"
+          ctx.lineWidth = 0.5
+          ctx.stroke()
+        }
 
         // Desenhar o card
         // Adicionar sombra ao card
