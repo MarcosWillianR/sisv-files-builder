@@ -5,6 +5,7 @@ const { deleteFile, customColorsStyleTag, saveJsonToFile, compressPDFWithGhostsc
 const { processTimesheet } = require("../excel-builder/src");
 const { buildPDF } = require("./buildPDF.js");
 const TermsContractPolicyBuilder = require("../terms-contract-policy-builder");
+const { PDFDocument } = require("pdf-lib");
 
 const PORT = 4715;
 const app = express();
@@ -24,32 +25,38 @@ app.post("/pdf", async (req, res) => {
     const jsonPath = path.join(__dirname, "data.json");
     await saveJsonToFile(req.body, jsonPath);
 
-    // const savePath = path.join('./', 'croqui/');
-    // await createCroquiImage(req.body, savePath);
-
-    const { pdfBufferOptions, filePath } = await buildPDF(req.body);
+    const { pdfBufferOptions, filePath, historyFilePath } = await buildPDF(req.body);
 
     const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox", "--disable-setuid-sandbox"] });
 
-    const page = await browser.newPage();
+    const mainPage = await browser.newPage();
+    await mainPage.goto(`file://${filePath}`, { waitUntil: "networkidle0", timeout: 60000 });
+    await mainPage.addStyleTag({ content: customColorsStyleTag(req.body) });
+    const mainPdfBuffer = await mainPage.pdf({ ...pdfBufferOptions, timeout: 60000 });
 
-    await page.goto(`file://${filePath}`, { waitUntil: "networkidle0", timeout: 60000 });
+    let mergedPdfBuffer = mainPdfBuffer;
 
-    await page.addStyleTag({ content: customColorsStyleTag(req.body) });
-    const pdfBuffer = await page.pdf({
-      ...pdfBufferOptions,
-      timeout: 60000,
-    });
+    if (historyFilePath) {
+      const historyPage = await browser.newPage();
+      await historyPage.goto(`file://${historyFilePath}`, { waitUntil: "networkidle0", timeout: 60000 });
+      const historyPdfBuffer = await historyPage.pdf({ ...pdfBufferOptions, timeout: 60000 });
 
-    const compressedBuffer = await compressPDFWithGhostscript(pdfBuffer);
+      const mainPdfDoc = await PDFDocument.load(mainPdfBuffer);
+      const historyPdfDoc = await PDFDocument.load(historyPdfBuffer);
+      const copiedPages = await mainPdfDoc.copyPages(historyPdfDoc, historyPdfDoc.getPageIndices());
+      copiedPages.forEach((page) => mainPdfDoc.addPage(page));
+      mergedPdfBuffer = await mainPdfDoc.save();
+    }
+
+    const compressedBuffer = await compressPDFWithGhostscript(mergedPdfBuffer);
 
     await browser.close();
     await deleteFile(filePath);
+    await deleteFile(historyFilePath);
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "attachment; filename=pagina.pdf");
     res.end(compressedBuffer);
-
     console.log("PDF gerado com sucesso.");
   } catch (error) {
     console.error("Erro ao gerar PDF:", error);
@@ -103,7 +110,6 @@ app.post("/terms-pdf", async (req, res) => {
   }
 });
 
-// Iniciar o servidor
 app.listen(PORT, async () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

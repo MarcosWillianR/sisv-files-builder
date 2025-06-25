@@ -506,19 +506,6 @@ async function Layout1Builder(data) {
     }
 
     content = notesGridComponent(data.notes, content);
-
-    const groupHistoryIndex = availableGroups.findIndex((group) => group.groupType === "HISTORY");
-    if (groupHistoryIndex !== -1 && data.IsSearchMandatory) {
-      const groupHistory = data.groups[groupHistoryIndex];
-      const apiDataParsed = JSON.parse(groupHistory.data.apiData);
-      const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
-      const $ = cheerio.load(content);
-      const cloudPDFHeight = await getHtmlHeight(modifiedHtml);
-      const iframeHtml = `<iframe src="${apiDataParsed.RETORNO.ArquivoPesquisa}" style="width:100%; height: ${cloudPDFHeight}px; border: none;"></iframe>`;
-      $("body").append(iframeHtml);
-      content = $.html();
-    }
-
     fs.writeFileSync(tempFilePath, content, "utf8");
 
     return tempFilePath;

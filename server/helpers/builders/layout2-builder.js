@@ -3,23 +3,11 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cheerio = require("cheerio");
 const axios = require("axios");
-const puppeteer = require("puppeteer");
 
 const { generateImage } = require("../../../croqui-builder/src/imageGenerator");
 const { createChunks, getNestedValue, setGroupOrder, createTempDir } = require("..");
 
 const TEMP_DIR = createTempDir();
-
-async function getHtmlHeight(htmlContent) {
-  const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox", "--disable-setuid-sandbox"] });
-  const page = await browser.newPage();
-
-  await page.setContent(htmlContent);
-  const height = await page.evaluate(() => document.body.scrollHeight);
-
-  await browser.close();
-  return height;
-}
 
 function formattedClientName(client) {
   if (!client || client.clientType === "AVULSO") return "PARTICULAR";
@@ -243,17 +231,6 @@ function notesGridComponent(notes, content) {
   return $.html();
 }
 
-async function fetchAndModifyExternalHtml(url) {
-  try {
-    const { data: externalHtml } = await axios.get(url);
-    const $ = cheerio.load(externalHtml);
-    return $.html();
-  } catch (error) {
-    console.error("Erro ao buscar HTML externo:", error.message);
-    return "";
-  }
-}
-
 async function croquiGridComponent(vehicleType, groupCroquis, content) {
   const ITEMS_PER_PAGE = 2; // 2 croquis por página
   const chunks = createChunks(groupCroquis, ITEMS_PER_PAGE);
@@ -416,23 +393,11 @@ async function Layout2Builder(data) {
     }
 
     content = notesGridComponent(data.notes, content);
-
-    const groupHistoryIndex = availableGroups.findIndex((group) => group.groupType === "HISTORY");
-    if (groupHistoryIndex !== -1 && data.IsSearchMandatory) {
-      const groupHistory = data.groups[groupHistoryIndex];
-      const apiDataParsed = JSON.parse(groupHistory.data.apiData);
-      const modifiedHtml = await fetchAndModifyExternalHtml(apiDataParsed.RETORNO.ArquivoPesquisa);
-      const $ = cheerio.load(content);
-      const cloudPDFHeight = await getHtmlHeight(modifiedHtml);
-      const iframeHtml = `<iframe src="${apiDataParsed.RETORNO.ArquivoPesquisa}" style="width:100%; height: ${cloudPDFHeight}px; border: none;"></iframe>`;
-      $("body").append(iframeHtml);
-      content = $.html();
-    }
-
     fs.writeFileSync(tempFilePath, content, "utf8");
 
     return tempFilePath;
   } catch (error) {
+    console.log(error);
     console.error("Erro ao gerar HTML personalizado:", error.message);
     throw new Error("Falha ao gerar HTML personalizado.");
   }
