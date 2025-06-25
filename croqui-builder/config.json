@@ -550,7 +550,7 @@
       }
     }
   },
-  "TRUCK - STRUCTURE": {
+  "PICKUP_TRUCK - STRUCTURE": {
     "width": 1780,
     "height": 1080,
     "imagePath": "../assets/images/truck_structure.png",
@@ -691,7 +691,7 @@
       }
     }
   },
-  "TRUCK - PAINTING": {
+  "PICKUP_TRUCK - PAINTING": {
     "width": 1920,
     "height": 1080,
     "imagePath": "../assets/images/truck_painting.png",
