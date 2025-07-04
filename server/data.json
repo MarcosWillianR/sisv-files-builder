@@ -1,6 +1,6 @@
 {
-  "id": 577,
-  "inspectionName": "INSPEÇÃO AUTOMÓVEL",
+  "id": 620,
+  "inspectionName": "INSPEÇÃO AUTOMOTIVA + PESQUISA + PINTURA + ESTRUTURA",
   "address": null,
   "layout": "LAYOUT_2",
   "analystObservation": "No additional notes",
@@ -8,30 +8,30 @@
   "IsSearchMandatory": true,
   "notes": "Este laudo refere-se à vistoria cautelar do veículo, com caráter informativo sobre a análise de itens conforme padrões dos fabricantes. A unidade não se responsabiliza por modificações nos itens do veículo após a vistoria, cuja validade é garantida no momento da realização. O resultado do laudo segue critérios de avaliação que podem ser alterados sem aviso prévio.As informações dos veículos são obtidas de bases de dados públicas e privadas, sendo de responsabilidade da empresa fornecedora. O cliente é informado de que as seguradoras têm seus próprios critérios de avaliação de risco, que não influenciam o resultado da vistoria. Importante: não são examinados itens de mecânica, elétrica, transmissão, suspensão e freios. A análise de pintura utiliza medidores digitais para verificar a espessura da tinta, informando apenas sobre retoques ou reparos significativos, sem considerar pequenos riscos ou desgastes. Não nos responsabilizamos por defeitos ou fraudes em equipamentos de Air-Bag. A verificação da numeração da caixa de câmbio é feita apenas se visível, sem desmontagem. A vistoria não valida a quilometragem do hodômetro, apenas registra a quilometragem aparente. Itens obrigatórios e acessórios, como pneus e cintos, são informados quanto à sua existência e funcionamento mínimo, sem atestar calibragem ou conformidade com normas técnicas específicas.",
   "inspectionVehicleData": {
-    "id": 581,
+    "id": 624,
     "data": {
-      "licensePlate": "PLV5D69",
-      "brandModel": "FIAT/MOBI EASY",
-      "yearManufactureModel": "2019",
-      "color": "Preta",
-      "chassis": "9BD341A4XLY633426",
-      "engineNumber": "552720663535610",
-      "state": "BA",
+      "licensePlate": "ABC1100",
+      "brandModel": "APOLLO GL",
+      "yearManufactureModel": "1990",
+      "color": "Prata",
+      "chassis": "9BWZZZ54ZLB091681",
+      "engineNumber": "",
+      "state": "SP",
       "city": "",
-      "fuelType": "Alcool / Gasolina",
-      "power": "75",
+      "fuelType": "Gasolina",
+      "power": "92",
       "vehicleType": "Automovel",
-      "engineDisplacement": "1000",
+      "engineDisplacement": "1800",
       "grossTotalWeight": "",
       "grv": "",
-      "km": ""
+      "km": "32321321321321"
     }
   },
   "customizationConfig": {
     "id": 2,
     "logo": {
       "s3Key": "unit/2/logo",
-      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/2/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250618T034850Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250618%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=50a2428ac10280e63b2a1a7c60c9ed3519f7e42ba79603e4da1c421b50a17e55",
+      "url": "https://sisvvist.s3.sa-east-1.amazonaws.com/unit/2/logo?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250703T165801Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAYKFQQUWDIMZ7DZ5N%2F20250703%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=89a61d7b96fd68e53fa208286db43a3fc3bce740584ce0f35519ba58ccbe6fd7",
       "fileType": "image/png"
     },
     "primaryColor": "#f6ad16",
@@ -39,8 +39,8 @@
     "primaryFontColor": "#ffffff",
     "secondFontColor": "#ffffff"
   },
-  "createDate": "2025-06-18 00:33:10",
-  "completeDate": "2025-06-18 00:40:56",
+  "createDate": "2025-07-01 16:56:51",
+  "completeDate": "2025-07-01 17:11:45",
   "unit": {
     "id": 2,
     "dueDate": "01",
@@ -68,101 +68,7 @@
     "startDate": "2025-02-12 15:40:11",
     "productExportUuid": "28be8935-ff55-11ef-b1f0-0a30e7dbe26f"
   },
-  "client": {
-    "id": 46,
-    "clientType": "INDIVIDUAL",
-    "address": {
-      "street": "Alameda Rio Negro",
-      "city": "Barueri",
-      "state": "SP",
-      "number": null,
-      "complement": null,
-      "neighborhood": null,
-      "zipCode": "06454000",
-      "latitude": null,
-      "longitude": null
-    },
-    "dueDateDay": null,
-    "billingDateDay": null,
-    "user": {
-      "id": 95,
-      "email": "emotest@gmail.com",
-      "firstName": "EMERSON",
-      "lastName": "MARQUES",
-      "cpf": "18578279026",
-      "category": "CLIENT",
-      "profiles": [
-        {
-          "id": 6,
-          "name": "Analista",
-          "description": "Analisa e finaliza os laudos",
-          "purpose": "DEFAULT",
-          "features": [
-            {
-              "id": 22,
-              "name": "Dashboard - Visualizar Indicadores Gerais",
-              "description": "Permite consultar dados gerais e métricas.",
-              "code": 6001
-            },
-            {
-              "id": 23,
-              "name": "Vistorias - Visualizar Vistorias",
-              "description": "Permite consultar a lista de vistorias e detalhes.",
-              "code": 6201
-            },
-            {
-              "id": 24,
-              "name": "Vistorias - Adicionar Nova Vistoria",
-              "description": "Permite criar uma nova vistoria.",
-              "code": 6202
-            },
-            {
-              "id": 25,
-              "name": "Vistorias - Editar Vistoria",
-              "description": "Permite alterar informações de uma vistoria e  Permite atualizar o status de uma vistoria.",
-              "code": 6203
-            },
-            {
-              "id": 26,
-              "name": "Vistorias - Deletar Vistoria",
-              "description": "Permite excluir uma vistoria existente permanentemente.",
-              "code": 6204
-            },
-            {
-              "id": 31,
-              "name": "Perfil do Usuário - Visualizar Informações",
-              "description": "Permite consultar dados pessoais.",
-              "code": 6501
-            },
-            {
-              "id": 32,
-              "name": "Perfil do Usuário - Editar Informações",
-              "description": "Permite atualizar dados como nome, endereço e telefone.",
-              "code": 6502
-            },
-            {
-              "id": 33,
-              "name": "Perfil do Usuário - Alterar Senha",
-              "description": "Permite atualizar a senha do usuário.",
-              "code": 6503
-            },
-            {
-              "id": 34,
-              "name": "Perfil do Usuário - Gerenciar Assinatura",
-              "description": "Permite gerenciar planos ou assinaturas.",
-              "code": 6504
-            }
-          ]
-        }
-      ]
-    },
-    "unitDTO": {
-      "id": 2,
-      "name": "CAR DADOS PROCESSAMENTO DE DADOS LTDA.",
-      "fantasyName": "CAR DADOS PROCESSAMENTO DE DADOS LTDA.",
-      "cnpj": "10472656000160"
-    }
-  },
+  "client": null,
   "expert": {
     "id": 2,
     "firstName": "Felipe",
@@ -170,10 +76,16 @@
     "cpf": "85523780006",
     "signature": null
   },
-  "analyst": null,
+  "analyst": {
+    "id": 2,
+    "firstName": "Felipe",
+    "lastName": "Mazoni",
+    "cpf": "85523780006",
+    "signature": null
+  },
   "groups": [
     {
-      "id": 3034,
+      "id": 3370,
       "name": "DADOS",
       "isRequired": false,
       "isPdfEnabled": true,
@@ -190,42 +102,23 @@
         "uploadAt": "2025-06-09 14:30:29"
       },
       "data": {
-        "licensePlate": "PLV5D69",
-        "brandModel": "FIAT/MOBI EASY",
-        "yearManufactureModel": "2019",
-        "color": "Preta",
-        "chassis": "9BD341A4XLY633426",
-        "engineNumber": "552720663535610",
-        "state": "BA",
+        "licensePlate": "ABC1100",
+        "brandModel": "APOLLO GL",
+        "yearManufactureModel": "1990",
+        "color": "Prata",
+        "chassis": "9BWZZZ54ZLB091681",
+        "engineNumber": "",
+        "state": "SP",
         "city": "",
-        "fuelType": "Alcool / Gasolina",
-        "power": "75",
+        "fuelType": "Gasolina",
+        "power": "92",
         "vehicleType": "Automovel",
-        "engineDisplacement": "1000",
-        "grossTotalWeight": "128"
+        "engineDisplacement": "1800",
+        "grossTotalWeight": "90"
       }
     },
     {
-      "id": 3035,
-      "name": "VEÍCULO",
-      "isRequired": false,
-      "isPdfEnabled": true,
-      "appOrder": 3,
-      "printOrder": 0,
-      "groupType": "PARTS",
-      "s3File": {
-        "id": 1634,
-        "fileName": "group_image",
-        "s3Key": "vistoria/group/6/group_image",
-        "bucketName": "sisvvist",
-        "fileSize": 15321,
-        "fileType": "image/png",
-        "uploadAt": "2025-06-09 13:54:22"
-      },
-      "data": []
-    },
-    {
-      "id": 3036,
+      "id": 3372,
       "name": "OBSERVAÇÕES",
       "isRequired": false,
       "isPdfEnabled": true,
@@ -242,13 +135,13 @@
         "uploadAt": "2025-06-09 14:38:04"
       },
       "data": {
-        "id": 620,
-        "km": "",
-        "textObservation": ""
+        "id": 666,
+        "km": "35222",
+        "textObservation": "baixa km teste "
       }
     },
     {
-      "id": 3037,
+      "id": 3373,
       "name": "HISTÓRICO ",
       "isRequired": false,
       "isPdfEnabled": true,
@@ -265,18 +158,18 @@
         "uploadAt": "2025-06-09 11:20:36"
       },
       "data": {
-        "processStatus": "COMPLETED",
-        "apiData": "{\"RETORNO\":{\"idPesquisa\":\"4474741\",\"Mensagem\":\"Pronta\",\"Resultado\":\"Ok\",\"RetornoCompleto\":\"0\",\"IdentCliente\":\"Não Informado\",\"ArquivoPesquisa\":\"https://resultado-consultas.s3.amazonaws.com/2168521F9E780D51750212510GYTIYSA16KRP3R1DCXE8OEI8D.html\"},\"QUADRORESUMO\":{\"Situacao\":\"CIRCULAÇÃO\",\"Debitos\":\"NÃO\",\"Restricoes\":\"NÃO\",\"Leilao1\":\"NÃO\",\"Leilao2\":\"NÃO\",\"Leilao3\":\"NÃO\",\"VendaDireta\":\"NÃO\",\"Remarketing\":\"NÃO\",\"Sinistro\":\"NÃO\",\"IndicioDeSinistro1\":\"NÃO\",\"IndicioDeSinistro2\":\"NÃO\",\"IndicioDeSinistro3\":\"NÃO\",\"TotalDeDebitos\":\"NÃO\"},\"QUADRODEBITOS\":{\"IPVA\":\"R$ 0,00\",\"Licenciamento\":\"R$ 0,00\",\"Multas\":\"-\",\"DPVAT\":\"R$ 0,00\",\"TotalDeDividas\":\"-\"},\"BASENACIONAL\":{\"existe_erro\":\"0\",\"Mensagem\":\"Parâmetro informado foi localizado.\",\"placa\":\"PLV5D69\",\"chassi\":\"9BD341A4XLY633426\",\"Renavam\":\"01201620144\",\"Situacao\":\"CIRCULAÇÃO\",\"ChassiRemarcado\":\"Não\",\"UltimaAtualizacao\":\"14/04/2025\",\"Municipio\":\"SAO PAULO\",\"UF\":\"SP\",\"Procedencia\":\"NACIONAL\",\"Tipo\":\"AUTOMOVEL\",\"Especie\":\"NÃO INFORMADO\",\"TipoMontagem\":\"COMPLETA\",\"Marca\":\"FIAT/MOBI EASY\",\"MarcaModelo\":\"FIAT/MOBI EASY\",\"Anomod\":\"2020\",\"Anofab\":\"2019\",\"CapPassag\":\"5\",\"Cor\":\"PRETA\",\"Potencia\":\"75\",\"Cilindradas\":\"1000\",\"Carroceria\":\"NãO APLICAVEL\",\"Combustivel\":\"ALCOOL/GASOLINA\",\"NMotor\":\"552720663535610\",\"NCambio\":\"NÃO INFORMADO\",\"Categoria\":\"NÃO INFORMADO\",\"DataAtualizacao\":\"14/04/2025\",\"NCarroceria\":\"76467901\",\"CMT\":\"1.68\",\"PBT\":\"1.28\",\"CapacidadedeCarga\":\"0,00\",\"Eixos\":\"NÃO INFORMADO\",\"NEixoAuxiliar\":\"NÃO INFORMADO\",\"NEixoTraseiro\":\"NÃO INFORMADO\",\"Restricao01\":\"Nada consta\",\"Restricao02\":\"Nada consta\",\"Restricao03\":\"Nada consta\",\"Restricao04\":\"Nada consta\",\"RFativo\":\"VEICULO NÃO POSSUI ROUBO/FURTO ATIVO.\"},\"HISTORICOROUBOFURTO\":{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"VEÍCULO NÃO POSSUÍ HISTÓRICO DE ROUBO E FURTO\"},\"BASEESTADUAL\":{\"existe_erro\":\"0\",\"Consta\":\"1\",\"Placa\":\"PLV5D69\",\"Procedencia\":\"Nacional\",\"Chassi\":\"9BD341A4XLY633426\",\"Motor\":\"552720663535610\",\"Renavam\":\"01201620144\",\"Cor\":\"Preta\",\"Anodefabricacao\":\"2019\",\"Anodomodelo\":\"2020\",\"Municipio\":\"Sao Paulo-SP\",\"Qtdpassageiros\":\"5\",\"Capacidadecarga\":\"0,00\",\"Especie\":\"Passageiro\",\"Carroceria\":\"76467901\",\"Cambio\":\"Não informado\",\"Eixos\":\"0\",\"Cilindradas\":\"Não Informado\",\"Remarcacaochassi\":\"Normal\",\"Categoria\":\"Particular\",\"Tipo\":\"Automóvel\",\"Cmt\":\"1,68\",\"Combustivel\":\"Álcool/gasolina\",\"DocumentoProprietario\":\"Não informado\",\"Marcamodelo\":\"FIAT/MOBI EASY\",\"PBT\":\"1,28\",\"Potencia\":\"75\",\"Situacao\":\"Circulação\",\"DtLmtRestTrib\":\"Não informado\",\"RestricoesBaseEstadual\":{\"RestricaoAdministrativa\":\"NADA CONSTA\",\"BloqueioGuincho\":\"NÃO INFORMADO\",\"Furto\":\"NÃO INFORMADO\",\"InspecaoAmbiental\":\"NÃO INFORMADO\",\"RestricaoJudicial\":\"NADA CONSTA\",\"Renajud\":\"NADA CONSTA\",\"RestricaoTributaria\":\"NADA CONSTA\",\"RestricaoFinanceira\":\"NADA CONSTA\",\"OutrasRestricoes\":\"NADA CONSTA\"},\"DebitosBaseEstadual\":{\"Dpvat\":\"0,00\",\"Ipva\":\"0,00\",\"Licenciamento\":\"0,00\",\"Multas\":\"0,00\",\"Cetesb\":\"0,00\",\"Der\":\"0,00\",\"Dersa\":\"0,00\",\"Detran\":\"0,00\",\"Municipais\":\"0,00\",\"PolRodFederal\":\"0,00\",\"Renainf\":\"0,00\"},\"PROPRIETARIOS\":{\"Anterior\":\"Kavak Tecnologia E Comercio De Veiculos\",\"Atual\":\"Sergio Gedo\"}},\"GRAVAMECOMPLETO\":{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"VEÍCULO NUNCA CONSTOU DA BASE DE GRAVAMES\",\"GravameCodigo\":\"0\"},\"DENATRANROBO\":\"\",\"RECALL\":\"\",\"Decodificador\":\"\",\"TABELAFIPE\":{\"Existe_erro\":\"0\",\"Registro\":[{\"Codigo\":\"001463-0\",\"Descricao\":\"MOBI EASY 1.0 Fire Flex 5p.\",\"Preco\":\"39429\"},{\"Codigo\":\"001510-5\",\"Descricao\":\"MOBI EASY COMFORT 1.0 Flex 5p.\",\"Preco\":\"44180\"}]},\"LEILAO1\":[{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"NENHUM REGISTRO DE LEILÃO\"},{\"existe_erro\":\"1\",\"Erro\":\"INDISPONÍVEL\"}],\"LEILAO2\":{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"NENHUM REGISTRO DE LEILÃO\"},\"OFERTADELEILAO\":{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"NENHUM REGISTRO DE OFERTA DE LEILÃO PARA A PLACA \"},\"VENDADIRETA\":{\"existe_erro\":\"0\",\"Consta\":\"0\",\"Mensagem\":\"NENHUM REGISTRO ENCONTRADO\"},\"APONTAMENTODECOMERCIALIZACAO\":{\"Existe_erro\":\"0\",\"Mensagem\":\"NADA CONSTA\"},\"SINISTROINDENIZACAO\":{\"existe_erro\":\"0\",\"Mensagem\":\"NÃO EXISTE OCORRÊNCIA DE SINISTRO DE INDENIZAÇÃO INTEGRAL PARA A PLACA {$placa}\"}}",
-        "searchId": 6,
-        "lastProcessedAt": "2025-06-18 03:45:33"
+        "processStatus": "PROCESSING",
+        "apiData": "{\"RETORNO\":{\"idPesquisa\":\"4484390\",\"Mensagem\":\"Pronta\",\"Resultado\":\"Ok\",\"RetornoCompleto\":\"1\",\"IdentCliente\":\"Não Informado\",\"ArquivoPesquisa\":\"https://resultado-consultas.s3.amazonaws.com/21686416FEB4D6B1751389950BCC8X9MNYF1LSJWJ6MYQOQUI0.html\"},\"BASENACIONAL\":{\"existe_erro\":\"0\",\"Mensagem\":\"Parâmetro informado foi localizado.\",\"placa\":\"ABC1100\",\"chassi\":\"9BWZZZ54ZLB091681\",\"Renavam\":\"00523681011\",\"Situacao\":\"EM CIRCULAÇÃO\",\"ChassiRemarcado\":\"Não\",\"UltimaAtualizacao\":\"06/12/2000\",\"Municipio\":\"SUZANO\",\"UF\":\"SP\",\"Procedencia\":\"NACIONAL\",\"Tipo\":\"AUTOMOVEL\",\"Especie\":\"NÃO INFORMADO\",\"TipoMontagem\":\"COMPLETA\",\"Marca\":\"VW/APOLLO GL\",\"MarcaModelo\":\"VW/APOLLO GL\",\"Anomod\":\"0000\",\"Anofab\":\"1990\",\"CapPassag\":\"000\",\"Cor\":\"PRATA\",\"Potencia\":\"092\",\"Cilindradas\":\"1800\",\"Carroceria\":\"NÃO INFORMADO\",\"Combustivel\":\"GASOLINA\",\"NMotor\":\"NÃO INFORMADO\",\"NCambio\":\"NÃO INFORMADO\",\"Categoria\":\"NÃO INFORMADO\",\"DataAtualizacao\":\"06/12/2000\",\"NCarroceria\":\"NÃO INFORMADO\",\"CMT\":\"0,00\",\"PBT\":\"0,90\",\"CapacidadedeCarga\":\"NÃO INFORMADO\",\"Eixos\":\"00\",\"NEixoAuxiliar\":\"NÃO INFORMADO\",\"NEixoTraseiro\":\"NÃO INFORMADO\",\"Restricao01\":\"Nada consta\",\"Restricao02\":\"Nada consta\",\"Restricao03\":\"Nada consta\",\"Restricao04\":\"Nada consta\",\"RFativo\":\"VEICULO NÃO POSSUI ROUBO/FURTO ATIVO.\"},\"HISTORICOROUBOFURTO\":{\"existe_erro\":\"0\",\"Consta\":\"1\",\"Mensagem\":\"VEÍCULO POSSUÍ HISTÓRICO DE ROUBO E FURTO\",\"RouboFurto\":[{\"Ocorrencia\":\"Devolvido\",\"Ano\":\"10/11/2005\",\"Municipio\":\"SUZANO\",\"Numero\":\"7900\",\"Bo\":\"294\",\"Data\":\"10/11/2005\"},{\"Ocorrencia\":\"Alerta de Roubo/Furto\",\"Ano\":\"10/11/2005\",\"Municipio\":\"SUZANO\",\"Numero\":\"7899\",\"Bo\":\"294\",\"Data\":\"10/11/2005\"},{\"Ocorrencia\":\"Encontrado\",\"Ano\":\"10/11/2005\",\"Municipio\":\"SUZANO\",\"Numero\":\"7900\",\"Bo\":\"294\",\"Data\":\"10/11/2005\"}]}}",
+        "searchId": 26,
+        "lastProcessedAt": "2025-07-01 16:56:50"
       }
     }
   ],
   "approvalStatus": {
-    "id": 2,
-    "name": "APROVADO",
-    "color": "#0f9703",
+    "id": 4,
+    "name": "APROVADO C/ APONTAMENTO",
+    "color": "#ffc800",
     "approvalStatusPurpose": "NOT_DEFAULT"
   },
-  "pdfViewUrl": "https://sisv.cardados.com/inspection-link-view/499e8962-43c4-4e65-a0f6-3d6a06e9901a"
+  "pdfViewUrl": "https://sisv.cardados.com/inspection-link-view/bf40b2da-f4e5-4648-9d34-d81685ab9226"
 }

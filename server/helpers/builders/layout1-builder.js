@@ -438,11 +438,7 @@ async function Layout1Builder(data) {
     if (vehicleDataIndex !== -1) {
       const factoryData = data.groups[vehicleDataIndex].data;
       const vehicleData = data.inspectionVehicleData.data;
-      let kmValue = 0;
-
-      if (groupDescriptionIndex !== -1) {
-        kmValue = data.groups[groupDescriptionIndex].data.km;
-      }
+      const kmValue = data.inspectionVehicleData.data.km || data.groups[groupDescriptionIndex].data.km;
       content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 

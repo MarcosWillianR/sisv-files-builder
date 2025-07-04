@@ -73,6 +73,9 @@ function vehicleGrid4Component(first4Parts, content) {
 
     items.each((index, item) => {
       const part = first4Parts[index];
+
+      console.log(part?.s3File?.url);
+
       $(item).find("div").attr("style", `background-image: url('${part?.s3File?.url}');`);
     });
   });
@@ -330,10 +333,8 @@ async function Layout2Builder(data) {
     if (vehicleDataIndex !== -1) {
       const factoryData = data.groups[vehicleDataIndex].data;
       const vehicleData = data.inspectionVehicleData.data;
-      let kmValue = 0;
-      if (groupDescriptionIndex !== -1) {
-        kmValue = data.groups[groupDescriptionIndex].data.km;
-      }
+      const kmValue = vehicleData.km || data.groups[groupDescriptionIndex].data.km;
+
       content = vehicleDetailComparisonComponent(vehicleData, factoryData, kmValue, content);
     }
 

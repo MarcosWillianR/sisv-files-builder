@@ -59,10 +59,7 @@ async function replaceAsync(content, data) {
           break;
         case "formattedVehicleKm":
           const observationGroupIndex = data.groups.findIndex((group) => group.groupType === "OBSERVATION");
-          let kmValue = 0;
-          if (observationGroupIndex !== -1) {
-            kmValue = data.groups[observationGroupIndex].data.km;
-          }
+          const kmValue = data.inspectionVehicleData.data.km || data.groups[observationGroupIndex].data.km;
           replacement = kmValue;
           break;
         default:
