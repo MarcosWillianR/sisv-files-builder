@@ -2,7 +2,7 @@
   "id": 701,
   "inspectionName": "INSPEÇÃO AUTOMOTIVA + PESQUISA + PINTURA + ESTRUTURA",
   "address": null,
-  "layout": "LAYOUT_2",
+  "layout": "LAYOUT_1",
   "analystObservation": "",
   "vehicleType": "CAR",
   "IsSearchMandatory": true,

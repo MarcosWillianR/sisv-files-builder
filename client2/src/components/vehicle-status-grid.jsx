@@ -4,7 +4,9 @@ export function VehicleStatusGrid() {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
       <div className="flex flex-col primary-bg-color text-white p-2">
-        <div className="self-end text-l font-bold">{`{inspectionName}`}</div>
+        <div className="self-end text-l font-bold" id="inspection-name">
+          Vistoria
+        </div>
       </div>
       <div className="relative px-6">
         <div className="absolute -top-[25px] left-16">

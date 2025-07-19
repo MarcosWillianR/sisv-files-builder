@@ -314,6 +314,22 @@ async function croquiGridComponent(vehicleType, groupCroquis, content) {
   return $.html(); // Retorna o HTML final
 }
 
+function writeInspectionName(inspectionName, content) {
+  const $ = cheerio.load(content);
+
+  const maxLen = 36;
+  const baseSize = 1.25;
+  const len = inspectionName.length;
+
+  const fontSize = len > maxLen ? `${(baseSize * maxLen) / len}rem` : `${baseSize}rem`;
+
+  const description = $("#inspection-name");
+  description.text(inspectionName);
+  description.attr("style", `font-size: ${fontSize};`);
+
+  return $.html();
+}
+
 async function Layout2Builder(data) {
   const fileId = uuidv4();
   const tempFilePath = path.join(TEMP_DIR, `index-${fileId}.html`);
@@ -327,6 +343,8 @@ async function Layout2Builder(data) {
       if (path === "formattedClientName") return formattedClientName(data.client);
       return getNestedValue(data, path) || "";
     });
+
+    content = writeInspectionName(data.inspectionName, content);
 
     const groupDescriptionIndex = availableGroups.findIndex((group) => group.groupType === "OBSERVATION");
     const vehicleDataIndex = availableGroups.findIndex((group) => group.groupType === "DATA");

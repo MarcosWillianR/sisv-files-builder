@@ -5,8 +5,8 @@ export function VehicleStatusGrid() {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
       <div className="flex flex-row primary-bg-color text-white px-4 py-2">
-        <div className="self-end text-md font-bold">
-          {`{inspectionVehicleData.data.licensePlate}`} - {`{inspectionName}`}
+        <div className="self-end text-md font-bold" id="inspection-name">
+          Vistoria
         </div>
       </div>
       <div className="relative px-6 py-2">

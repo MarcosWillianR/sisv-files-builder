@@ -313,17 +313,6 @@ function notesGridComponent(notes, content) {
   return $.html();
 }
 
-async function fetchAndModifyExternalHtml(url) {
-  try {
-    const { data: externalHtml } = await axios.get(url);
-    const $ = cheerio.load(externalHtml);
-    return $.html();
-  } catch (error) {
-    console.error("Erro ao buscar HTML externo:", error.message);
-    return "";
-  }
-}
-
 async function croquiGridComponent(vehicleType, groupCroquis, content) {
   const ITEMS_PER_PAGE = 2; // 2 croquis por página
   const chunks = createChunks(groupCroquis, ITEMS_PER_PAGE);
@@ -404,12 +393,31 @@ async function croquiGridComponent(vehicleType, groupCroquis, content) {
   return $.html(); // Retorna o HTML final
 }
 
+function writeInspectionName(inspectionName, licensePlate, content) {
+  const $ = cheerio.load(content);
+
+  const maxLen = 46;
+  const baseSize = 1.25;
+  const text = `${licensePlate} - ${inspectionName}`;
+  const len = text.length;
+
+  const fontSize = len > maxLen ? `${(baseSize * maxLen) / len}rem` : `${baseSize}rem`;
+
+  const description = $("#inspection-name");
+  description.text(text);
+  description.attr("style", `font-size: ${fontSize};`);
+
+  return $.html();
+}
+
 async function Layout1Builder(data) {
   const fileId = uuidv4();
   const tempFilePath = path.join(TEMP_DIR, `index-${fileId}.html`);
 
   try {
     let content = fs.readFileSync(path.join(__dirname, "../../../client1/dist/index.html"), "utf8");
+
+    content = writeInspectionName(data.inspectionName, data.inspectionVehicleData.data.licensePlate, content);
 
     const availableGroups = data.groups.filter((g) => g.isPdfEnabled);
 
