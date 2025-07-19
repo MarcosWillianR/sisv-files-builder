@@ -553,7 +553,7 @@
   "PICKUP_TRUCK - STRUCTURE": {
     "width": 1780,
     "height": 1080,
-    "imagePath": "../assets/images/truck_structure.png",
+    "imagePath": "../assets/images/pickup_truck_structure.png",
     "cardWidth": 350,
     "cardHeight": 80,
     "headerHeight": 40,
@@ -694,7 +694,7 @@
   "PICKUP_TRUCK - PAINTING": {
     "width": 1920,
     "height": 1080,
-    "imagePath": "../assets/images/truck_painting.png",
+    "imagePath": "../assets/images/pickup_truck_painting.png",
     "cardWidth": 350,
     "cardHeight": 80,
     "headerHeight": 40,
@@ -875,6 +875,204 @@
         "to": {
           "x": 300,
           "y": 800
+        },
+        "showStartPoint": true
+      }
+    }
+  },
+  "TRUCK - PAINTING": {
+    "width": 1780,
+    "height": 1300,
+    "imagePath": "../assets/images/truck_painting.png",
+    "cardWidth": 350,
+    "cardHeight": 80,
+    "headerHeight": 40,
+    "textConfig": {
+      "headerFontSize": 20,
+      "headerFontStyle": "bold",
+      "headerTextColor": "#FFFFFF",
+      "headerTextAlign": "center",
+      "nameFontSize": 18,
+      "nameFontStyle": "bold",
+      "nameTextColor": "#000000",
+      "nameTextAlign": "left",
+      "fontFamily": "Arial"
+    },
+    "positions": {
+      "0": {
+        "from": {
+          "x": 525,
+          "y": 525,
+          "width": 68
+        },
+        "to": {
+          "x": 200,
+          "y": 740
+        },
+        "showStartPoint": true
+      },
+      "1": {
+        "from": {
+          "x": 500,
+          "y": 465,
+          "width": 68
+        },
+        "to": {
+          "x": 50,
+          "y": 550
+        },
+        "showStartPoint": true
+      },
+      "2": {
+        "from": {
+          "x": 465,
+          "y": 475,
+          "width": 68
+        },
+        "to": {
+          "x": 50,
+          "y": 300
+        },
+        "showStartPoint": true
+      },
+      "3": {
+        "from": {
+          "x": 468,
+          "y": 465,
+          "width": 68
+        },
+        "to": {
+          "x": 150,
+          "y": 150
+        },
+        "showStartPoint": true
+      },
+      "4": {
+        "from": {
+          "x": 600,
+          "y": 300,
+          "width": 68
+        },
+        "to": {
+          "x": 350,
+          "y": 25
+        },
+        "showStartPoint": true
+      },
+      "5": {
+        "from": {
+          "x": 670,
+          "y": 275,
+          "width": 68
+        },
+        "to": {
+          "x": 800,
+          "y": 50
+        },
+        "showStartPoint": true
+      },
+      "6": {
+        "from": {
+          "x": 740,
+          "y": 440,
+          "width": 68
+        },
+        "to": {
+          "x": 950,
+          "y": 250
+        },
+        "showStartPoint": true
+      },
+      "7": {
+        "from": {
+          "x": 1200,
+          "y": 950,
+          "width": 68
+        },
+        "to": {
+          "x": 1400,
+          "y": 650
+        },
+        "showStartPoint": true
+      }
+    }
+  },
+  "TRUCK - STRUCTURE": {
+    "width": 1920,
+    "height": 1080,
+    "imagePath": "../assets/images/truck_structure.png",
+    "cardWidth": 350,
+    "cardHeight": 80,
+    "headerHeight": 40,
+    "textConfig": {
+      "headerFontSize": 20,
+      "headerFontStyle": "bold",
+      "headerTextColor": "#FFFFFF",
+      "headerTextAlign": "center",
+      "nameFontSize": 18,
+      "nameFontStyle": "bold",
+      "nameTextColor": "#000000",
+      "nameTextAlign": "left",
+      "fontFamily": "Arial"
+    },
+    "positions": {
+      "0": {
+        "from": {
+          "x": 410,
+          "y": 525,
+          "width": 68
+        },
+        "to": {
+          "x": 50,
+          "y": 480
+        },
+        "showStartPoint": true
+      },
+      "1": {
+        "from": {
+          "x": 410,
+          "y": 455,
+          "width": 68
+        },
+        "to": {
+          "x": 200,
+          "y": 220
+        },
+        "showStartPoint": true
+      },
+      "2": {
+        "from": {
+          "x": 1450,
+          "y": 475,
+          "width": 68
+        },
+        "to": {
+          "x": 1500,
+          "y": 220
+        },
+        "showStartPoint": true
+      },
+      "3": {
+        "from": {
+          "x": 1450,
+          "y": 585,
+          "width": 68
+        },
+        "to": {
+          "x": 1500,
+          "y": 760
+        },
+        "showStartPoint": true
+      },
+      "4": {
+        "from": {
+          "x": 410,
+          "y": 590,
+          "width": 68
+        },
+        "to": {
+          "x": 200,
+          "y": 740
         },
         "showStartPoint": true
       }
