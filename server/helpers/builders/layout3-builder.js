@@ -335,7 +335,7 @@ function vehicleGrid6Component(restParts, location, content) {
 }
 
 function vehicleGrid15Component(restParts, location, content) {
-  const ITEMS_PER_PAGE = 15;
+  const ITEMS_PER_PAGE = 9;
   const chunks = createChunks(restParts, ITEMS_PER_PAGE);
 
   const $ = cheerio.load(content);

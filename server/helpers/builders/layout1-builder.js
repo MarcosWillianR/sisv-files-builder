@@ -10,17 +10,6 @@ const { getClientName, createChunks, getNestedValue, setGroupOrder, createTempDi
 
 const TEMP_DIR = createTempDir();
 
-async function getHtmlHeight(htmlContent) {
-  const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox", "--disable-setuid-sandbox"] });
-  const page = await browser.newPage();
-
-  await page.setContent(htmlContent);
-  const height = await page.evaluate(() => document.body.scrollHeight);
-
-  await browser.close();
-  return height;
-}
-
 function formattedPhoneNumber(value) {
   if (!value) return "";
   const cleaned = value.replace(/\D/g, "");
@@ -185,7 +174,7 @@ function vehicleGrid2Component(restParts, content) {
 }
 
 function vehicleGrid12Component(restParts, content) {
-  const ITEMS_PER_PAGE = 12;
+  const ITEMS_PER_PAGE = 9;
   const chunks = createChunks(restParts, ITEMS_PER_PAGE);
 
   const $ = cheerio.load(content);
