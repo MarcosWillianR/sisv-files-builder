@@ -15,7 +15,8 @@ function formattedClientName(client) {
     return `${client.user.firstName} ${client.user.lastName}`;
   }
   if (client.clientType === "COMPANY") {
-    return `${client.company.name}`;
+    const companyName = client?.company?.name || `${invite?.firstName || ""} ${invite?.lastName || ""}`;
+    return companyName;
   }
   return "PARTICULAR";
 }
@@ -93,6 +94,8 @@ function ratingsComponent(allParts, content) {
       return part.ratings.filter((rating) => rating.isSelected).map((rating) => ({ rating, partName: part.name }));
     })
     .flat();
+
+  console.log(formattedRatingsList);
 
   if (!formattedRatingsList.length) return $.html();
 
