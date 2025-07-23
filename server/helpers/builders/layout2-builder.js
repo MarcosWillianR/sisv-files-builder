@@ -15,7 +15,7 @@ function formattedClientName(client) {
     return `${client.user.firstName} ${client.user.lastName}`;
   }
   if (client.clientType === "COMPANY") {
-    const companyName = client?.company?.name || `${invite?.firstName || ""} ${invite?.lastName || ""}`;
+    const companyName = client?.company?.name || `${client?.invite?.firstName || ""} ${client?.invite?.lastName || ""}`;
     return companyName;
   }
   return "PARTICULAR";
